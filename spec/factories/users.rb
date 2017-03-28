@@ -1,6 +1,4 @@
 FactoryGirl.define do
-  user_name = Faker::Internet.user_name
-
   factory :user do
     sequence(:username) { |n| "doglover#{n}" }
     password "password"
