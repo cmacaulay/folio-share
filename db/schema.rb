@@ -36,33 +36,33 @@ ActiveRecord::Schema.define(version: 20170328000721) do
 
   create_table "folders", force: :cascade do |t|
     t.string   "name"
-    t.integer  "status"
+    t.integer  "status",     default: 0
     t.integer  "user_id"
     t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_folders_on_user_id", using: :btree
   end
 
   create_table "uploads", force: :cascade do |t|
-    t.integer  "status"
+    t.integer  "status",     default: 0
     t.string   "name"
     t.integer  "folder_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["folder_id"], name: "index_uploads_on_folder_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.integer  "role"
+    t.integer  "role",            default: 0
     t.string   "cellphone"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "status"
+    t.integer  "status",          default: 0
     t.string   "token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_foreign_key "collaborators", "folders"
