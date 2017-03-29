@@ -5,7 +5,7 @@ class Seed
     seed.generate_users
     seed.generate_folders
     seed.generate_files
-    #seed.generate_comments
+    seed.generate_comments
     seed.create_admin
   end
   
@@ -42,16 +42,17 @@ class Seed
     end
   end
 
-  # def generate_comments
-  #   10000.times do |i|
-  #     user = User.find(Random.new.rand(1..1000))      
-  #     upload = Upload.find(Random.new.rand(1..3000))      
-  #     comment = upload.comments.create!(
-  #       content: Faker::Lorem.paragraph,
-  #     )
-  #     puts "Comment #{i} created!"
-  #   end
-  # end
+  def generate_comments
+    10000.times do |i|
+      user = User.find(Random.new.rand(1..1000))      
+      upload = Upload.find(Random.new.rand(1..3000))      
+      comment = user.comments.create!(
+        upload_id: upload.id,
+        content: Faker::Lorem.paragraph
+      )
+      puts "Comment #{i} created!"
+    end
+  end
 
   def create_admin
     admin = User.create!(
