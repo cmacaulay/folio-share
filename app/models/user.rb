@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-
+  has_many :comments
   has_many :folders
   has_many :uploads, through: :folders
 

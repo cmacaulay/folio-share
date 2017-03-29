@@ -36,6 +36,12 @@ feature "Guest" do
       expect(page).to have_content(expected)
     end
 
+    #expect(page).to have_content("Sal's Folder")
+    # expect(page).to have_link('Logout')
+    # expect(page).to have_link('Create New Folder')
+    # expect(page).to_not have_link('Create Account')
+
+
     # expect(current_path).to eq(new_user_path)
   end
 end
