@@ -45,7 +45,7 @@ class Seed
   end
 
   def generate_comments
-    10`00.times do |i|
+    1000.times do |i|
       user = User.find(Random.new.rand(1..1000))
       upload = Upload.find(Random.new.rand(1..3000))
       comment = user.comments.create!(
