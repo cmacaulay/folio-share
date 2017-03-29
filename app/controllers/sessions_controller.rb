@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path
+      redirect_to home_path
       flash[:success] = "#{user.first_name} Has Successfully Logged In"
     else
       flash[:error] = "Incorrect entry"

@@ -17,7 +17,7 @@ feature 'user logs in' do
 
       click_button 'Login'
 
-      expect(current_path).to eq('/dashboard')
+      expect(current_path).to eq('/home')
       expect(page).to have_content("sal's Folio")
       expect(page).to_not have_content("Login")
       # expect(page).to have_link("Logout")

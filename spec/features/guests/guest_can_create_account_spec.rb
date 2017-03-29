@@ -14,7 +14,7 @@ RSpec.feature "Guest" do
 
     expect { click_on "Create Account" }.to change(User, :count).by(1)
 
-    expect(current_path).to eq("/dashboard")
+    expect(current_path).to eq("/home")
     expect(page).to have_content("Sal's Folio")
     # expect(page).to have_link("Logout")
     # expect(page).to have_link("Create New Folder")
