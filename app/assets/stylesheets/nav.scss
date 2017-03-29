@@ -5,7 +5,8 @@ nav {
     height: 48px;
 }
 
-nav .brand-logo {
+nav  {
+  .brand-logo{
     position: absolute;
     color: $pinky;
     display: inline-block;
@@ -13,6 +14,7 @@ nav .brand-logo {
     padding: 0;
     white-space: nowrap;
     font-family: 'Crafty Girls', cursive;
+  }
 }
 
 nav ul a {
