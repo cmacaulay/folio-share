@@ -4,10 +4,8 @@ class User < ApplicationRecord
   has_many :folders
   has_many :uploads, through: :folders
 
-
   validates :first_name,      presence: true
   validates :last_name,       presence: true
-
   validates :cellphone,       presence: true, uniqueness: true
   validates :email,           presence: true, uniqueness: true
   validates :password_digest, presence: true

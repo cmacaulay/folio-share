@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   it { should have_secure_password }
@@ -12,8 +12,8 @@ RSpec.describe User, type: :model do
   it { should validate_uniqueness_of(:email) }
   it { should validate_uniqueness_of(:cellphone) }
 
-  describe '#root_folder' do
-    it 'should return the root_folder for a user' do
+  describe "#root_folder" do
+    it "should return the root_folder for a user" do
       user = create(:user)
       root = user.folders.first
 

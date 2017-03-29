@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
       flash[:success] = "#{user.first_name} Has Successfully Logged In"
       redirect_to home_path
     else
-      flash[:error] = 'Incorrect entry'
+      flash[:error] = "Incorrect entry"
       redirect_to login_path
     end
   end
 
   def destroy
     session.clear
-    flash[:success] = 'Logged Out'
+    flash[:success] = "Logged Out"
     redirect_to login_path
   end
 
