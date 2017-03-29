@@ -3,12 +3,14 @@ require 'rails_helper'
 feature 'user logs in' do
   context 'appropriate login' do
     scenario 'user logs in and is directed to their dashboard' do
-      User.create(first_name: 'sal',
-                  last_name: 'espinosa',
-                  email: 'espinosa1@example.com',
-                  cellphone: '3033333333',
-                  password: 'password',
-                  password_confirmation: 'password')
+      User.create(
+        first_name: 'Sal',
+        last_name: 'Espinosa',
+        email: 'espinosa1@example.com',
+        cellphone: '3033333333',
+        password: 'password',
+        password_confirmation: 'password'
+      )
 
       visit login_path
 
@@ -18,7 +20,7 @@ feature 'user logs in' do
       click_button 'Login'
 
       expect(current_path).to eq('/home')
-      expect(page).to have_content('sal's Folio')
+      expect(page).to have_content("Sal's Folio")
       expect(page).to_not have_content('Login')
       # expect(page).to have_link('Logout')
     end
@@ -26,8 +28,8 @@ feature 'user logs in' do
 
   context 'inappropriate login' do
     scenario 'with incorrect information the user remains at login' do
-      User.create(first_name: 'sal',
-                  last_name: 'espinosa',
+      User.create(first_name: 'Sal',
+                  last_name: 'Espinosa',
                   email: 'espinosa2@example.com',
                   cellphone: '3033333333',
                   password: 'password',
