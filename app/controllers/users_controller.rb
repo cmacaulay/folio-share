@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     folders = Folder.new
     if @user.save
       session[:user_id] = @user.id
-      @user.folders.create!(name: "#{@user.first_name}'s folder")
       redirect_to home_path
     else
       render :new
