@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "A logged in user " do
-  it "can logout" do
+describe "As a registered user, when I am logged in" do
+  it "when I select logout my session ends" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
