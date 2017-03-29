@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Crafty+Girls|Bentham|Ramabhadra');
 
-nav {
-    background-color: $taupe;
-    height: 48px;
-}
-
 nav  {
-  .brand-logo{
+  background-color: $taupe;
+  height: 48px;
+  .brand-logo {
     position: absolute;
     color: $pinky;
     display: inline-block;
@@ -15,9 +12,8 @@ nav  {
     white-space: nowrap;
     font-family: 'Crafty Girls', cursive;
   }
-}
-
-nav ul a {
+  ul{
+     a {
     transition: background-color .3s;
     font-size: 1.2rem;
     color: $purple;
@@ -25,4 +21,6 @@ nav ul a {
     padding: 0 15px;
     cursor: pointer;
     font-family: 'Crafty Girls', cursive;
+    }
+  }
 }
