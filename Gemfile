@@ -32,17 +32,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-<<<<<<< HEAD
 
-gem 'simplecov', :require => false, :group => :test
-=======
 gem 'simplecov', :require => false, :group => :test
 gem 'figaro'
 gem 'aws-sdk'
 gem 'paperclip'
->>>>>>> 239bbedd7b97dd1ce5ace6184f3bfcb8ae7f9470
 gem 'materialize-sass'
-gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

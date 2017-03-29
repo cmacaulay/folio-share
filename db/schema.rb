@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170329193305) do
-=======
-ActiveRecord::Schema.define(version: 20170329195621) do
->>>>>>> 239bbedd7b97dd1ce5ace6184f3bfcb8ae7f9470
+ActiveRecord::Schema.define(version: 20170329195624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,10 +50,6 @@ ActiveRecord::Schema.define(version: 20170329195621) do
 
   create_table "uploads", force: :cascade do |t|
     t.integer  "status",            default: 0
-<<<<<<< HEAD
-=======
-    t.string   "name"
->>>>>>> 239bbedd7b97dd1ce5ace6184f3bfcb8ae7f9470
     t.integer  "folder_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
