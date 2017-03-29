@@ -1,5 +1,7 @@
 <h1><%= @user.first_name %>'s Folio</h1>
 
+<%= link_to "Create New Folder", new_folder_path, class: "btn" %>
+
 <div class="breadcrumbs">
   <h3><%= @user.root_folder.name %></h3>
 </div>
