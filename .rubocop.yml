@@ -4,6 +4,13 @@ Style/FrozenStringLiteralComment:
 Metrics/LineLength:
   Max: 85
 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
 Style/Documentation:
   Enabled: false
 
