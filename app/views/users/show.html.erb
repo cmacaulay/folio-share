@@ -1,3 +1,9 @@
 <h1><%= @user.first_name %>'s Folio</h1>
 
 <h3><%= @user.root_folder.name %></h3>
+
+<h3><% @user.folders.each do |folder| %></h3>
+      <%= folder.name %>
+    <% end %>
+
+<%= link_to "Logout", logout_path, method: "delete", class: "btn" %>
