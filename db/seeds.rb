@@ -8,12 +8,14 @@ class Seed
     seed.generate_comments
     seed.create_admin
   end
-  
+
   def generate_users
+    User.delete_all
     1000.times do |i|
       user = User.create!(
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
+            username: Faker::Name.unique.name,
             email: Faker::Internet.email,
             password: "password",
             cellphone: Faker::PhoneNumber.cell_phone
@@ -28,7 +30,7 @@ class Seed
       folder = user.folders.create!(
              name: user.first_name
       )
-      puts " Folder #{i}: Folder for #{folder.name} created!" 
+      puts " Folder #{i}: Folder for #{folder.name} created!"
     end
   end
 
@@ -43,7 +45,7 @@ class Seed
   end
 
   def generate_comments
-    10000.times do |i|
+    10`00.times do |i|
       user = User.find(Random.new.rand(1..1000))
       upload = Upload.find(Random.new.rand(1..3000))
       comment = user.comments.create!(
@@ -56,6 +58,7 @@ class Seed
 
   def create_admin
     User.create!(
+            username: "admin",
             email: "admin@admin.com",
             password: "password",
             first_name: "admin",
@@ -65,4 +68,3 @@ class Seed
   end
 end
 Seed.start
-
