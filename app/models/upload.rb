@@ -1,4 +1,5 @@
 class Upload < ApplicationRecord
+  has_many :comments
   has_attached_file :file
   validates_attachment_content_type :file, content_type: all
 
@@ -9,3 +10,4 @@ class Upload < ApplicationRecord
   alias_attribute :content_type, :file_content_type
   alias_attribute :size, :file_file_size
 end
+ 
