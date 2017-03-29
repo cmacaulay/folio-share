@@ -19,6 +19,18 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update_attributes(user_params)
+    @user.update_attribute(:password, params[:user][:new_password])
+    flash[:success] = "Account Successfully Updated!"
+    redirect_to home_path
+  end
+  
   private
 
   def user_params
