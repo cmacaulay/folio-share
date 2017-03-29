@@ -6,7 +6,7 @@ describe "As a registered user, when I am logged in" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit home_path
-
+ 
     click_on "Logout"
 
     within(".alert-success") do
