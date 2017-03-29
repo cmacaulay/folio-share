@@ -14,6 +14,6 @@ class User < ApplicationRecord
   end
 
   def create_root
-    folders.create!(name: "#{first_name}'s Folder")
+    folders.create!(name: "Folio")
   end
 end

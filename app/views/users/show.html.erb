@@ -1,10 +1,9 @@
 <h1><%= @user.first_name %>'s Folio</h1>
 
-<h3><%= @user.root_folder.name %></h3>
+<div class="breadcrumbs">
+  <h3><%= @user.root_folder.name %></h3>
+</div>
 
-<h3><% @user.folders.each do |folder| %></h3>
-      <%= folder.name %>
-    <% end %>
 <ul>
 <% @user.uploads.each do |upload| %>
   <li><%= upload.file_file_name %></li>
