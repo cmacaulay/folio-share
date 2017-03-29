@@ -2,7 +2,6 @@ require "rails_helper"
 
 feature "Guest" do
   scenario "can create an account" do
-
     visit new_user_path
 
     fill_in 'user[first_name]', with: 'Sal'
@@ -41,6 +40,7 @@ feature "Guest" do
     # expect(page).to have_link('Logout')
     # expect(page).to have_link('Create New Folder')
     # expect(page).to_not have_link('Create Account')
+
 
     # expect(current_path).to eq(new_user_path)
   end
