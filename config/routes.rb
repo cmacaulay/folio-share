@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
   resources :folders, path: :f, only: :show
-  resources :uploads, path: :u, only: :show
+  resources :uploads, path: :u, only: [:show, :new, :create]
 end
