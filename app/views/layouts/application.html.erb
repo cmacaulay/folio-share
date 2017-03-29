@@ -9,17 +9,17 @@
   </head>
 
   <body>
-  <div style='text-align:center'>
-<% flash.each do |type, message| %>
-    <% if type == "success" %>
-    <%= content_tag :div, sanitize(message), class:"alert-success" %>
-    <% elsif type == "danger" %>
-    <%= content_tag :div, sanitize(message), class:"alert-danger" %>
-    <% else %>
-    <%= content_tag :div, sanitize(message), class:"type" %>
-    <% end %>
-  <% end %>
-</div>
+    <div style='text-align:center'>
+      <% flash.each do |type, message| %>
+          <% if type == "success" %>
+          <%= content_tag :div, sanitize(message), class:"alert-success" %>
+          <% elsif type == "danger" %>
+          <%= content_tag :div, sanitize(message), class:"alert-danger" %>
+          <% else %>
+          <%= content_tag :div, sanitize(message), class:"type" %>
+          <% end %>
+      <% end %>
+  </div>
 
     <%= yield %>
   </body>
