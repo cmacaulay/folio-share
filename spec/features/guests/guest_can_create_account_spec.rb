@@ -4,8 +4,6 @@ feature "Guest" do
   scenario "can create an account" do
     visit new_user_path
 
-    old_count = User.count
-
     fill_in "user[first_name]", with: "Sal"
     fill_in "user[last_name]", with: "Espinosa"
     fill_in "user[email]", with: "sal@email.com"
@@ -19,7 +17,7 @@ feature "Guest" do
     expect(current_path).to eq("/home")
     expect(page).to have_content("Sal's Folio")
     within("div.breadcrumbs") do
-        expect(page).to have_content("Folio")
+      expect(page).to have_content("Folio")
     end
     expect(page).to have_link("Logout")
     # expect(page).to have_link("Create New Folder")
