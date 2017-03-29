@@ -1,3 +1,4 @@
+
 class Seed
   def self.start
     seed = Seed.new
@@ -64,3 +65,4 @@ class Seed
   end
 end
 Seed.start
+

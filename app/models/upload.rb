@@ -1,12 +1,13 @@
 class Upload < ApplicationRecord
-  belongs_to :folder
   has_many :comments
+  has_attached_file :file
+  validates_attachment_content_type :file, content_type: all
 
-  def size
-    "200TB"
-  end
+  belongs_to :folder
+  delegate :user, to: :folder
 
-  def file_type
-    "PDF"
-  end
+  alias_attribute :name, :file_file_name
+  alias_attribute :content_type, :file_content_type
+  alias_attribute :size, :file_file_size
 end
+ 
