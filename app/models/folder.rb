@@ -21,4 +21,12 @@ class Folder < ApplicationRecord
     children = subfolders.to_a.concat(uploads.to_a)
     children.sort_by(&:name)
   end
+
+  def content_type
+    ""
+  end
+
+  def size
+    ""
+  end
 end

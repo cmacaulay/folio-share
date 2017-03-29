@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @file = Upload.new
   end
 
   def edit
