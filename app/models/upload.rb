@@ -12,4 +12,3 @@ class Upload < ApplicationRecord
     folder.user
   end
 end
-p
