@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def new
   end
 
@@ -13,6 +13,12 @@ class SessionsController < ApplicationController
       flash[:error] = "Incorrect entry"
       redirect_to login_path
     end
+  end
+
+  def destroy
+    session.clear
+    flash[:success] = "Logged Out"
+    redirect_to login_path
   end
 
   private
