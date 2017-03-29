@@ -3,6 +3,5 @@ scss:
 
 ruby:
   config_file: .rubocop.yml
-  ignore_file: .rubyignore
 
 fail_on_violations: true
