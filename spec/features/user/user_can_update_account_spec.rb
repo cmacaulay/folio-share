@@ -26,6 +26,8 @@ describe "As a registered user, when I am logged in" do
     end
 
     expect(page).to have_content("Purple")
-    expect(page).to_not have_content("Harry")
+    within("h1") do
+      expect(page).to_not have_content("Harry")
+    end
   end
 end

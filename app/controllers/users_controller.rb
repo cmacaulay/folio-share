@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      @user.folders.create!(name: "#{@user.first_name}'s folder")
       redirect_to home_path
     else
       flash[:danger] = "Please fill in every field to create an account."
@@ -17,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @file = Upload.new
   end
 
   def edit
