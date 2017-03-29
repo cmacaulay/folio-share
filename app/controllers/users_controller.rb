@@ -5,17 +5,29 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    folders = Folder.new
     if @user.save
       session[:user_id] = @user.id
       redirect_to home_path
     else
+      flash[:danger] = "Please fill in every field to create an account."
       render :new
     end
   end
 
   def show
     @user = current_user
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update_attributes(user_params)
+    @user.update_attribute(:password, params[:user][:new_password])
+    flash[:success] = "Account Successfully Updated!"
+    redirect_to home_path
   end
 
   private
