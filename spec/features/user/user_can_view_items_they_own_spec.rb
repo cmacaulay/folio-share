@@ -46,13 +46,13 @@ feature "user can view" do
         expect(page).to have_link("Upload", href: upload_path(upload))
       end
 
-      scenario "that is empty" do
+      xscenario "that is empty" do
         
       end
     end
 
     context "a subfolder they own" do
-      scenario "that has items"
+      scenario "that has items" do
         user    = create(:user)
         root    = user.folders.first
         folder1 = create(:folder, name: "Folder 1", user: user, parent: root)
