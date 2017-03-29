@@ -19,6 +19,6 @@ class Folder < ApplicationRecord
 
   def children
     children = subfolders.to_a.concat(uploads.to_a)
-    children.sort_by { |child| child.name }
+    children.sort_by(&:name)
   end
 end
