@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def new
   end
 
@@ -10,12 +9,13 @@ class SessionsController < ApplicationController
       flash[:success] = "#{user.first_name} Has Successfully Logged In"
       redirect_to home_path
     else
-      flash[:error] = "Incorrect entry"
+      flash[:error] = 'Incorrect entry'
       redirect_to login_path
     end
   end
 
   private
+
   def session_params
     params.require(:session).permit(:email, :password)
   end
