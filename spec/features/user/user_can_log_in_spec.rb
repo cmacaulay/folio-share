@@ -3,19 +3,19 @@ require "rails_helper"
 feature "user logs in" do
   context "appropriate login" do
     scenario "user logs in and is directed to their dashboard" do
-      User.create(
+      user = User.create(
         first_name: "Sal",
         last_name: "Espinosa",
         email: "espinosa1@example.com",
         cellphone: "3033333333",
         password: "password",
-        password_confirmation: "password"
+        username: "espinosa1"
       )
 
       visit login_path
 
-      fill_in "session[email]", with: "espinosa1@example.com"
-      fill_in "session[password]", with: "password"
+      fill_in "session[email]", with: user.email
+      fill_in "session[password]", with: user.password
 
       click_button "Login"
 
@@ -28,12 +28,14 @@ feature "user logs in" do
 
   context "inappropriate login" do
     scenario "with incorrect information the user remains at login" do
-      User.create(first_name: "Sal",
-                  last_name: "Espinosa",
-                  email: "espinosa2@example.com",
-                  cellphone: "3033333333",
-                  password: "password",
-                  password_confirmation: "password")
+      User.create(
+        first_name: "Sal",
+        last_name: "Espinosa",
+        email: "espinosa2@example.com",
+        cellphone: "3033333333",
+        password: "password",
+        username: "espinosa2"
+      )
 
       visit login_path
 
