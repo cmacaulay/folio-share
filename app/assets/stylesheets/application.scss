@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+/* Override the primary colors with the commented out code below. */
+/*@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("yellow", "base") !default;*/
+
+@import 'materialize';
+@import "materialize/extras/nouislider";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
