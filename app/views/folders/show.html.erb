@@ -1,31 +1,16 @@
-<h1><%= @folder.name %></h1>
-<p>Find me in app/views/folders/show.html.erb</p>
-
-<%= link_to "Create New Folder", new_folder_path, class: "btn" %>
+<h1><%= @current_folder.name %></h1>
 
 <table>
   <tr>
-    <th>
-      Name
-    </th>
-    <th>
-      File Size
-    </th>
-    <th>
-      File Type
-    </th>
+    <td>
+      <%= link_to "Create New Folder", new_folder_path(@current_folder), class: "btn" %>
+    </td>
+    <td>
+      <%= render partial: "shared/upload_form" %>
+    </td>
   </tr>
-  <tr>
-    <% @folder.children.each do |child| %>
-      <td>
-        <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
-      </td>
-      <td>
-        <%= child.size %>
-      </td>
-      <td>
-        <%= child.content_type %>
-      </td>
-    </tr>
-  <% end %>
 </table>
+<br>
+<%= render partial: "shared/breadcrumbs" %>
+<br>
+<%= render partial: "shared/data_table" %>

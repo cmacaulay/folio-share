@@ -22,7 +22,7 @@ feature "user logs in" do
       expect(current_path).to eq("/home")
       expect(page).to have_content("Sal's Folio")
       expect(page).to_not have_content("Login")
-      # expect(page).to have_link("Logout")
+      expect(page).to have_link("Logout")
     end
   end
 
@@ -46,6 +46,8 @@ feature "user logs in" do
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Incorrect entry")
+      expect(page).to have_link("Login")
+      expect(page).to_not have_link("Logout")
     end
   end
 end

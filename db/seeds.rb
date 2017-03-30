@@ -1,5 +1,3 @@
-#
-
 # class Seed
 #   def self.start
 #     seed = Seed.new
@@ -9,7 +7,6 @@
 #     seed.generate_comments
 #     seed.create_admin
 #   end
-#
 
 #   def generate_users
 #     User.delete_all

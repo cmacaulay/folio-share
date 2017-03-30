@@ -9,12 +9,12 @@ class Folder < ApplicationRecord
 
   enum ({status: [:active, :inactive]})
 
-  def ancestors
-    ancestors = [self]
+  def ancestors(line = [])
     unless parent_id.nil?
-      ancestors.concat(Folder.find(parent_id).ancestors)
+      line.unshift(parent)
+      parent.ancestors(line)
     end
-    ancestors
+    line
   end
 
   def children
