@@ -1,3 +1,10 @@
 <div class="breadcrumbs">
-  breadcrumbs go here
+  <% @folder.ancestors.each do |f| %>
+    <div class="box">
+      <%= link_to f.name, folder_path(f) %>
+    </div>
+  <% end %>
+  <div class="box">
+    <%= @folder.name %>
+  </div>
 </div>
