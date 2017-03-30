@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(slug: params[:username])
   end
 
   def edit

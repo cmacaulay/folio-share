@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   get "/home", to: "users#index"
   get "/:username", to: "users#show", as: "account_details"
   get "/:username/edit", to: "users#edit", as: "edit_user"
-
 end
