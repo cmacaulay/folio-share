@@ -1,11 +1,10 @@
 class FoldersController < ApplicationController
   def show
-    @current_folder = Folder.find(params[:id])
-    @file = Upload.new
+    @folder = Folder.find(params[:id])
+    session[:current_folder_id] = params[:id]
   end
 
   def new
-    @current_folder = Folder.find(params[:id])
     @folder = Folder.new
   end
 
@@ -13,17 +12,20 @@ class FoldersController < ApplicationController
     @folder = Folder.new(folder_params)
     if @folder.save
       flash[:success] = "#{@folder.name} Successfully Created"
-      redirect_to folder_path(@folder)
+      if current_folder
+        redirect_to folder_path(current_folder)
+      else
+        redirect_to home_path
+      end
     else
-      @current_folder = Folder.find(params[:id])
       flash[:danger] = "Incorrect Entry"
-      redirect_to new_folder_path(@current_folder)
+      render :new
     end
   end
 
   private
 
   def folder_params
-    params.require(:folder).permit(:name, :parent_id, :user_id)
+    params.require(:folder).permit(:name, :user_id, :parent_id)
   end
 end
