@@ -1,4 +1,5 @@
 #
+
 # class Seed
 #   def self.start
 #     seed = Seed.new
@@ -9,6 +10,7 @@
 #     seed.create_admin
 #   end
 #
+
 #   def generate_users
 #     User.delete_all
 #     1000.times do |i|
@@ -24,6 +26,7 @@
 #     end
 #   end
 #
+
 #   def generate_folders
 #     1000.times do |i|
 #       user = User.find(Random.new.rand(1..1000))
@@ -34,6 +37,7 @@
 #     end
 #   end
 #
+
 #   def generate_files
 #     3000.times do |i|
 #       folder = Folder.find(Random.new.rand(1..1000))
@@ -56,6 +60,7 @@
 #     end
 #   end
 #
+
 #   def create_admin
 #     User.create!(
 #             username: "admin",
