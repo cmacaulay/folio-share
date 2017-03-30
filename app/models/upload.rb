@@ -10,4 +10,3 @@ class Upload < ApplicationRecord
   alias_attribute :content_type, :file_content_type
   alias_attribute :size, :file_file_size
 end
- 

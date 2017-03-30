@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      File Size
+    </th>
+    <th>
+      File Type
+    </th>
+  </tr>
+  <tr>
+    <% @folder.children.each do |child| %>
+      <td>
+        <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
+      </td>
+      <td>
+        <%= child.size %>
+      </td>
+      <td>
+        <%= child.content_type %>
+      </td>
+    </tr>
+  <% end %>
+</table>
