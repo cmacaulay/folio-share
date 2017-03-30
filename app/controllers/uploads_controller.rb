@@ -4,10 +4,8 @@ class UploadsController < ApplicationController
   end
 
   def create
-    binding.pry
     @folder = Folder.find(params[:upload][:folder_id])
     @upload = @folder.uploads.new(upload_params)
-    binding.pry
     if @upload.save
       flash[:success] = "Your file has been uploaded!"
     else

@@ -6,7 +6,10 @@ class Upload < ApplicationRecord
   belongs_to :folder
   delegate :user, to: :folder
 
-  validates :file_file_name, :file_content_type, :file_file_size, :folder_id, presence: true
+  validates :file_file_name, presence: true
+  validates :file_content_type, presence: true
+  validates :file_file_size, presence: true
+  validates :folder_id, presence: true
 
   alias_attribute :name, :file_file_name
   alias_attribute :content_type, :file_content_type
