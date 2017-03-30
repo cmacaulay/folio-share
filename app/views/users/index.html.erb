@@ -33,7 +33,6 @@
     <%= form_for @file, {class: "file-field input-field"} do |f| %>
       <%= f.file_field :file %>
       <div class="file-path-wrapper">
-        <%= f.text_field :folder_id, value: "#{@user.root_folder.id}", type: :hidden %>
       </div>
       <%= f.submit "Upload File", {class: "btn-upload"} %>
     <% end %>

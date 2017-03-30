@@ -1,10 +1,11 @@
 class UploadsController < ApplicationController
   def new
-    @upload = Upload.new
+    @upload = current_folder.uploads.new
   end
 
   def create
-    @upload = Upload.new(upload_params)
+    @upload = current_folder.uploads.new(upload_params)
+    require 'pry'; binding.pry 
     if @upload.save
       flash[:success] = "Your file has been uploaded!"
       redirect_to home_path
