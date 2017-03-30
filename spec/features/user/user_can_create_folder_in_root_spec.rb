@@ -5,7 +5,8 @@ RSpec.feature "User" do
     scenario "can create folder in their root directory" do
       user = create(:user, id: 1)
       root = user.folders.first
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      controller = ApplicationController
+      allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
       visit home_path
       expect(page).to_not have_content("Pictures")
