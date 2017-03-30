@@ -1,6 +1,7 @@
 class FoldersController < ApplicationController
   def show
     @folder = Folder.find(params[:id])
+    session[:current_folder_id] = params[:id]
   end
 
   def new
@@ -11,9 +12,13 @@ class FoldersController < ApplicationController
     @folder = Folder.new(folder_params)
     if @folder.save
       flash[:success] = "#{@folder.name} Successfully Created"
-      redirect_to home_path
+      if current_folder
+        redirect_to folder_path(current_folder)
+      else
+        redirect_to home_path
+      end
     else
-      flash[:danger] = "You Suck"
+      flash[:danger] = "Incorrect Entry"
       render :new
     end
   end
