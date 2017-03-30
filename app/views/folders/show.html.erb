@@ -1,5 +1,7 @@
-<h1>Folders#show</h1>
+<h1><%= @folder.name %></h1>
 <p>Find me in app/views/folders/show.html.erb</p>
+
+<%= link_to "Create New Folder", new_folder_path, class: "btn" %>
 
 <table>
   <tr>

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @file = Upload.new
+    session[:current_folder_id] = current_user.root_folder.id
   end
 
   def edit
@@ -34,6 +35,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :cellphone, :password)
+    params
+      .require(:user)
+      .permit(:username, :first_name, :last_name, :email, :cellphone, :password)
   end
 end
