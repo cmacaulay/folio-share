@@ -10,3 +10,10 @@
 @import 'foundations';
 @import 'nav';
 @import 'root_path';
+
+.box {
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  background-color: $taupe;
+}
