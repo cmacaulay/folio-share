@@ -1,30 +1,16 @@
-<h1><%= @user.first_name %>'s Folio</h1>
-
-<%= link_to "Create New Folder", new_folder_path, class: "btn" %>
-
-<div class="breadcrumbs">
-  <h3><%= @user.root_folder.name %></h3>
+<h1>Account Info: <%= current_user.full_name %></h1>
+<%= link_to material_icon.mode_edit, edit_user_path(current_user), class: "btn-floating btn-large red" %>
+<div class="container">
+<ul class="collection">
+    <li class="collection-item avatar">
+      <i class="material-icons circle">assignment_ind</i>
+      <span class="title">Username</span>
+      <p><%= current_user.username %></p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">email</i>
+      <span class="title">E-mail</span>
+      <p><%= current_user.email %></p>
+    </li>
+  </ul>
 </div>
-
-<h2>Folders</h2>
-<% current_user.root_folder.children.each do |folder| %>
-  <%= link_to folder.name, folder_path(folder.id) %>
-  <br>
-<% end %>
-
-<ul>
-<% @user.uploads.each do |upload| %>
-  <li><%= upload.file_file_name %></li>
-<% end %>
-</ul>
-
-<%= form_for @file do |f| %>
-  <%= f.file_field :file %>
-  <%= f.text_field :folder_id, value: "#{@user.root_folder.id}", type: :hidden %>
-
-  <%= f.submit "Upload File" %>
-<% end %>
-
-
-<%= link_to "Logout", logout_path, method: "delete", class: "btn" %>
-<%= link_to "Edit Account Details", edit_user_path(current_user), class: "btn" %>

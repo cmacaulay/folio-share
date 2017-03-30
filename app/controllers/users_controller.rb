@@ -14,10 +14,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def index
     @user = current_user
     @file = Upload.new
     session[:current_folder_id] = current_user.root_folder.id
+  end
+
+  def show
   end
 
   def edit

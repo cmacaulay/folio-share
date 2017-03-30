@@ -12,11 +12,7 @@ class FoldersController < ApplicationController
     @folder = Folder.new(folder_params)
     if @folder.save
       flash[:success] = "#{@folder.name} Successfully Created"
-      if current_folder
-        redirect_to folder_path(current_folder)
-      else
-        redirect_to home_path
-      end
+      redirect_to folder_path(current_folder)
     else
       flash[:danger] = "Incorrect Entry"
       render :new
