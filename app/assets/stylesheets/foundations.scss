@@ -1,3 +1,40 @@
 body {
   background-color: lighten($light-green, 15%);
 }
+
+a {
+    color: $pinky;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn {
+    text-decoration: none;
+    color: #fff;
+    background-color: $green;
+    text-align: center;
+    letter-spacing: .5px;
+
+    transition: .2s ease-out;
+    cursor: pointer;
+}
+
+.btn-upload {
+  text-decoration: none;
+  color: #fff;
+  background-color: $purple;
+  text-align: center;
+  letter-spacing: .5px;
+
+  transition: .2s ease-out;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}

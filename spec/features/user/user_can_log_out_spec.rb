@@ -13,7 +13,6 @@ describe "As a registered user, when I am logged in" do
       expect(page).to have_content("Logged Out")
     end
 
-    expect(page).to_not have_content("Logout")
     expect(page).to have_content("Login")
   end
 end
