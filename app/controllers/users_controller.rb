@@ -15,10 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @current_folder = current_user.root_folder
+    @folder = Folder.new
     @file = Upload.new
-    @folder = current_user.root_folder
-    session[:current_folder_id] = current_user.root_folder.id
   end
 
   def edit

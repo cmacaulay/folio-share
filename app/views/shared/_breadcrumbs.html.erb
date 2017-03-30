@@ -1,10 +1,10 @@
 <div class="breadcrumbs">
-  <% @folder.ancestors.each do |f| %>
+  <% @current_folder.ancestors.each do |f| %>
     <div class="box">
       <%= link_to f.name, folder_path(f) %>
     </div>
   <% end %>
   <div class="box">
-    <%= @folder.name %>
+    <%= @current_folder.name %>
   </div>
 </div>

@@ -20,8 +20,8 @@ feature "Guest" do
       expect(page).to have_content("Folio")
     end
     expect(page).to have_link("Logout")
-    # expect(page).to have_link("Create New Folder")
-    # expect(page).to_not have_link("Create Account")
+    expect(page).to have_link("Create New Folder")
+    expect(page).to_not have_link("Signup")
   end
 
   it "can't create an account without all user information" do
@@ -39,12 +39,10 @@ feature "Guest" do
       expect(page).to have_content(expected)
     end
 
-    #expect(page).to have_content("Sal's Folder")
-    # expect(page).to have_link('Logout')
-    # expect(page).to have_link('Create New Folder')
-    # expect(page).to_not have_link('Create Account')
-
-
+    expect(page).to_not have_content("Sal's Folio")
+    expect(page).to_not have_link('Logout')
+    expect(page).to_not have_link('Create New Folder')
+    expect(page).to have_link('Signup')
     # expect(current_path).to eq(new_user_path)
   end
 end

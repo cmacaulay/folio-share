@@ -3,7 +3,7 @@ class Seed
   def self.start
     seed = Seed.new
     seed.generate_users
-    seed.generate_folders
+    # seed.generate_folders
     seed.generate_files
     seed.generate_comments
     seed.create_admin
