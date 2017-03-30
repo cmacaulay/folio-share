@@ -1,0 +1,5 @@
+<%= form_for @file do |f| %>
+  <%= f.file_field :file %>
+  <%= f.text_field :folder_id, value: "#{@folder.id}", type: :hidden %>
+  <%= f.submit "Upload File" %>
+<% end %>

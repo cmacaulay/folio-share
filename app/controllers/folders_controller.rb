@@ -1,5 +1,6 @@
 class FoldersController < ApplicationController
   def show
+    @file = Upload.new
     @folder = Folder.find(params[:id])
     session[:current_folder_id] = params[:id]
   end
