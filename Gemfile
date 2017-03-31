@@ -30,13 +30,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'twilio-ruby', '~> 4.11.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 gem 'simplecov', :require => false, :group => :test
+gem 'carrierwave'
+gem 'fog'
 gem 'figaro'
-gem 'aws-sdk', '~> 2.3'
-gem 'paperclip'
 gem 'materialize-sass'
 
 group :development, :test do

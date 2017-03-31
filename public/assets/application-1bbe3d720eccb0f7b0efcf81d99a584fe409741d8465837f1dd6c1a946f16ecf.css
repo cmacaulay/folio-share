@@ -1,6 +1,7 @@
 /* Materialize Styling */
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import url("https://fonts.googleapis.com/css?family=Crafty+Girls|Bentham|Ramabhadra");
+@import url("https://fonts.googleapis.com/css?family=Berkshire+Swash|Cabin+Sketch|Fredericka+the+Great|Handlee|Kranky|Patrick+Hand+SC|Righteous|Walter+Turncoat");
 /* line 370, /Users/caseymacaulay/.rvm/gems/ruby-2.3.0/gems/materialize-sass-0.98.1/app/assets/stylesheets/materialize/components/_color.scss */
 .materialize-red {
   background-color: #e51c23 !important;
@@ -10241,7 +10242,7 @@ nav .brand-logo {
   font-size: 1.9rem;
   padding: 0;
   white-space: nowrap;
-  font-family: 'Crafty Girls', cursive;
+  font-family: 'Handlee', cursive;
 }
 /* line 17, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/nav.scss */
 nav ul a {
@@ -10251,5 +10252,5 @@ nav ul a {
   display: block;
   padding: 0 15px;
   cursor: pointer;
-  font-family: 'Crafty Girls', cursive;
+  font-family: 'Handlee', cursive;
 }

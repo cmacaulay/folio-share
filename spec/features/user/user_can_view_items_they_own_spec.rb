@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "user can view" do
   context "a file they own" do
-    scenario "located in their root directory" do
+    scenario   "located in their root directory" do
       user = create(:user)
       root = user.folders.first
       upload = create(:upload, name: "Upload", folder: root)

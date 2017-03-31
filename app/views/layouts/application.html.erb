@@ -9,12 +9,17 @@
   </head>
 
   <body>
-    <%= render partial: 'shared/nav' %>
     <div style='text-align:center'>
       <% flash.each do |type, message| %>
-        <%= content_tag :div, sanitize(message), class:"alert-#{type}" %>
+          <% if type == "success" %>
+          <%= content_tag :div, sanitize(message), class:"alert-success" %>
+          <% elsif type == "danger" %>
+          <%= content_tag :div, sanitize(message), class:"alert-danger" %>
+          <% else %>
+          <%= content_tag :div, sanitize(message), class:"type" %>
+          <% end %>
       <% end %>
-    </div>
+  </div>
 
     <%= yield %>
   </body>
