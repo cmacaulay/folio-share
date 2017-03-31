@@ -10,6 +10,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/user_#{model.user.id}/folder_#{model.folder.id}/upload_#{model.id}"
+    model_class = model.class.to_s.underscore
+    user_id = "user_#{model.user.id}"
+    folder_id = "folder_#{model.folder.id}"
+    upload_id = "upload_#{model.id}"
+    "uploads/#{model_class}/#{mounted_as}/#{user_id}/#{folder_id}/#{upload_id}"
   end
 end
