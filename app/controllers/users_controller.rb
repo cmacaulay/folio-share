@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     flash[:success] = "Account Successfully Updated!"
     redirect_to home_path
   end
-
+ 
   private
 
   def user_params

@@ -5,7 +5,6 @@ class TwilioService
   def initialize(cellphone, user)
     @cellphone = cellphone
     @user = user
-    #byebug
   end
 
   def sms
@@ -13,10 +12,10 @@ class TwilioService
     auth_token = ENV['twilio_token']
 
     @client = Twilio::REST::Client.new account_sid, auth_token
-    message = @client.messages.create(
+    message = @client.account.messages.create(
       from: "+17207702071",
-      to: @cellphone,
-      body: "Your password is #{@user.password}"
+      to: "+17209826950",
+      body: "Your reset code is #{@user.reset_token}"
     )
   end
 end
