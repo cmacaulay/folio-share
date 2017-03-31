@@ -35,8 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'simplecov', :require => false, :group => :test
 gem 'figaro'
-gem 'aws-sdk', '~> 2.3'
-gem 'paperclip'
+gem 'carrierwave'
+gem 'fog'
 gem 'materialize-sass'
 
 group :development, :test do

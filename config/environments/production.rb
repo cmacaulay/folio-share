@@ -1,21 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  Paperclip.options[:command_path] = "/usr/local/bin/"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  # paperclip configuration for heroku
-
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
-      :s3_region => ENV['AWS_REGION'],
-      :s3_host_name => "s3-#{ENV['AWS_REGION']}.amazonaws.com"
-    }
-    }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
