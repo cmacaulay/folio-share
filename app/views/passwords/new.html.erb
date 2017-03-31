@@ -1,0 +1,13 @@
+<div class="container" id="password">
+  <h4 align="center">Having Trouble Login In?</h4>
+  <h4 align="center">Enter Your Email Below</h4>
+  <h5 align="center">You Will Receive An SMS With Your Reset Code Shortly</h5>
+  <div class="row">
+    <div class="input-field col s6" id="email_password">
+    <%= form_tag password_path, :method => :post do %>
+      <%= text_field_tag :email, params[:email], placeholder: "Email"%>
+      <%= submit_tag "Send SMS"%>
+    <%end%>
+    </div>
+  </div>
+</div>

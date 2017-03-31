@@ -23,4 +23,5 @@ coverage
 /config/application.yml
 
 # Ignore any uploaded files
+
 /public/uploads/*
