@@ -14,7 +14,7 @@ class TwilioService
     @client = Twilio::REST::Client.new account_sid, auth_token
     message = @client.account.messages.create(
       from: "+17207702071",
-      to: @cellphone,
+      to: "+17209826950",
       body: "Your reset code is #{@user.reset_token}"
       )
   end
