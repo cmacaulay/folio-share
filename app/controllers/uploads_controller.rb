@@ -4,14 +4,18 @@ class UploadsController < ApplicationController
   end
 
   def create
-    @folder = Folder.find(params[:upload][:folder_id])
-    @upload = @folder.uploads.new(upload_params)
-    if @upload.save
+    folder = Folder.find(params[:upload][:folder_id])
+    upload = Upload.new(upload_params)
+    if upload.save
       flash[:success] = "Your file has been uploaded!"
     else
       flash[:danger] = "Please try uploading again"
     end
-    redirect_to home_path
+    if folder.root_folder?
+      redirect_to home_path
+    else
+      redirect_to folder_path(folder)
+    end
   end
 
   def show
@@ -21,6 +25,6 @@ class UploadsController < ApplicationController
   private
 
   def upload_params
-    params.require(:upload).permit(:file)
+    params.require(:upload).permit(:folder_id, :attachment)
   end
 end
