@@ -35,9 +35,9 @@ gem 'twilio-ruby', '~> 4.11.1'
 # gem 'capistrano-rails', group: :development
 
 gem 'simplecov', :require => false, :group => :test
+gem 'carrierwave'
+gem 'fog'
 gem 'figaro'
-gem 'aws-sdk'
-gem 'paperclip'
 gem 'materialize-sass'
 
 group :development, :test do
