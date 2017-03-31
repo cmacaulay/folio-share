@@ -11,4 +11,5 @@ class Upload < ApplicationRecord
   validates :content_type, presence: true
   validates :size, presence: true
   validates :folder_id, presence: true
+
 end

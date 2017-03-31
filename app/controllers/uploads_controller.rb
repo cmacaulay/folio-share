@@ -8,8 +8,10 @@ class UploadsController < ApplicationController
     upload = Upload.new(upload_params)
     if upload.save
       flash[:success] = "Your file has been uploaded!"
+      redirect_to home_path
     else
       flash[:danger] = "Please try uploading again"
+      redirect_to home_path
     end
     if folder.root_folder?
       redirect_to home_path
