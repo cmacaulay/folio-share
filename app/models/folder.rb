@@ -9,17 +9,21 @@ class Folder < ApplicationRecord
 
   enum ({status: [:active, :inactive]})
 
-  def ancestors(line = [])
+  def ancestors
+    ancestors = [self]
     unless parent_id.nil?
-      line.unshift(parent)
-      parent.ancestors(line)
+      ancestors.concat(Folder.find(parent_id).ancestors)
     end
-    line
+    ancestors
   end
 
   def children
     children = subfolders.to_a.concat(uploads.to_a)
-    children.sort_by(&:name)
+    children.sort_by { |child| child.name.downcase }
+  end
+
+  def root_folder?
+    parent.nil?
   end
 
   def content_type

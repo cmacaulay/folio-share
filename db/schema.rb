@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170331212358) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,14 +51,14 @@ ActiveRecord::Schema.define(version: 20170331212358) do
   end
 
   create_table "uploads", force: :cascade do |t|
-    t.integer  "status",            default: 0
+    t.integer  "status",       default: 0
     t.integer  "folder_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name"
+    t.string   "content_type"
+    t.integer  "size"
+    t.string   "attachment"
     t.index ["folder_id"], name: "index_uploads_on_folder_id", using: :btree
   end
 

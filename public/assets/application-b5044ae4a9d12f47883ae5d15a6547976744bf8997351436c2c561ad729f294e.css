@@ -1,6 +1,5 @@
 /* Materialize Styling */
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-@import url("https://fonts.googleapis.com/css?family=Berkshire+Swash|Cabin+Sketch|Fredericka+the+Great|Handlee|Kranky|Patrick+Hand+SC|Righteous|Walter+Turncoat");
 /* line 370, /Users/caseymacaulay/.rvm/gems/ruby-2.3.0/gems/materialize-sass-0.98.1/app/assets/stylesheets/materialize/components/_color.scss */
 .materialize-red {
   background-color: #e51c23 !important;
@@ -10252,4 +10251,12 @@ nav ul a {
   padding: 0 15px;
   cursor: pointer;
   font-family: 'Handlee', cursive;
+}
+
+/* line 15, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/application.scss */
+.box {
+  background-color: #dddddd;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
 }
