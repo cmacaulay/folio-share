@@ -7,7 +7,7 @@ class Upload < ApplicationRecord
 
   # validates :attachment, presence: true, file_size: { maximum: 2.gigabytes }
 
-  validates :attachment, presence: true
+#   validates :attachment, presence: true
 
   validates :name, presence: true
   validates :content_type, presence: true
