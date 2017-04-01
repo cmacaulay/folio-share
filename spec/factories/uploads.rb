@@ -4,5 +4,6 @@ FactoryGirl.define do
     content_type "application/pdf"
     size 200
     folder
+    attachment "/spec/fixtures/elephant.jpg"
   end
 end
