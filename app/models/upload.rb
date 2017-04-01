@@ -12,4 +12,10 @@ class Upload < ApplicationRecord
   validates :size, presence: true
   validates :folder_id, presence: true
 
+  def ancestors
+    folder.ancestors
+  end
+  def directory
+    ancestors.join "/"
+  end
 end
