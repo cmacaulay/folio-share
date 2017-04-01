@@ -12,7 +12,6 @@ describe "when an admin logs in" do
           reset_token: ""
           )
     admin.roles.create(name: "admin")
-#byebug
     visit login_path
 
     fill_in "session[email]", with: admin.email
@@ -24,4 +23,3 @@ describe "when an admin logs in" do
     expect(page).to have_content("Welcome Admin")
   end
 end
-    

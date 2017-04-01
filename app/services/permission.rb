@@ -18,6 +18,6 @@ class Permission
 
   def admin_permissions
     return true if controller == "sessions"
-    return true if controller == "dashboard" && action.in?["index"]
+    return true if controller == "admin/dashboard" && action.in?("dashboard")
   end
 end

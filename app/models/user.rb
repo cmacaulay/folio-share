@@ -28,5 +28,12 @@ class User < ApplicationRecord
   def admin?
     roles.exists?(name: "admin")
   end
+
+  def registered_user
+    role = Role.find_by(name: 'registered user')
+    self.roles << role
+  end
+
+  
 end
  
