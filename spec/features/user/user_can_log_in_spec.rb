@@ -33,7 +33,7 @@ feature "user logs in" do
         last_name: "Espinosa",
         email: "espinosa2@example.com",
         cellphone: "3033333333",
-        password: "password",
+        password: "password", 
         username: "espinosa2"
       )
 
