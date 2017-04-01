@@ -3,9 +3,10 @@ require 'rails_helper'
 describe "As a registered user, when I am logged in" do
   it "when I select logout my session ends" do
     user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
-    visit home_path
+    visit login_path
+    fill_in "session[email]", with: user.email
+    fill_in "session[password]", with: "password"
+    click_button "Login"
 
     click_on "Logout"
 

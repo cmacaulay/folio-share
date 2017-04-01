@@ -3,6 +3,6 @@
 <%= form_for @folder do |f| %>
   <%= f.text_field :name, placeholder: "Folder Name" %>
   <%= f.text_field :user_id, value: "#{current_user.id}", type: :hidden %>
-  <%= f.text_field :parent_id, value: "#{current_folder.id}", type: :hidden %>
+  <%= f.text_field :parent_id, value: "#{@current_folder.id}", type: :hidden %>
   <%= f.submit "Create Folder" %>
 <% end %>

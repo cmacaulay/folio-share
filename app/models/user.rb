@@ -26,4 +26,10 @@ class User < ApplicationRecord
   def full_name
     first_name.capitalize + " " + last_name.capitalize
   end
+  
+  def create_reset_digest
+    password_token = rand(1000..10000).to_s
+    self.update_attribute(:reset_token, password_token)
+    self.save
+  end
 end

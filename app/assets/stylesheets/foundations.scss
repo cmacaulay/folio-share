@@ -38,3 +38,10 @@ a {
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
 }
+
+.box {
+  background-color: $taupe;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+}

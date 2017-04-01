@@ -17,7 +17,7 @@ RSpec.describe Folder, type: :model do
       two   = create(:folder, user: user, parent: one)
       three = create(:folder, user: user, parent: two)
 
-      expect(three.ancestors).to eq([three, two, one, root])
+      expect(three.ancestors).to eq([root, one, two])
     end
   end
 end

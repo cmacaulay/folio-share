@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170330035308) do
+=======
+
+ActiveRecord::Schema.define(version: 20170331212358) do
+
+>>>>>>> 353c94d927b66ecb22c9c795817556ff3e869890
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,14 +55,14 @@ ActiveRecord::Schema.define(version: 20170330035308) do
   end
 
   create_table "uploads", force: :cascade do |t|
-    t.integer  "status",            default: 0
+    t.integer  "status",       default: 0
     t.integer  "folder_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name"
+    t.string   "content_type"
+    t.integer  "size"
+    t.string   "attachment"
     t.index ["folder_id"], name: "index_uploads_on_folder_id", using: :btree
   end
 
@@ -78,7 +84,11 @@ ActiveRecord::Schema.define(version: 20170330035308) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+<<<<<<< HEAD
     t.string   "slug"
+=======
+    t.string   "reset_token"
+>>>>>>> 353c94d927b66ecb22c9c795817556ff3e869890
   end
 
   add_foreign_key "collaborators", "folders"

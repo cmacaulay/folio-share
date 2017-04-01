@@ -1,9 +1,7 @@
-<h1><%= @folder.name %></h1>
-<p>Find me in app/views/folders/show.html.erb</p>
-
-<%= link_to "Create New Folder", new_folder_path, class: "btn" %>
+<h1><%= @current_folder.name %></h1>
 
 <table>
+<<<<<<< HEAD
   <thead>
     <tr>
       <th>Name</th>
@@ -26,4 +24,18 @@
       </tr>
         <% end %>
   </tbody>
+=======
+  <tr>
+    <td>
+      <%= link_to "Create New Folder", new_folder_path(@current_folder), class: "btn" %>
+    </td>
+    <td>
+      <%= render partial: "shared/upload_form" %>
+    </td>
+  </tr>
+>>>>>>> 353c94d927b66ecb22c9c795817556ff3e869890
 </table>
+<br>
+<%= render partial: "shared/breadcrumbs" %>
+<br>
+<%= render partial: "shared/data_table" %>
