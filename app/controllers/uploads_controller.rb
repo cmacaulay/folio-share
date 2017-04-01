@@ -17,6 +17,8 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
+    @comment = Comment.new
+    @comment.upload_id = @upload.id
   end
 
   private

@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   post '/password', to: 'passwords#create'
   get '/password/update', to: 'passwords#edit', as: "reset_password"
   put '/password/update', to: 'passwords#update', as: "update_password"
-  
+
   resources :users, only: [:new, :create, :edit, :update]
   resources :folders, path: :f, only: [:show]
   resources :folders, path: "f/:id", only: [:new, :create]
   # resources :folders, path: :f, only: [:show, :new, :create]
   resources :uploads, path: :u, only: [:show, :new, :create]
+  resources :uploads do
+    resources :comments
+  end
 end
