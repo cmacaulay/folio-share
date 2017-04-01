@@ -8,8 +8,8 @@ class TwilioService
   end
 
   def sms
-    account_sid = "AC8f6311eacf052fb6aaab768834633f79"
-    auth_token = "ee87b7bc10ab9de3136d3edbe38a4068"
+      account_sid = ENV['twilio_sid']		 
+      auth_token = ENV['twilio_token']
 
     @client = Twilio::REST::Client.new account_sid, auth_token
     message = @client.account.messages.create(
