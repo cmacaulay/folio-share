@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def index
     @current_folder = current_user.root_folder
     @folder = Folder.new
     @file = Upload.new
