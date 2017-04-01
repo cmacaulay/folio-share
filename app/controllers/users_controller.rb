@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @file = Upload.new
   end
 
+  def show
+    @user = User.find_by(slug: params[:username])
+  end
+
   def edit
     @user = current_user
   end

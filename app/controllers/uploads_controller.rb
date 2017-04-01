@@ -1,9 +1,11 @@
 class UploadsController < ApplicationController
   def new
-    @upload = Upload.new
+    @upload = current_folder.uploads.new
   end
 
   def create
+    @upload = current_folder.uploads.new(upload_params)
+    if @upload.save
     folder = Folder.find(params[:upload][:folder_id])
     upload = Upload.new(upload_params)
     if upload.save

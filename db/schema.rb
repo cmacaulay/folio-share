@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20170330035308) do
+=======
 
 ActiveRecord::Schema.define(version: 20170331212358) do
 
+>>>>>>> 353c94d927b66ecb22c9c795817556ff3e869890
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +84,11 @@ ActiveRecord::Schema.define(version: 20170331212358) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+<<<<<<< HEAD
+    t.string   "slug"
+=======
     t.string   "reset_token"
+>>>>>>> 353c94d927b66ecb22c9c795817556ff3e869890
   end
 
   add_foreign_key "collaborators", "folders"

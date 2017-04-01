@@ -1,6 +1,30 @@
 <h1><%= @current_folder.name %></h1>
 
 <table>
+<<<<<<< HEAD
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File Size</th>
+      <th>File Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @folder.children.each do |child| %>
+        <td>
+          <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
+        </td>
+        <td>
+          <%= child.size %>
+        </td>
+        <td>
+          <%= child.content_type %>
+        </td>
+      </tr>
+        <% end %>
+  </tbody>
+=======
   <tr>
     <td>
       <%= link_to "Create New Folder", new_folder_path(@current_folder), class: "btn" %>
@@ -9,6 +33,7 @@
       <%= render partial: "shared/upload_form" %>
     </td>
   </tr>
+>>>>>>> 353c94d927b66ecb22c9c795817556ff3e869890
 </table>
 <br>
 <%= render partial: "shared/breadcrumbs" %>

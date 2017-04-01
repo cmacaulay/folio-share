@@ -23,7 +23,6 @@
 #     end
 #   end
 #
-
 #   def generate_folders
 #     1000.times do |i|
 #       user = User.find(Random.new.rand(1..1000))
@@ -33,7 +32,6 @@
 #       puts " Folder #{i}: Folder for #{folder.name} created!"
 #     end
 #   end
-#
 
 #   def generate_files
 #     3000.times do |i|
@@ -56,7 +54,6 @@
 #       puts "Comment #{i} created!"
 #     end
 #   end
-#
 
 #   def create_admin
 #     User.create!(
