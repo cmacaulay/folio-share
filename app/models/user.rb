@@ -22,4 +22,8 @@ class User < ApplicationRecord
     self.update_attribute(:reset_token, password_token)
     self.save
   end
+
+  def full_name
+  first_name.capitalize + " " + last_name.capitalize
+  end
 end

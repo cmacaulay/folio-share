@@ -1,0 +1,16 @@
+<h1><%= current_user.first_name %>'s Folio</h1>
+
+<table>
+  <tr>
+    <td>
+      <%= link_to "Create New Folder", new_folder_path(@current_folder), class: "btn" %>
+    </td>
+    <td>
+      <%= render partial: "shared/upload_form" %>
+    </td>
+  </tr>
+</table>
+<br>
+<%= render partial: "shared/breadcrumbs" %>
+<br>
+<%= render partial: "shared/data_table" %>

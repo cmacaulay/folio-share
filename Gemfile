@@ -39,6 +39,7 @@ gem 'figaro'
 gem 'carrierwave'
 gem 'fog'
 gem 'materialize-sass'
+gem 'material_icons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
