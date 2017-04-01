@@ -17,6 +17,6 @@ class Upload < ApplicationRecord
   end
 
   def directory
-    ancestors.join "/"
+    ancestors.map(&:name).join "/"
   end
 end
