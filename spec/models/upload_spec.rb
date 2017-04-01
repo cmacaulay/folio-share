@@ -6,7 +6,6 @@ RSpec.describe Upload, type: :model do
       user = create(:user)
       root = user.root_folder
       file = create(:upload, folder: root_folder)
-      binding.pry
       expect(file.ancestors).to eq([root])
     end
 
