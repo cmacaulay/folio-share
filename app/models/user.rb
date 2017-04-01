@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :folders
   has_many :uploads, through: :folders
+  has_many :user_roles
+  has_many :roles, through: :user_roles
 
   validates :username, :email, :cellphone, presence: true, uniqueness: true
   validates :first_name, :last_name, :password_digest, presence: true
@@ -22,4 +24,9 @@ class User < ApplicationRecord
     self.update_attribute(:reset_token, password_token)
     self.save
   end
+
+  def admin?
+    roles.exists?(name: "admin")
+  end
 end
+ 

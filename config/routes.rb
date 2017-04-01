@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+#admin
+  namespace :admin do
+    get '/dashboard', to: 'dashboard#dashboard'
+  end
+
 #password reset
   get '/password', to: 'passwords#new'
   post '/password', to: 'passwords#create'
