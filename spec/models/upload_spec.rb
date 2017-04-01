@@ -5,12 +5,18 @@ RSpec.describe Upload, type: :model do
     it "upload is in the root folder" do
       user = create(:user)
       root = user.root_folder
-      file = create(:upload, folder: root_folder)
+      file = create(:upload, folder: root)
+
       expect(file.ancestors).to eq([root])
     end
 
     it "upload is in a subfolder" do
-      
+      user = create(:user)
+      root = user.root_folder
+      subf = create(:folder, parent: root)
+      file = create(:upload, folder: subf)
+
+      expect(file.ancestors).to eq([root, subf])
     end
   end
 end

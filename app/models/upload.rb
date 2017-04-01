@@ -13,8 +13,9 @@ class Upload < ApplicationRecord
   validates :folder_id, presence: true
 
   def ancestors
-    folder.ancestors
+    folder.ancestors << folder
   end
+
   def directory
     ancestors.join "/"
   end
