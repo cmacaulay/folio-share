@@ -1,8 +1,9 @@
-/* Materialize Styling */
+/* Materialize Styling & Fonts*/
 
 @import 'materialize';
 @import "materialize/extras/nouislider";
-@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import "https://fonts.googleapis.com/icon?family=Material+Icons|Special+Elite|Cabin";
 
 /* CSS Styling */
 
@@ -11,4 +12,3 @@
 @import 'nav';
 @import 'root_path';
 @import 'home'
-

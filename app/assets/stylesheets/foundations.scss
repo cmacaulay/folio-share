@@ -16,12 +16,12 @@ a {
 }
 
 .btn {
-  text-decoration: none;
   color: white;
   background-color: $green;
   text-align: center;
   letter-spacing: 0.5px;
-
+  font-family: 'Cabin', sans-serif;
+  font-weight: bolder;
   transition: 0.2s ease-out;
   cursor: pointer;
 }
@@ -44,3 +44,11 @@ a {
   transition: 0.2s ease-out;
   vertical-align: middle;
 }
+h2 {
+  font-size: 3.4rem;
+  line-height: 110%;
+  margin: 1.78rem 0 1.424rem 0;
+  font-family: 'Poiret One', cursive;
+  color: $dark-slate;
+}
+@import 'partials/_forms';

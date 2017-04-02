@@ -34,7 +34,5 @@ class User < ApplicationRecord
     self.roles << role
   end
 
-  def full_name
-  first_name.capitalize + " " + last_name.capitalize
-  end
+
 end

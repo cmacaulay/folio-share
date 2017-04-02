@@ -1,0 +1,20 @@
+.parallax-container {
+  background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/0P9709P1DQ.jpg")  ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+}
+
+  .dark-slate {
+    background-color: $dark-slate;
+    color: $ghost_white;
+    h2 {
+        font-size: 3.4rem;
+        line-height: 110%;
+        margin: 1.78rem 0 1.424rem 0;
+        font-family: 'Poiret One', cursive;
+        color: inherit;
+    }
+  }
