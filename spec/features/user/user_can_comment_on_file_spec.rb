@@ -5,6 +5,8 @@ RSpec.feature "User" do
     user = create(:user)
     root = user.folders.first
     upload = create(:upload, name: "Upload", folder: root)
+    controller = ApplicationController
+    allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
     visit upload_path(upload)
 

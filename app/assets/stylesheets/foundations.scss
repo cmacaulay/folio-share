@@ -44,3 +44,61 @@ a {
   transition: 0.2s ease-out;
   vertical-align: middle;
 }
+
+.comment_header {
+  text-align: center;
+}
+
+.comment_section {
+  background-color: $pinky;
+  border-color: $purple;
+  border-width: medium;
+  border-style: solid;
+  border-radius: 25px;
+  padding: 10px;
+  float: right;
+  width: 50%;
+}
+
+.one_comment {
+  background-color: lighten($light-green, 15%);
+  border-color: $purple;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 25px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.file_content {
+  float: left;
+  width: 45%;
+}
+
+.comment_input {
+  color: #000;
+}
+
+.comment_input_field {
+  background-color: lighten($light-green, 15%);
+}
+
+.btn-comment {
+  text-decoration: none;
+  color: #fff;
+  background-color: $purple;
+  text-align: center;
+  letter-spacing: .5px;
+
+  transition: .2s ease-out;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
