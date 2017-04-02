@@ -1,5 +1,10 @@
 class Permission
+  extend Forwardable
   attr_reader :user, :controller, :action
+
+  def_delegators :user, :admin?,
+                        :activated_user?,
+                        :deactivated_user?
 
   def initialize(user)
     @user = user || User.new
@@ -12,12 +17,30 @@ class Permission
     case
     when user.admin? 
       admin_permissions
-    else
+    when user.deactivated_user?
+      user_deactivated_permissions
+    else user.activated_user?
+      user_activated_permissions
+    # else
+      #guest_user_permissions
     end
   end
 
+private
   def admin_permissions
     return true if controller == "sessions"
     return true if controller == "admin/dashboard" && action.in?("dashboard")
+  end
+
+  def user_activated_permissions
+    return true if controller == "sessions"
+    return true if controller == "users" && action.in?(%w(index edit update))
+    return true if controller == "folders" && action.in?(%(show new create))
+    return true if controller == "uploads" && action.in?(%(new create show destroy))
+  end
+
+  def user_deactivated_permissions
+    return true if controller = "sessions"
+    return true if controller = "users" && action.in?(%w(index edit update))
   end
 end

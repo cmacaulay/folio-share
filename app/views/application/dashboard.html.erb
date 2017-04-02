@@ -1,9 +1,9 @@
 <h4 align="center">Admin Dashboard</h4>
+      <h5 align="center">All files</h5>
 <div "container" id="main">
 <div class="container" id="allfiles" style="overflow:scroll; height:400px;">
   <div class="row">
     <div class="col s12">
-      <h5 align="center">All files</h5>
         <table class="bordered highlight">
           <thead>
             <tr>
@@ -29,10 +29,10 @@
   </div>
   <br>
   <br>
+        <h5 align="center">All Users</h5>
   <div class="container" id="allusers" style="overflow:scroll; height:400px;">
     <div class="row">
       <div class="col s12">
-        <h5 align="center">All Users</h5>
           <table class="bordered highlight">
             <thead>
               <tr>
@@ -52,6 +52,12 @@
                 <td><%=user.last_name%></td>
                 <td><%=user.email%></td>
                 <td><%=user.roles.take.name%></td>
+                <% if user.activated_user?%>
+                <td><%= link_to "deactivate", admin_user_path(user), method: :put%>
+                <%elsif user.deactivated_user?%>
+              <td><%= link_to "activate", admin_user_path(user), method: :put%>
+                <%else%>
+                <%end%>
               </tr>
               <%end%>
             </tbody>

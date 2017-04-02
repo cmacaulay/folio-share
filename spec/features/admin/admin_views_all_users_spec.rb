@@ -15,11 +15,13 @@ describe "admin" do
     controller = ApplicationController
     allow_any_instance_of(controller).to receive(:current_user).and_return(admin)
     visit admin_dashboard_path
-    
+
     expect(page).to have_content(user_one.username)
     expect(page).to have_content(user_two.username)
     expect(page).to have_content(user_three.username)
   end
+
+  
 end
     
     
