@@ -6,12 +6,10 @@
 
 <p><%= @upload.content_type %></p>
 
-<<<<<<< HEAD
 <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %></p>
 
-=======
 <%= render partial: "comments/form" %>
->>>>>>> master
+
 <div class="comments">
   <h3>Comments (<%= @upload.comments.size %>)</h3>
   <% @upload.comments.each do |comment| %>
