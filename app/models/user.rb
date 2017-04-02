@@ -1,11 +1,13 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :comments
+  has_many :comments #, dependant: :destroy -- do we want comments to be destroyed if a user is?
   has_many :folders
   has_many :uploads, through: :folders
   has_many :user_roles
   has_many :roles, through: :user_roles
 
+  has_many :collaborations, dependent: :destroy
+  has_many :shared_with_me,
   validates :username, :email, :cellphone, presence: true, uniqueness: true
   validates :first_name, :last_name, :password_digest, presence: true
 
@@ -25,7 +27,6 @@ class User < ApplicationRecord
     self.save
   end
 
-
   def admin?
     roles.exists?(name: "admin")
   end
@@ -39,4 +40,3 @@ class User < ApplicationRecord
   first_name.capitalize + " " + last_name.capitalize
   end
 end
- 
