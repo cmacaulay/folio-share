@@ -12,11 +12,23 @@ class Upload < ApplicationRecord
   validates :size, presence: true
   validates :folder_id, presence: true
 
+  def all_uploads
+    [self]
+  end
+
   def ancestors
     folder.ancestors << folder
   end
 
   def directory
-    ancestors.map(&:name).join "/"
+    ancestors.map(&:name).join("/")
+  end
+
+  def folio_filepath
+    "#{directory}/#{name}"
+  end
+
+  def local_filepath
+    attachment.file.file
   end
 end

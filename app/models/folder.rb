@@ -22,6 +22,15 @@ class Folder < ApplicationRecord
     children.sort_by { |child| child.name.downcase }
   end
 
+  def all_uploads(list = [])
+    return user.uploads if root_folder?
+    list.concat(uploads)
+    unless subfolders.nil?
+      subfolders.each { |subfolder| subfolder.all_uploads(list) }
+    end
+    list
+  end
+
   def root_folder?
     parent.nil?
   end
@@ -32,5 +41,9 @@ class Folder < ApplicationRecord
 
   def size
     ""
+  end
+
+  def download
+    ZipGenerator.new(self).download
   end
 end
