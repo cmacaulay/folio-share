@@ -10227,6 +10227,52 @@ body {
   background-color: #f6fffb;
 }
 
+/* line 5, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/foundations.scss */
+.box {
+  background-color: #dddddd;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+}
+
+/* line 12, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/foundations.scss */
+a {
+  color: #fc6471;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 18, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/foundations.scss */
+.btn, .btn-large {
+  text-decoration: none;
+  color: white;
+  background-color: #55d6be;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+/* line 29, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/foundations.scss */
+.btn-upload {
+  background-color: #7d5ba6;
+  border-radius: 2px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  height: 36px;
+  letter-spacing: 0.5px;
+  line-height: 36px;
+  padding: 0 2rem;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s ease-out;
+  vertical-align: middle;
+}
+
 /* line 1, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/nav.scss */
 nav {
   background-color: #dddddd;
@@ -10253,10 +10299,7 @@ nav ul a {
   font-family: 'Handlee', cursive;
 }
 
-/* line 15, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/application.scss */
-.box {
-  background-color: #dddddd;
-  display: inline-block;
-  margin: 5px;
-  padding: 5px;
+/* line 2, /Users/caseymacaulay/Projects/Turing/3module/projects/cloney_island/folio-share/app/assets/stylesheets/root_path.scss */
+div .parallax {
+  background-image: url("/images/share_key.jpg");
 }

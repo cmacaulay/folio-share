@@ -1,12 +1,39 @@
-<%= form_for @user do |f| %>
-  <%= f.text_field :username, placeholder: "Username" %>
-  <%= f.text_field :first_name, placeholder: "First Name" %>
-  <%= f.text_field :last_name, placeholder: "Last Name" %>
-  <%= f.text_field :email, placeholder: "Email" %>
-  <%= f.text_field :cellphone, placeholder: "Cell Phone Number" %>
-  <%= f.text_field :password, placeholder: "Password"%>
-  <%= f.text_field :password_confirmation, placeholder: "Password Confirmation" %>
+<div class="sign-up">
+  <h2 class="center">Create Your Folio</h2>
 
-  <%= f.submit "Create Folio" %>
-
-<% end %>
+  <div class="row center">
+    <%= form_for @user, class: "col s12" do |f| %>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <%= f.text_field :username, placeholder: "Username", id: "icon-prefix" %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">perm_identity</i>
+          <%= f.text_field :first_name, placeholder: "First Name", id: "icon-prefix" %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">perm_identity</i>
+          <%= f.text_field :last_name, placeholder: "Last Name", id: "icon-prefix" %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">email</i>
+          <%= f.text_field :email, placeholder: "Email", id: "icon-prefix" %>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <%= f.text_field :cellphone, placeholder: "Cell Phone Number", id: "icon-prefix" %>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">security</i>
+          <%= f.text_field :password, placeholder: "Password", id: "icon-prefix"%>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">security</i>
+          <%= f.text_field :password_confirmation, placeholder: "Password Confirmation", id: "icon-prefix" %>
+        </div>
+        <%= f.submit "Start Sharing", class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
