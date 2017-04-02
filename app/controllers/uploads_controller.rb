@@ -21,6 +21,18 @@ class UploadsController < ApplicationController
     @comment.upload_id = @upload.id
   end
 
+  def destroy
+    @upload = Upload.find(params[:id])
+    @upload.destroy
+    if current_user.admin?
+      flash[:danger] = "File deleted."      
+      redirect_to admin_dashboard_path
+    else  
+      flash[:danger] = "File deleted."            
+      redirect_to home_path
+    end
+  end
+
   private
 
   def upload_params
