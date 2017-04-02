@@ -25,7 +25,6 @@ class User < ApplicationRecord
     self.save
   end
 
-
   def admin?
     roles.exists?(name: "admin")
   end
@@ -39,4 +38,3 @@ class User < ApplicationRecord
   first_name.capitalize + " " + last_name.capitalize
   end
 end
- 

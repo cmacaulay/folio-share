@@ -47,7 +47,7 @@ feature "user can view" do
       end
 
       xscenario "that is empty" do
-
+        # tests go here
       end
     end
 
@@ -71,7 +71,7 @@ feature "user can view" do
       end
 
       xscenario "that is empty" do
-
+        # tests go here
       end
     end
   end
