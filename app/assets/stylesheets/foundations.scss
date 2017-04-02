@@ -8,39 +8,39 @@ body {
   margin: 5px;
   padding: 5px;
 }
+
 a {
-    color: $pinky;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
+  color: $pinky;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn {
-    text-decoration: none;
-    color: #fff;
-    background-color: $green;
-    text-align: center;
-    letter-spacing: .5px;
+  text-decoration: none;
+  color: white;
+  background-color: $green;
+  text-align: center;
+  letter-spacing: 0.5px;
 
-    transition: .2s ease-out;
-    cursor: pointer;
+  transition: 0.2s ease-out;
+  cursor: pointer;
 }
 
 .btn-upload {
-  text-decoration: none;
-  color: #fff;
   background-color: $purple;
-  text-align: center;
-  letter-spacing: .5px;
-
-  transition: .2s ease-out;
-  cursor: pointer;
-  border: none;
   border-radius: 2px;
+  border: 0;
+  color: white;
+  cursor: pointer;
   display: inline-block;
   height: 36px;
+  letter-spacing: 0.5px;
   line-height: 36px;
   padding: 0 2rem;
-  text-transform: uppercase;
-  vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s ease-out;
+  vertical-align: middle;
 }
