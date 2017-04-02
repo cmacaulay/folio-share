@@ -65,8 +65,8 @@ RSpec.describe Folder, type: :model do
         two2  = create(:folder, user: user, parent: one)
         file1 = create(:upload, folder: root)
         file2 = create(:upload, folder: one)
-        file3 = create(:upload, folder: two_A)
-        file4 = create(:upload, folder: two_B)
+        file3 = create(:upload, folder: two1)
+        file4 = create(:upload, folder: two2)
 
         expect(one.all_uploads).to eq([file2, file3, file4])
         expect(one.all_uploads).to_not eq([file1])

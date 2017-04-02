@@ -13,10 +13,11 @@ class ZipGenerator
     Zip::File.open(temp_file.path, Zip::File::CREATE) do |zipfile|
       uploads.each do |upload|
         if download_type == Folder
-          zipfile.add(upload.folio_filepath, upload.local_filepath)
+          upload_path = upload.folio_filepath
         elsif download_type == Upload
-          zipfile.add(upload.name, upload.local_filepath)
+          upload_path = upload.name
         end
+        zipfile.add(upload_path, upload.local_filepath)
       end
     end
   end
