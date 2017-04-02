@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   resources :folders, path: :f, only: [:show]
   resources :folders, path: "f/:id", only: [:new, :create]
   # resources :folders, path: :f, only: [:show, :new, :create]
-  resources :uploads, path: :u, only: [:show, :new, :create]
+  resources :uploads, path: :u, only: [:show, :new, :create, :destroy]
 end
