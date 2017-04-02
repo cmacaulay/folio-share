@@ -1,3 +1,9 @@
+Role.create(name: "registered user")
+Role.create(name: "admin")
+Role.create(name: "activated")
+Role.create(name: "deactivated")
+puts "Roles Created"
+
 # class Seed
 #   def self.start
 #     seed = Seed.new
