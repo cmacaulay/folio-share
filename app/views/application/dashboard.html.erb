@@ -1,14 +1,15 @@
-<h3 align="center">Welcome Admin(s)</h3>
+<h4 align="center">Welcome Admin</h4>
 <div class="container" id="allfiles" style="overflow:scroll; height:400px;">
 <div class="row">
 <div class="col s6">
-<h4 align="center">A list of all files</h4>
+<h5 align="right">A list of all files</h5>
   <table class="bordered highlight">
     <thead>
       <tr>
         <th>User</th>
         <th>File Name</th>
         <th>File Type</th>
+        <th>Delete<th>
       </tr>
     </thead>
         <% @uploads.each do |upload|%>
@@ -17,6 +18,7 @@
         <td> <%= upload.user.username%></td>
         <td> <%=link_to "#{upload.name}", upload_path(upload)%></td>
         <td> <%= upload.content_type%></td>
+        <td><%= link_to "delete", upload_path(upload), method: :delete%>
       </tr>
         <%end%>
     <tbody>
