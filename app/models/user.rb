@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
 
   has_many :collaborations, dependent: :destroy
-  has_many :shared_with_me,
+  has_many :collaborators, through: :collaborations, source: :folder
+
   validates :username, :email, :cellphone, presence: true, uniqueness: true
   validates :first_name, :last_name, :password_digest, presence: true
 
@@ -36,7 +37,5 @@ class User < ApplicationRecord
     self.roles << role
   end
 
-  def full_name
-  first_name.capitalize + " " + last_name.capitalize
-  end
+  
 end

@@ -16,12 +16,12 @@ a {
 }
 
 .btn {
-  text-decoration: none;
   color: white;
   background-color: $green;
   text-align: center;
   letter-spacing: 0.5px;
-
+  font-family: 'Cabin', sans-serif;
+  font-weight: bolder;
   transition: 0.2s ease-out;
   cursor: pointer;
 }
