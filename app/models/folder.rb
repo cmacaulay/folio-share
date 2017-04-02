@@ -1,12 +1,9 @@
 class Folder < ApplicationRecord
-  # belongs_to :user
-  belongs_to :owner, class_name: "User", foreign_key: "user_id", required: false
+  belongs_to :user
   belongs_to :parent, class_name: "Folder", optional: true
 
   has_many :subfolders, class_name: "Folder", foreign_key: "parent_id"
   has_many :uploads
-  has_many :collaborations, dependant: :destroy
-  has_many :collaborators, through: :collaborations, source: :user
 
   validates :name,   presence: true
   validates :status, presence: true
