@@ -1,17 +1,17 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe "user" do
-  it "user receives sms with password reset code" do
+feature "user requests their password" do
+  xit "user receives sms with password reset code" do
     user = User.create!(
-           first_name: "Ames",
-           last_name: "James",
-           email: "ames@sample.com",
-           cellphone: "720-770-2071",
-           password: "password",
-           username: "AmesJames",
-           reset_token:""
-           )
-               
+      first_name: "Ames",
+      last_name: "James",
+      email: "ames@sample.com",
+      cellphone: "720-770-2071",
+      password: "password",
+      username: "AmesJames",
+      reset_token: ""
+    )
+
     visit login_path
     click_link("Forgot Password")
 
@@ -34,7 +34,7 @@ describe "user" do
     expect(page).to have_content("Password Successfully Updated!")
   end
 
-  it "user enters incorrect email" do 
+  it "user enters incorrect email" do
     visit login_path
     click_link("Forgot Password")
 
@@ -45,4 +45,4 @@ describe "user" do
     expect(current_path).to eq(password_path)
     expect(page).to have_content("Incorrect Email.Try Again.")
   end
-end 
+end

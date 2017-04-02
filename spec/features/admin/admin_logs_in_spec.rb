@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "when an admin logs in" do
   it "is redirected to the admin dashboard page" do

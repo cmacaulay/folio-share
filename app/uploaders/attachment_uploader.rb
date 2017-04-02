@@ -1,9 +1,8 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
   storage :file
+  process :save_attributes_in_model
 
-  process :save_content_type_and_size_in_model
-
-  def save_content_type_and_size_in_model
+  def save_attributes_in_model
     model.name = file.original_filename
     model.content_type = file.content_type if file.content_type
     model.size = file.size

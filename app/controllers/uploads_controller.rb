@@ -1,8 +1,4 @@
 class UploadsController < ApplicationController
-  def new
-    @upload = Upload.new
-  end
-
   def create
     folder = Folder.find(params[:upload][:folder_id])
     upload = Upload.new(upload_params)

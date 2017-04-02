@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "User" do
   scenario "can comment on one of their uploaded files" do
