@@ -18,11 +18,17 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new, :create, :edit, :update, :show]
-  resources :folders, path: :f, only: [:show]
+
+  resources :folders, path: :f, only: [:show] do
+    get "/share", to: "folders/collaborations#new"
+    post "/share", to: "folders/collaborations#create"
+    # resources :collaborations, only: :create
+  end
   resources :folders, path: "f/:id", only: [:new, :create]
   # resources :folders, path: :f, only: [:show, :new, :create]
   resources :uploads, path: :u, only: [:new, :create]
   resources :uploads, path: :u, only: [:show] do
     resources :comments, only: [:create]
   end
+
 end
