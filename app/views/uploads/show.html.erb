@@ -6,6 +6,8 @@
 
 <p><%= @upload.content_type %></p>
 
+<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %></p>
+
 <div class="comments">
   <h3>Comments</h3>
 </div>
