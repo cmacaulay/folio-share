@@ -1,20 +1,4 @@
 Rails.application.routes.draw do
-  namespace :uploads do
-    get 'download/index'
-  end
-
-  namespace :folders do
-    get 'download/index'
-  end
-
-  namespace :uploads do
-    get 'download/create'
-  end
-
-  namespace :folders do
-    get 'download/create'
-  end
-
   get "/", to: "welcome#show"
   get "/home", to: "users#show"
   get "/login", to: "sessions#new"
@@ -31,6 +15,6 @@ Rails.application.routes.draw do
   resources :folders, path: :f, only: [:show]
   resources :folders, path: "f/:id", only: [:new, :create]
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
-  resources :uploads, path: :u, only: [:show, :new, :create]
+  resources :uploads, path: :u, only: [:show, :create]
   get "/u/:id/download", to: "uploads/download#index", as: "upload_download"
 end
