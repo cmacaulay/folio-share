@@ -26,7 +26,7 @@ RSpec.describe Upload, type: :model do
       root = user.root_folder
       file = create(:upload, folder: root)
 
-      expect(file.directory).to eq("#{root.name}")
+      expect(file.directory).to eq(root.name)
     end
 
     it "upload is in a subfolder" do
@@ -70,16 +70,16 @@ RSpec.describe Upload, type: :model do
     it "returns itself in an array" do
       file = create(:upload)
       actual_local_filepath = Rails.root
-        .join(
-          "tmp",
-          "uploads",
-          "upload",
-          "attachment",
-          "user_#{file.user.id}",
-          "folder_#{file.folder.id}",
-          "upload_#{file.id}",
-          "#{file.name}"
-        ).to_s
+      .join(
+        "tmp",
+        "uploads",
+        "upload",
+        "attachment",
+        "user_#{file.user.id}",
+        "folder_#{file.folder.id}",
+        "upload_#{file.id}",
+        file.name
+      ).to_s
 
       expect(file.local_filepath).to eq(actual_local_filepath)
     end

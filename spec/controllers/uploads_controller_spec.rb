@@ -12,8 +12,8 @@ RSpec.describe UploadsController, type: :controller do
   describe "GET #create" do
     xit "returns http success" do
       root = create(:upload)
-      params = { params: attributes_for(:upload, folder_id: root.id) }
-      post :create, params
+      new_params = attributes_for(:upload, folder_id: root.id)
+      post :create, params: new_params
       expect(response).to have_http_status(:success)
     end
   end
