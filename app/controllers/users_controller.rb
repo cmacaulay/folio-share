@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.registered_user
       session[:user_id] = @user.id
       redirect_to home_path
     else
@@ -15,6 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def index
     @current_folder = current_user.root_folder
     @folder = Folder.new
     @file = Upload.new

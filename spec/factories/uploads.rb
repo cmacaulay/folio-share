@@ -5,5 +5,6 @@ FactoryGirl.define do
     size 56434
     name "femalecodercat.jpg"
     folder
+    attachment "/spec/fixtures/elephant.jpg"
   end
 end

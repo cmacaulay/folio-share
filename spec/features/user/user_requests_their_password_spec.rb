@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "user requests their password" do
   xit "user receives sms with password reset code" do

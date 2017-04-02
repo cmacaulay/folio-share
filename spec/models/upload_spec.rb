@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Upload, type: :model do
   describe("#ancestors") do

@@ -5,7 +5,7 @@ feature "user can view" do
     scenario "located in their root directory" do
       user = create(:user)
       root = user.folders.first
-      upload = create(:upload, name: "Upload", folder: root)
+      upload = create(:upload, name: "Upload", folder: root, attachment: "/spec/fixtures/elephant.jpg")
 
       visit upload_path(upload)
 
@@ -47,7 +47,7 @@ feature "user can view" do
       end
 
       xscenario "that is empty" do
-        
+
       end
     end
 
@@ -71,7 +71,7 @@ feature "user can view" do
       end
 
       xscenario "that is empty" do
-        
+
       end
     end
   end

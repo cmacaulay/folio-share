@@ -1,19 +1,16 @@
-<h1><%= current_user.first_name %>'s Folio</h1>
-
-<table>
-  <tr>
-    <td>
-      <%= link_to "Create New Folder", new_folder_path(@current_folder), class: "btn" %>
-    </td>
-    <td>
-      <%= render partial: "shared/upload_form" %>
-    </td>
-    <td>
-      <%= link_to "Download", folder_download_path(@current_folder), class: "btn" %>
-    </td>
-  </tr>
-</table>
-<br>
-<%= render partial: "shared/breadcrumbs" %>
-<br>
-<%= render partial: "shared/data_table" %>
+<h1>Account Info: <%= current_user.full_name %></h1>
+<%= link_to material_icon.mode_edit, edit_user_path(current_user), class: "btn-floating btn-large red" %>
+<div class="container">
+<ul class="collection">
+    <li class="collection-item avatar">
+      <i class="material-icons circle">assignment_ind</i>
+      <span class="title">Username</span>
+      <p><%= current_user.username %></p>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">email</i>
+      <span class="title">E-mail</span>
+      <p><%= current_user.email %></p>
+    </li>
+  </ul>
+</div>

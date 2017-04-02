@@ -9,13 +9,18 @@
   </head>
 
   <body>
-    <%= render partial: 'shared/nav' %>
-    <div style='text-align:center'>
+    <% if current_user %>
+      <%= render partial: "shared/user_nav" %>
+    <% else %>
+      <%= render partial: "shared/guest_nav" %>
+    <% end %>
+        <div style='text-align:center'>
       <% flash.each do |type, message| %>
         <%= content_tag :div, sanitize(message), class:"alert-#{type}" %>
       <% end %>
     </div>
-
-    <%= yield %>
+    <div class="container">
+      <%=  yield %>
+    </div>
   </body>
 </html>
