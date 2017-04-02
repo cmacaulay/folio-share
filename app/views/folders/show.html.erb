@@ -8,6 +8,9 @@
     <td>
       <%= render partial: "shared/upload_form" %>
     </td>
+    <td>
+      <%= link_to "Download", folder_download_path(@current_folder), class: "btn" %>
+    </td>
   </tr>
 </table>
 <br>

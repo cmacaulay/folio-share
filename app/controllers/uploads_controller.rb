@@ -1,8 +1,4 @@
 class UploadsController < ApplicationController
-  def new
-    @upload = Upload.new
-  end
-
   def create
     folder = Folder.find(params[:upload][:folder_id])
     upload = Upload.new(upload_params)
@@ -19,6 +15,18 @@ class UploadsController < ApplicationController
     @upload = Upload.find(params[:id])
     @comment = Comment.new
     @comment.upload_id = @upload.id
+  end
+
+  def destroy
+    @upload = Upload.find(params[:id])
+    @upload.destroy
+    if current_user.admin?
+      flash[:danger] = "File deleted."      
+      redirect_to admin_dashboard_path
+    else  
+      flash[:danger] = "File deleted."            
+      redirect_to home_path
+    end
   end
 
   private

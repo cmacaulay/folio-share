@@ -1,11 +1,12 @@
-<h3>Post a Comment</h3>
+<h3 class="comment_header">Post a Comment</h3>
 
 <%= form_for [ @upload, @comment ] do |f| %>
   <p>
-    <%= f.label :content, "Your Comment"%><br/>
-    <%= f.text_area :content %>
+      <%= f.label :content, "Your Comment", class: "comment_input"%><br/>
+
+      <%= f.text_area :content, class: "comment_input_field" %>
   </p>
   <p>
-    <%= f.submit 'Submit' %>
+    <%= f.submit "Submit", class: "btn-comment" %>
   </p>
 <% end %>

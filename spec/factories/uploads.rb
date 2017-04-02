@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :upload do
-    sequence(:name) { |n| "File #{n}" }
-    content_type "application/pdf"
-    size 200
+    attachment { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec", "support", "fixtures", "attachments", "femalecodercat.jpg"), "image/jpg") }
+    content_type "image/jpg"
+    size 56434
+    name "femalecodercat.jpg"
     folder
-    attachment "/spec/fixtures/elephant.jpg"
   end
 end

@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'db/schema.rb'
+    - 'spec/factories/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -23,3 +24,6 @@ Style/NumericLiterals:
 
 Style/ExtraSpacing:
   Enabled: true
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
