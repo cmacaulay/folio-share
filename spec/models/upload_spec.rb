@@ -38,4 +38,12 @@ RSpec.describe Upload, type: :model do
       expect(file.directory).to eq("#{root.name}/#{subf.name}")
     end
   end
+
+  describe "#all_uploads" do
+    it "returns itself in an array" do
+      file = create(:upload)
+
+      expect(file.all_uploads).to eq([file])
+    end
+  end
 end
