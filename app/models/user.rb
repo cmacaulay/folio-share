@@ -66,8 +66,4 @@ class User < ApplicationRecord
     self.user_roles.find_by(role_id: role.id).delete
     self.deactivated
   end
-
-  def full_name
-  first_name.capitalize + " " + last_name.capitalize
-  end
 end
