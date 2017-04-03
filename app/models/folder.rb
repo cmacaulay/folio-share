@@ -4,12 +4,16 @@ class Folder < ApplicationRecord
 
   has_many :subfolders, class_name: "Folder", foreign_key: "parent_id"
   has_many :uploads
+  has_many :collaborations, dependent: :destroy
+  has_many :collaborators, through: :collaborations, source: :user
 
   validates :name,   presence: true
   validates :status, presence: true
 
-  enum ({status: [:active, :inactive]})
+  alias_attribute :owner, :user
 
+  enum ({status: [:active, :inactive]})
+  
   def ancestors(list = [])
     unless parent_id.nil?
       list.unshift(parent)
