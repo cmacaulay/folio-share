@@ -6,12 +6,16 @@ require "rails_helper"
       admin.roles.create(name: "admin")
 
       user_one = create(:user)
+      user_one.roles.create(name: "registered user")
+      user_one.roles.create(name: "activated")      
       root = user_one.folders.first
       upload_one = create(:upload, name: "Upload_one", folder: root)
       upload_two = create(:upload, name: "Upload_two", folder: root)
       upload_three = create(:upload, name: "Upload_three", folder: root)
       
       user_two = create(:user)
+      user_two.roles.create(name: "registered user")
+      user_two.roles.create(name: "activated") 
       root = user_two.folders.first
       upload_two_one = create(:upload, name: "Upload_two_one", folder: root)
       upload_two_two = create(:upload, name: "Upload_two_two", folder: root)

@@ -6,6 +6,8 @@
       <th>File Type</th>
       <th>Share</th>
       <th>Delete</th>
+      <th>Privacy Status</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -29,6 +31,10 @@
         <td>
           <% if child.class == Upload %>
             <%= link_to "Delete", upload_path(child), method: :delete, class: "btn"%>
+        <td><%= child.display_privacy %></td>
+        <td>
+          <% if child.class == Upload %>
+            <%= link_to "Make #{child.opposite_privacy}", upload_path(@current_folder, child), method: :put, class: "btn"  %>
           <% end %>
         </td>
       </tr>
