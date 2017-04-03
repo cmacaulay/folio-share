@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :uploads, through: :folders
   has_many :user_roles
   has_many :roles, through: :user_roles
+  has_many :collaborations, dependent: :destroy
+  has_many :shared_on, through: :collaborations, source: :folder
 
   validates :username, :email, :cellphone, presence: true, uniqueness: true
   validates :first_name, :last_name, :password_digest, presence: true
