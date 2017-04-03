@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   put '/password/update', to: 'passwords#update', as: "update_password"
 
   # users
-  resources :users, only: [:new, :create, :edit, :update, :show]
+  resources :users, path: '', only: [:show]
+  resources :users, only: [:new, :create, :edit, :update]
 
   # folders & download
   resources :folders, path: :f, only: [:show]
