@@ -1,0 +1,22 @@
+<div class="shared-table">
+  <br/><hr>
+
+  <h5>Folios Shared With Me</h5>
+  <table class="responsive-table bordered highlight">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <% current_user.shared_on.each do |folder| %>
+          <td><%= link_to folder.name, folder_path(folder) %></td>
+          <td><%= folder.owner.username %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

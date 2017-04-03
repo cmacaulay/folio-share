@@ -9,7 +9,7 @@ class Folders::CollaborationsController < ApplicationController
     @collaboration  = @current_folder.collaborations.new
     @collaboration.user = User.find_by_username(params[:collaboration][:user])
     if @collaboration.save
-      flash[:success] = "You shared #{@current_folder.name} with #{@current_folder.user.username}!"
+      flash[:success] = "You shared #{@current_folder.name} with #{@collaboration.user.username}!"
       redirect_to folder_path(@current_folder)
     else
       flash[:danger] = "User not found, please try again."
