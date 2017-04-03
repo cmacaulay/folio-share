@@ -38,7 +38,7 @@ class UploadsController < ApplicationController
     if current_user.admin?
       flash[:danger] = "File deleted."
       redirect_to admin_dashboard_path
-    else  
+    else
       flash[:danger] = "File deleted."
       redirect_to home_path
     end
