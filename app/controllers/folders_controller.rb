@@ -1,4 +1,6 @@
 class FoldersController < ApplicationController
+before_action :authorize!
+
   def show
     @current_folder = Folder.find(params[:id])
     @file = Upload.new

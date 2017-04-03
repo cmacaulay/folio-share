@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # admin
   namespace :admin do
     get '/dashboard', to: 'dashboard#dashboard'
+    resources :users, only: [:update, :show]
   end
 
   # password reset

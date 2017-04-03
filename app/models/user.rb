@@ -29,9 +29,40 @@ class User < ApplicationRecord
     roles.exists?(name: "admin")
   end
 
+  def activated_user?
+    roles.exists?(name: "activated")
+  end
+
+  def deactivated_user?
+    roles.exists?(name: "deactivated")
+  end
+
   def registered_user
     role = Role.find_by(name: 'registered user')
     self.roles << role
+    self.activated
+  end
+
+  def activated
+    role = Role.find_by(name:"activated")
+    self.roles << role
+  end
+
+  def deactivated
+    role = Role.find_by(name:"deactivated")
+    self.roles << role
+  end
+
+  def activate 
+    role = Role.find_by(name: "deactivated")
+    self.user_roles.find_by(role_id: role.id).delete
+    self.activated
+  end
+
+  def deactivate 
+    role = Role.find_by(name: "activated") 
+    self.user_roles.find_by(role_id: role.id).delete
+    self.deactivated
   end
 
 
