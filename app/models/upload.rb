@@ -34,6 +34,10 @@ class Upload < ApplicationRecord
     attachment.file.file
   end
 
+  def owner
+    self.folder.owner.id
+  end 
+
   def display_privacy
     is_private ? "Private" : "Public"
   end
