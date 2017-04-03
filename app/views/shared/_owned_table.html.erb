@@ -31,6 +31,7 @@
         <td>
           <% if child.class == Upload %>
             <%= link_to "Delete", upload_path(child), method: :delete, class: "btn"%>
+          <% end %>
         <td><%= child.display_privacy %></td>
         <td>
           <% if child.class == Upload %>
