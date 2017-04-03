@@ -12,7 +12,7 @@
 
   <tbody>
     <tr>
-      <% @current_folder.children.each do |child| %>
+      <% current_folder.children.each do |child| %>
         <td>
           <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
         </td>
@@ -30,7 +30,7 @@
         <td><%= child.display_privacy %></td>
         <td>
           <% if child.class == Upload %>
-            <%= link_to "Make #{child.opposite_privacy}", upload_path(@current_folder, child), method: :put, class: "btn"  %>
+            <%= link_to "Make #{child.opposite_privacy}", upload_path(current_folder, child), method: :put, class: "btn"  %>
           <% end %>
         </td>
       </tr>

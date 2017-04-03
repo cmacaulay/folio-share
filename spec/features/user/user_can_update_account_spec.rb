@@ -7,7 +7,7 @@ describe "As a registered user, when I am logged in" do
 
     allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
-    visit home_path
+    visit folio_path
 
     click_on "Edit Account Details"
     expect(current_path).to eq(edit_user_path(user))
@@ -19,7 +19,7 @@ describe "As a registered user, when I am logged in" do
 
     click_on "Update"
 
-    expect(current_path).to eq(home_path)
+    expect(current_path).to eq(folio_path)
 
     within(".alert-success") do
       expect(page).to have_content("Account Successfully Updated!")

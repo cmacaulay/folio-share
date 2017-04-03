@@ -9,7 +9,7 @@ feature "admin visit user index(show) page" do
       controller = ApplicationController
       allow_any_instance_of(controller).to receive(:current_user).and_return(admin)
 
-      visit home_path
+      visit folio_path
 
       click_on "Admin"
       expect(current_path).to eq(admin_dashboard_path)

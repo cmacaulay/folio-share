@@ -4,10 +4,10 @@ class UploadsController < ApplicationController
     upload = Upload.new(upload_params)
     if upload.save
       flash[:success] = "Your file has been uploaded!"
-      redirect_to home_path
+      redirect_to folio_path
     else
       flash[:danger] = "Please try uploading again"
-      redirect_to home_path
+      redirect_to folio_path
     end
   end
 
@@ -26,7 +26,7 @@ class UploadsController < ApplicationController
       flash[:danger] = "Please try uploading again"
     end
     if Folder.find_by(user: current_user, id: params[:id])
-      redirect_to home_path
+      redirect_to folio_path
     else
       redirect_to folder_path(Folder.find(params[:id]))
     end
@@ -40,7 +40,7 @@ class UploadsController < ApplicationController
       redirect_to admin_dashboard_path
     else
       flash[:danger] = "File deleted."
-      redirect_to home_path
+      redirect_to folio_path
     end
   end
 
