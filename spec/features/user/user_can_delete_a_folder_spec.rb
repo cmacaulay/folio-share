@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe "a registered user" do
-  it "can delete a file they own" do
+  it "can delete a folder they own" do
     user    = create(:user)
-    upload  = create(:upload, name: "Flowers", folder: user.root_folder)
+    folder  = create(:folder, name: "Flowers", parent: user.root_folder)
 
     visit "/login"
 

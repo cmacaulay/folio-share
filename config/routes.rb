@@ -23,12 +23,12 @@ Rails.application.routes.draw do
 
   resources :folders, path: :f, only: [:show]
   resources :folders, path: "f/:id", only: [:new, :create]
+  delete "f/delete", to: "folders#destroy", as: "delete_folder"
   resources :folders, path: :f, only: [:show] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
-    # resources :collaborations, only: :create
   end
-  
+
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
 
   # uploads, comments & download
