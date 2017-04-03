@@ -17,6 +17,21 @@ class UploadsController < ApplicationController
     @comment.upload_id = @upload.id
   end
 
+  def update
+    upload = Upload.find(params[:format])
+    upload.change_privacy
+    if upload.save
+      flash[:success] = "Your file has been uploaded!"
+    else
+      flash[:danger] = "Please try uploading again"
+    end
+    if Folder.find_by(user: current_user, id: params[:id])
+      redirect_to home_path
+    else
+      redirect_to folder_path(Folder.find(params[:id]))
+    end
+  end
+
   def destroy
     @upload = Upload.find(params[:id])
     @upload.destroy
