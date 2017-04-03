@@ -44,6 +44,10 @@ class Folder < ApplicationRecord
     ""
   end
 
+  def display_privacy
+    ""
+  end
+
   def download
     ZipGenerator.new(self).download
   end

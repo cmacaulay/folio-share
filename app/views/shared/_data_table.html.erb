@@ -9,6 +9,11 @@
     <th>
       File Type
     </th>
+    <th>
+      Privacy Status
+    </th>
+    <th>
+    </th>
   </tr>
   <tr>
     <% @current_folder.children.each do |child| %>
@@ -20,6 +25,14 @@
       </td>
       <td>
         <%= child.content_type %>
+      </td>
+      <td>
+        <%= child.display_privacy %>
+      </td>
+      <td>
+        <% if child.class == Upload %>
+          <%= link_to "Make #{child.opposite_privacy}", upload_path(@current_folder, child), method: :put, class: "btn"  %>
+        <% end %>
       </td>
     </tr>
   <% end %>
