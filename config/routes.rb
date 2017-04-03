@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'dashboard/index'
+  end
+
   get "/", to: "welcome#show"
   get "/Folio", to: "users#index", as: "folio"
   get "/login", to: "sessions#new"
