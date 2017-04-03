@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to folio_path
     else
-      flash[:danger] = "Please fill in every field to create an account."
       render :new
     end
   end
