@@ -2,7 +2,22 @@ Role.create(name: "registered user")
 Role.create(name: "admin")
 Role.create(name: "activated")
 Role.create(name: "deactivated")
-puts "Roles Created"
+puts "Roles Created" 
+
+admin = User.create(username: "admin", 
+            first_name: "admin", 
+            last_name: "admin", 
+            email:"admin@admin.com", 
+            password: "password", 
+            reset_token:"", 
+            cellphone:"3033333333", 
+            token:"")
+
+admin.roles.create(name:"admin")
+admin.roles.create(name:"activated")
+admin.roles.create(name:"registered user")
+puts "Admin Created"
+
 
 # class Seed
 #   def self.start
