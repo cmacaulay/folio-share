@@ -5,8 +5,7 @@ Role.create(name: "activated")
 Role.create(name: "deactivated")
 puts "Roles Created"
 
-User.destroy_all
-admin = User.create(username: "administrator",
+admin = User.create!(username: "administrator",
             first_name: "administrator",
             last_name: "administrator",
             email:"admin@admin.com",
