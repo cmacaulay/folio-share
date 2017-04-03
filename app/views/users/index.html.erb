@@ -13,7 +13,12 @@
     </td>
   </tr>
 </table>
+<h5>My Folios</h5>
 <br>
 <%= render partial: "shared/breadcrumbs" %>
 <br>
 <%= render partial: "shared/data_table" %>
+
+<% unless current_user.shared_on.first.nil? %>
+  <%= render partial: "shared/shared_table" %>
+<% end %>
