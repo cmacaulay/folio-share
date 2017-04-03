@@ -13,16 +13,16 @@ class Permission
   def allow?(controller, action)
     @controller = controller
     @action = action
-  
+
     case
-    when user.admin? 
+    when user.admin?
       admin_permissions
     when user.deactivated_user?
       user_deactivated_permissions
-    else user.activated_user?
+    when user.activated_user?
       user_activated_permissions
-    # else
-      #guest_user_permissions
+    else
+      guest_permissions
     end
   end
 
@@ -45,5 +45,10 @@ private
   def user_deactivated_permissions
     return true if controller == "sessions"
     return true if controller == "users" && action.in?(%w(index edit update))
+  end
+
+  def guest_permissions
+    return true if controller == "sessions"
+    return true if controller == "users" && action.in?(%w(new create))
   end
 end
