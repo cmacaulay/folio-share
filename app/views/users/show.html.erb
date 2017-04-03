@@ -1,4 +1,4 @@
-<h1>Account Info: <%= @user.first_name %> <%= @user.last_name %></h1>
+<h1>Account Info: <%= current_user.full_name %></h1>
 <%= link_to material_icon.mode_edit, edit_user_path(current_user), class: "btn-floating btn-large red" %>
 <div class="container">
 <ul class="collection">

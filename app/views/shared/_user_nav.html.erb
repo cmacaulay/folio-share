@@ -3,7 +3,7 @@
       <div class="nav-wrapper">
         <%= link_to "Folio Share", home_path, class: "brand-logo" %>
         <ul class="right hide-on-med-and-down">
-          <li><%= link_to @user.username, user_path(current_user) %></li>
+          <li><%= link_to current_user.full_name, user_path(current_user) %></li>
           <li><%= link_to "Edit Account Details", edit_user_path(current_user) %></li>
           <li><%= link_to "Logout", logout_path, method: "delete" %></li>
         </ul>
