@@ -2,10 +2,10 @@ class Admin::UsersController < ApplicationController
 
   def update
    @user = User.find(params[:id])
-   if @user.roles.where(name: "activated").exists?
+   if @user.activated_user?
      @user.deactivate
     elsif
-      @user.roles.where(name: "deactivated").exists?
+      @user.deactivated_user?
       @user.activate
     else
     end

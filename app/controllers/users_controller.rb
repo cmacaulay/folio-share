@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :authorize!
   def new
     @user = User.new
   end
