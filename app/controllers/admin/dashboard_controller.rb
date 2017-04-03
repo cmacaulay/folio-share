@@ -1,7 +1,7 @@
 class Admin::DashboardController < ApplicationController
 before_action :authorize!
 
-  def dashboard 
+  def index
     @uploads = Upload.all
     @users = User.all
   end

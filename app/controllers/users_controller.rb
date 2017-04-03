@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-before_action :authorize!, only: [:show, :index, :edit, :update]
+  before_action :authorize!, only: [:show, :index, :edit, :update]
+  after_action :current_folder, only: :index
 
   def new
     @user = User.new
@@ -10,7 +11,7 @@ before_action :authorize!, only: [:show, :index, :edit, :update]
     if @user.save
       @user.registered_user
       session[:user_id] = @user.id
-      redirect_to home_path
+      redirect_to folio_path
     else
       flash[:danger] = "Please fill in every field to create an account."
       render :new
@@ -21,7 +22,7 @@ before_action :authorize!, only: [:show, :index, :edit, :update]
   end
 
   def index
-    @current_folder = current_user.root_folder
+    session[:current_folder_id] = current_user.root_folder.id
     @folder = Folder.new
     @file = Upload.new
   end
@@ -35,7 +36,7 @@ before_action :authorize!, only: [:show, :index, :edit, :update]
     @user.update_attributes(user_params)
     @user.update_attribute(:password, params[:user][:new_password])
     flash[:success] = "Account Successfully Updated!"
-    redirect_to home_path
+    redirect_to folio_path
   end
 
   private
