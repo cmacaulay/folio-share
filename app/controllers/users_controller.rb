@@ -12,7 +12,6 @@ before_action :authorize!, only: [:show, :index, :edit, :update]
       session[:user_id] = @user.id
       redirect_to home_path
     else
-      flash[:danger] = "Please fill in every field to create an account."
       render :new
     end
   end
