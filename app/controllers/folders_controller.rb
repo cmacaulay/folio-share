@@ -24,17 +24,11 @@ before_action :authorize!
   end
 
   def destroy
-    byebug
     @folder = Folder.find(params[:id])
-    if current_user.admin? || current_user.id == @folder.user_id
-      @folder.destroy
-      flash[:danger] = "Folder deleted."
-      if current_user.admin?
-        redirect_to admin_dashboard_path
-      else
-        redirect_to home_path
-      end
-    else
+     if @folder.destroy
+       flash[:danger] = "Folder deleted."
+       redirect_to home_path
+     else
       flash[:danger] = "Folder not deleted."
       redirect_to home_path
     end

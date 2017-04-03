@@ -30,7 +30,7 @@
           <% if child.class == Upload %>
             <%= link_to "Delete", upload_path(child), method: :delete, class: "btn btn-upload-delete"%>
           <% else %>
-          <%= link_to "Delete", delete_folder_path(child), method: :delete, class: "btn btn-folder-delete"%>
+          <%= link_to "Delete", folder_path(child), method: :delete, class: "btn btn-folder-delete"%>
           <% end %>
         </td>
       </tr>
