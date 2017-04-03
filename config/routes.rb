@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
 
   # uploads, comments & download
-  resources :uploads, path: :u, only: [:new, :show, :create, :destroy]
+  resources :uploads, path: :u, only: [:new, :create, :show, :update, :destroy]
   get "/u/:id/download", to: "uploads/download#index", as: "upload_download"
 
   resources :uploads, path: :u, only: [:show] do
