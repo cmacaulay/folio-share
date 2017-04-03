@@ -33,4 +33,8 @@ class Upload < ApplicationRecord
   def local_filepath
     attachment.file.file
   end
+
+  def owner
+    self.folder.owner.id
+  end
 end
