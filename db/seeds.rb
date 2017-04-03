@@ -1,9 +1,9 @@
-# Role.destroy_all
-# Role.create(name: "registered user")
-# Role.create(name: "admin")
-# Role.create(name: "activated")
-# Role.create(name: "deactivated")
-# puts "Roles Created"
+Role.destroy_all
+Role.create(name: "registered user")
+Role.create(name: "admin")
+Role.create(name: "activated")
+Role.create(name: "deactivated")
+puts "Roles Created"
 
 admin = User.create!(username: "administrator",
             first_name: "administrator",
