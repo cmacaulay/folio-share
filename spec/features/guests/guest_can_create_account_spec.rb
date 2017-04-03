@@ -14,7 +14,7 @@ feature "Guest" do
 
     expect { click_on "Create Folio" }.to change(User, :count).by(1)
 
-    expect(current_path).to eq("/home")
+    expect(current_path).to eq(folio_path)
     expect(page).to have_content("Sal's Folio")
     within("div.breadcrumbs") do
       expect(page).to have_content("Folio")

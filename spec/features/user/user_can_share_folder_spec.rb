@@ -18,7 +18,7 @@ describe "a user can shares a folder with another user" do
 
       click_button "Start Sharing"
 
-      expect(current_path).to eq("/home")
+      expect(current_path).to eq(folio_path)
       expect(page).to have_content(folder.name)
 
       click_on "Share Folder"
@@ -46,7 +46,7 @@ describe "a user can shares a folder with another user" do
 
       click_button "Start Sharing"
 
-      expect(current_path).to eq("/home")
+      expect(current_path).to eq(folio_path)
       expect(page).to have_content(folder.name)
 
       click_on "Share Folder"
@@ -65,7 +65,7 @@ describe "a user can shares a folder with another user" do
 
       click_button "Start Sharing"
 
-      expect(current_path).to eq "/home"
+      expect(current_path).to eq(folio_path)
       within(".shared-table") do
         expect(page).to have_content(folder.name)
         expect(page).to have_content(user1.username)
@@ -88,7 +88,7 @@ describe "a user can shares a folder with another user" do
 
       click_button "Start Sharing"
 
-      expect(current_path).to eq("/home")
+      expect(current_path).to eq(folio_path)
       expect(page).to have_content(folder.name)
 
       click_on "Share Folder"
