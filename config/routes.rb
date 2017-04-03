@@ -20,9 +20,14 @@ Rails.application.routes.draw do
   # users
   resources :users, only: [:new, :create, :edit, :update, :show]
 
-  # folders & download
+
   resources :folders, path: :f, only: [:show]
   resources :folders, path: "f/:id", only: [:new, :create]
+  delete "f/delete", to: "folders#destroy", as: "delete_folder"
+  resources :folders, path: :f, only: [:show] do
+    get "/share", to: "folders/collaborations#new"
+    post "/share", to: "folders/collaborations#create"
+  end
 
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
 
@@ -33,4 +38,5 @@ Rails.application.routes.draw do
   resources :uploads, path: :u, only: [:show] do
     resources :comments, only: [:create]
   end
+
 end
