@@ -18,4 +18,4 @@ class TwilioService
       body: "Your reset code is #{@user.reset_token}"
       )
   end
-end 
+end

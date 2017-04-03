@@ -39,6 +39,7 @@ gem 'figaro'
 gem 'carrierwave'
 gem 'fog'
 gem 'materialize-sass'
+gem 'rubyzip'
 gem 'material_icons'
 
 group :development, :test do

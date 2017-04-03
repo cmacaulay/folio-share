@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @user ||= User.find(session[:user_id]) if session[:user_id]
+    @user ||= user_decorator if session[:user_id]
+  end
+
+  def user_decorator
+    UserDecorator.new(User.find(session[:user_id]))
   end
 
   def current_permission

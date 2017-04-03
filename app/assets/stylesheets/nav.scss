@@ -1,6 +1,7 @@
 nav  {
   background-color: $taupe;
   height: 48px;
+  padding: 0;
   .brand-logo {
     position: absolute;
     color: $pinky;
@@ -8,7 +9,7 @@ nav  {
     font-size: 1.9rem;
     padding: 0;
     white-space: nowrap;
-    font-family: 'Handlee', cursive;
+    font-family: 'Poiret One', cursive;
   }
   ul {
     a {
@@ -18,7 +19,16 @@ nav  {
       display: block;
       padding: 0 15px;
       cursor: pointer;
-      font-family: 'Handlee', cursive;
+      font-family: 'Poiret One', cursive;
     }
   }
+}
+.navbar-fixed {
+  position: relative;
+  height: 48px;
+  z-index: 997;
+}
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+  height: 48px;
+  line-height: 48px;
 }

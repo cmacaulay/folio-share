@@ -1,8 +1,21 @@
-<h1>Login</h1>
+<h2 class="center">Login To Your Folio</h2>
 
-<%= form_for :session, url: login_path do |f| %>
-<%= f.email_field :email, placeholder: "Email" %>
-<%= f.password_field :password, placeholder: "Password" %>
-<%= f.submit "Login" %>
-<%= link_to "Forgot Password", password_path %>
-<% end %>
+<div class="row center">
+
+  <%= form_for :session, url: login_path, class: "col s12" do |f| %>
+    <div class="input-field col s12">
+      <i class="material-icons prefix">email</i>
+      <%= f.email_field :email, placeholder: "Email", id: "icon-prefix" %>
+    </div>
+
+    <div class="input-field col s12">
+      <i class="material-icons prefix">lock</i>
+      <%= f.password_field :password, placeholder: "Password", id: "icon-prefix" %>
+    </div>
+
+    <div class="row center">
+      <%= f.submit "Login", class: "btn" %>
+      <%= link_to "Forgot Password", password_path %>
+    </div>
+  <% end %>
+</div>

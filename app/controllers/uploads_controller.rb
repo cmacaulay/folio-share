@@ -1,8 +1,4 @@
 class UploadsController < ApplicationController
-  def new
-    @upload = Upload.new
-  end
-
   def create
     folder = Folder.find(params[:upload][:folder_id])
     upload = Upload.new(upload_params)
@@ -17,6 +13,8 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
+    @comment = Comment.new
+    @comment.upload_id = @upload.id
   end
 
   def destroy

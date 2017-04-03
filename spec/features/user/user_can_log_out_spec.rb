@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "As a registered user, when I am logged in" do
   it "when I select logout my session ends" do
