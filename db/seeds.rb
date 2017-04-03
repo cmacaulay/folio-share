@@ -1,10 +1,11 @@
-# Role.create(name: "registered user")
-# Role.create(name: "admin")
-# Role.create(name: "activated")
-# Role.create(name: "deactivated")
-# puts "Roles Created"
+Role.destroy_all
+Role.create(name: "registered user")
+Role.create(name: "admin")
+Role.create(name: "activated")
+Role.create(name: "deactivated")
+puts "Roles Created"
 
-admin = User.create(username: "administrator", 
+admin = User.create!(username: "administrator",
             first_name: "administrator",
             last_name: "administrator",
             email:"admin@admin.com",
@@ -12,7 +13,6 @@ admin = User.create(username: "administrator",
             reset_token:"",
             cellphone:"3033333333",
             token:"")
-
 admin.roles.create(name:"admin")
 admin.roles.create(name:"activated")
 admin.roles.create(name:"registered user")
