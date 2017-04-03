@@ -11,7 +11,7 @@ admin = User.create!(username: "administrator",
             email:"admin@admin.com",
             password: "password",
             reset_token:"",
-            cellphone:"3033333333",
+            cellphone:"3333333333",
             token:"")
 admin.roles.create(name:"admin")
 admin.roles.create(name:"activated")
