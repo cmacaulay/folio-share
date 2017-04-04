@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   after_create :create_root, :registered_user
 
+  enum status: [:activated, :deactivated]
+
   def root_folder
     folders.find_by(parent_id: nil)
   end
@@ -32,39 +34,24 @@ class User < ApplicationRecord
   end
 
   def activated_user?
-    roles.exists?(name: "activated")
+    self.status == "activated"
   end
 
   def deactivated_user?
-    roles.exists?(name: "deactivated")
+    self.status == "deactivated"
   end
 
   def registered_user
     role = Role.find_or_create_by(name: 'registered user')
     self.roles << role
-    self.activated
-  end
-
-  def activated
-    role = Role.find_or_create_by(name:"activated")
-    self.roles << role
-  end
-
-  def deactivated
-    role = Role.find_or_create_by(name:"deactivated")
-    self.roles << role
   end
 
   def activate
-    role = Role.find_or_create_by(name: "deactivated")
-    self.user_roles.find_by(role_id: role.id).delete
-    self.activated
+    self.update(status: "activated")
   end
 
   def deactivate
-    role = Role.find_or_create_by(name: "activated")
-    self.user_roles.find_by(role_id: role.id).delete
-    self.deactivated
+    self.update(status: "deactivated")
   end
 
   def full_name
