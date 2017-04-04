@@ -30,7 +30,7 @@
         </td>
         <td><%= child.display_privacy %></td>
         <td>
-          <%= link_to "Make #{child.opposite_privacy}", folder_or_upload_path(current_folder: @current_folder, child: child), method: :put, class: "btn"  %>
+          <%= link_to "Make #{child.opposite_privacy}", folder_or_upload_path(current_folder: current_folder, child: child), method: :put, class: "btn"  %>
         </td>
         <td>
           <% if child.class == Upload %>

@@ -10,7 +10,7 @@ module PathsHelper
   def folder_or_folio_path(folder_id)
     folder = current_user.folders.find(folder_id)
     if folder.root_folder?
-      home_path
+      folio_path
     else
       folder_path(folder)
     end

@@ -7,8 +7,13 @@ module PrivacySettings
     privacy_enum[!is_private]
   end
 
-  def change_privacy
-    update_attributes!(is_private: !is_private)
+  def change_privacy(setting = nil)
+    setting = !is_private if setting.nil?
+    update_attributes!(is_private: setting)
+    if self.class == Folder
+      uploads.each { |upload| upload.change_privacy(setting) }
+      subfolders.each { |subfolder| subfolder.change_privacy(setting) }
+    end
   end
 
   def privacy_enum

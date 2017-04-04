@@ -39,10 +39,6 @@ class Upload < ApplicationRecord
     folder.owner
   end
 
-  def parent
-    folder
-  end
-
   def self.public_uploads
     Upload.where(is_private: false)
   end
