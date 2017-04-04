@@ -1,7 +1,7 @@
 <div class="center">
-  <h2>Share "<%= link_to current_folder.name, folder_path(current_folder) %>" with:</h2>
+  <h2>Share "<%= link_to @share.folder.name, folder_path(@share.folder) %>" with:</h2>
   <div class="center">
-    <%= form_for :collaboration, url: folder_share_path do |f| %>
+    <%= form_for :collaboration, url: folder_share_path(@share.folder) do |f| %>
       <div class="container">
         <div class="input-field">
           <i class="material-icons prefix">folder_shared</i>
