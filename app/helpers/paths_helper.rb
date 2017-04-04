@@ -23,4 +23,12 @@ module PathsHelper
       public_folder_path(child)
     end
   end
+
+  def back_path(default_path)
+    if request.referer.nil?
+      default_path
+    else
+      URI(request.referer)
+    end
+  end
 end
