@@ -122,4 +122,20 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+.folio_root_actions {
+
+}
+
+.breadcrumb_folio {
+  float: left;
+}
+
+.download_folio_icon {
+
+}
+
+.material-icons {
+  color: $dark-slate;
+}
+
 @import 'partials/_forms';

@@ -52,11 +52,11 @@
         </td>
         <td class="table_data_center">
           <% if child.class == Upload %>
-            <i class="material-icons" class="delete_icon">delete</i>
+            <i class="material-icons">delete</i>
             <br>
             <%= button_to "Delete", upload_path(child), method: :delete%>
           <% else %>
-            <i class="material-icons" class="delete_icon">delete</i>
+            <i class="material-icons">delete</i>
             <br>
             <%= button_to "Delete", folder_path(child), method: :delete%>
           <% end %>

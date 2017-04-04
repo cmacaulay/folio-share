@@ -1,6 +1,6 @@
 <h1><%= current_user.first %>'s Folio</h1>
 
-<table>
+<table class="folio_root_actions">
   <tr>
     <td>
       <%= link_to "Create New Folder", new_folder_path(current_folder), class: "btn" %>
@@ -8,14 +8,16 @@
     <td>
       <%= render partial: "shared/upload_form" %>
     </td>
-    <td>
-      <%= link_to "Download", folder_download_path(current_folder), class: "btn" %>
-    </td>
   </tr>
 </table>
 <h5>My Folios</h5>
 <br>
-<%= render partial: "shared/breadcrumbs" %>
+<div class="breadcrumb_folio">
+  <%= render partial: "shared/breadcrumbs" %>
+</div>
+<div class="download_folio_icon">
+  <%= link_to folder_download_path(current_folder) do %><span><i class="material-icons">file_download</i></span><% end %>
+</div>
 <br>
 <%= render partial: "shared/owned_table" %>
 
