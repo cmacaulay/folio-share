@@ -1,8 +1,19 @@
-<h1>Create A New Folder</h1>
+<div class="center">
+
+<h1><%= current_user.first %>'s New Folder:</h1>
+<div class="center">
 
 <%= form_for @folder do |f| %>
-  <%= f.text_field :name, placeholder: "Folder Name" %>
-  <%= f.text_field :user_id, value: "#{current_user.id}", type: :hidden %>
-  <%= f.text_field :parent_id, value: "#{current_folder.id}", type: :hidden %>
-  <%= f.submit "Create Folder" %>
+<div class="container">
+  <div class="input-field">
+    <i class="material-icons prefix">create_new_folder</i>
+      <%= f.text_field :name, placeholder: "Folder Name" %>
+    </div>
+
+      <%= f.text_field :user_id, value: "#{current_user.id}", type: :hidden %>
+      <%= f.text_field :parent_id, value: "#{current_folder.id}", type: :hidden %>
+      <%= f.submit "Create Folder", class: "btn" %>
+    </div>
 <% end %>
+</div>
+</div>
