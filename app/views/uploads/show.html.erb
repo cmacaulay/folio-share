@@ -1,5 +1,6 @@
-<div class="file_header row">
-  <div class="col s9">
+<br>
+<div class="row">
+  <div class="file-info col s7">
     <table>
       <tr>
         <td rowspan=2>
@@ -17,8 +18,8 @@
       </tr>
     </table>
   </div>
-  <div class="col s3">
-    <%= link_to "Download", upload_download_path(@upload), class: "btn" %>
+  <div class="file-buttons col s5">
+    <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
   </div>
 </div>
 
