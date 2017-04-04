@@ -16,10 +16,10 @@ describe "when an admin logs in" do
 
     fill_in "session[email]", with: admin.email
     fill_in "session[password]", with: admin.password
-
-    click_button "Login"
+    
+    click_button "Start Sharing"
 
     expect(current_path).to eq("/admin/dashboard")
-    expect(page).to have_content("Welcome Admin")
+    expect(page).to have_content("Admin Dashboard")
   end
 end

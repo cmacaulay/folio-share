@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         redirect_to admin_dashboard_path
       else
         flash[:success] = "#{user.first_name} Has Successfully Logged In"
-        redirect_to home_path
+        redirect_to folio_path
       end
     else
       flash[:error] = "Incorrect entry"
