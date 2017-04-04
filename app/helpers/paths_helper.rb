@@ -1,9 +1,9 @@
 module PathsHelper
-  def folder_or_upload_path(params)
-    if params[:child].class == Upload
-      upload_path(params[:current_folder], params[:child])
-    elsif params[:child].class == Folder
-      folder_path(params[:child])
+  def folder_or_upload_path(child)
+    if child.class == Upload
+      upload_path(current_folder, child)
+    elsif child.class == Folder
+      folder_path(child)
     end
   end
 
