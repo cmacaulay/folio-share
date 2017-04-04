@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   put '/password/update', to: 'passwords#update', as: "update_password"
 
   # users
-  resources :users, only: [:new, :create, :edit, :update, :show]
+  resources :users, path: '', only: [:show, :edit, :update]
+  resources :users, only: [:new, :create]
 
   # folders
   resources :folders, path: "f/:id", only: [:new, :create]
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
   end
+
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
 
   # uploads, comments & download

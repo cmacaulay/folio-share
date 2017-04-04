@@ -1,6 +1,7 @@
 <table class="responsive-table bordered highlight">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>File Size</th>
       <th>File Type</th>
@@ -13,6 +14,13 @@
   <tbody>
     <tr>
       <% current_folder.children.each do |child| %>
+        <td>
+          <% if child.class == Folder %>
+            <i class="material-icons">work</i>
+          <% else %>
+            <i class="material-icons">description</i>
+          <% end %>
+        </td>
         <td>
           <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
         </td>

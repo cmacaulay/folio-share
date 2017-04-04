@@ -50,6 +50,10 @@ class User < ApplicationRecord
     self.roles << role
   end
 
+  def to_param
+    username.parameterize
+  end
+
   def deactivated
     role = Role.find_or_create_by(name:"deactivated")
     self.roles << role
