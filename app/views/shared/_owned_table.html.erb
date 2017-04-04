@@ -16,10 +16,12 @@
     <tr>
       <% current_folder.children.each do |child| %>
         <td>
-          <% if child.class == Folder %>
-            <i class="material-icons">work</i>
-          <% else %>
+          <% if child.class == Upload %>
             <i class="material-icons">description</i>
+          <% elsif child.collaborations.count > 0 %>
+            <i class="material-icons">folder_shared</i>
+          <% else %>
+            <i class="material-icons">folder</i>
           <% end %>
         </td>
         <td>
