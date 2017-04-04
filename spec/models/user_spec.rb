@@ -22,4 +22,90 @@ RSpec.describe User, type: :model do
       expect(user.root_folder).to eq(root)
     end
   end
+
+  describe "create_reset_digest" do
+    it "should assing a random token" do
+      user = create(:user)
+      user.create_reset_digest
+
+      expect(user.reset_token).to_not be(nil)
+    end
+  end
+
+  describe "user" do 
+    it "should verify if user is admin" do
+      user = create(:user)
+      user.roles.create(name: "admin")
+      user.admin?
+
+      expect(user.roles.take.name).to eq("admin")
+    end
+  end
+
+  describe "user" do 
+    it "should verify if user is activated" do
+      user = create(:user)
+      user.roles.create(name: "activated")
+      user.activated_user?
+
+      expect(user.roles.take.name).to eq("activated")
+    end
+  end
+
+  describe "user" do 
+    it "should verify if user is deactivated" do
+      user = create(:user)
+      user.roles.create(name: "deactivated")
+      user.deactivated_user?
+
+      expect(user.roles.take.name).to eq("deactivated")
+    end
+  end
+
+  describe "user" do 
+    it "should locate or create a registered user role" do
+      user = create(:user)
+      user.registered_user
+
+      expect(user.roles.first.name).to eq("registered user")
+    end
+  end
+
+  describe "user" do 
+    it "should locate or create an activated role" do
+      user_one = create(:user)
+      user_one.activated
+
+      expect(user_one.roles.last.name).to eq("activated")
+    end
+  end
+
+  describe "user" do 
+    it "should locate or create a deactivated user role" do
+      user_two = create(:user)
+      user_two.deactivated
+
+      expect(user_two.roles.last.name).to eq("deactivated")
+    end
+  end
+
+  describe "user" do 
+    it "should activate a deactivated user" do
+      user_three = create(:user)
+      user_three.deactivated
+      user_three.activate
+
+      expect(user_three.roles.last.name).to eq("activated")
+    end
+  end
+
+    describe "user" do 
+    it "should deactivate an activated user" do
+      user_four = create(:user)
+      user_four.activated
+      user_four.deactivate
+
+      expect(user_four.roles.last.name).to eq("deactivated")
+    end
+  end
 end
