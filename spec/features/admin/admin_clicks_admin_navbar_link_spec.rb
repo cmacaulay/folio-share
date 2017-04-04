@@ -4,6 +4,8 @@ feature "admin visit user index(show) page" do
   describe "clicks admin link" do
     it "redirects to admin dashboard" do
       admin = create(:user)
+      admin = UserDecorator.new(admin)
+
       admin.roles.create(name: "admin")
 
       controller = ApplicationController

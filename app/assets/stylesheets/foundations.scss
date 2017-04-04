@@ -1,5 +1,7 @@
 body {
   background-color: lighten($light-green, 15%);
+  font-family: 'Cabin', sans-serif;
+  color: $dark-slate;
 }
 
 .box {
@@ -48,8 +50,10 @@ h2 {
   font-size: 3.4rem;
   line-height: 110%;
   margin: 1.78rem 0 1.424rem 0;
-  font-family: 'Poiret One', cursive;
   color: $dark-slate;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poiret One', cursive;
 }
 
 .comment_header {
