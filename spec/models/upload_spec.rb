@@ -84,4 +84,18 @@ RSpec.describe Upload, type: :model do
       expect(file.local_filepath).to eq(actual_local_filepath)
     end
   end
+
+  describe "#self.public_uploads" do
+      it "returns all uploads that are not private (i.e. public)" do
+      user = create(:user)
+      folio = user.root_folder
+      subfolder = create(:folder, user: user, parent: folio, is_private: false)
+      upload_private = create(:upload, folder: folio)
+      upload_public1 = create(:upload, folder: folio, is_private: false)
+      upload_public2 = create(:upload, folder: subfolder)
+
+      expect(Upload.public_uploads).to eq([upload_public1, upload_public2])
+      expect(Upload.public_uploads).to_not eq(upload_private)
+    end
+  end
 end
