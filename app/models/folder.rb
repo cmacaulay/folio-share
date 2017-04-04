@@ -1,4 +1,6 @@
 class Folder < ApplicationRecord
+  include PrivacySettings
+
   belongs_to :user
   belongs_to :parent, class_name: "Folder", optional: true
 
@@ -13,7 +15,7 @@ class Folder < ApplicationRecord
   alias_attribute :owner, :user
 
   enum ({status: [:active, :inactive]})
-  
+
   def ancestors(list = [])
     unless parent_id.nil?
       list.unshift(parent)
@@ -48,11 +50,17 @@ class Folder < ApplicationRecord
     ""
   end
 
-  def display_privacy
-    ""
-  end
+  def self.public_top_folders
+    query = "SELECT folders.id
+      FROM folders
+      INNER JOIN folders as parents
+              ON folders.parent_id = parents.id
+      WHERE folders.is_private = false
+        AND parents.is_private = true
+      ;"
+    results = ActiveRecord::Base.connection.execute(query)
+    ids = results.map { |id| id.values }.flatten
 
-  def download
-    ZipGenerator.new(self).download
+    Folder.where(id: ids)
   end
 end

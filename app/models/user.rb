@@ -55,14 +55,14 @@ class User < ApplicationRecord
     self.roles << role
   end
 
-  def activate 
+  def activate
     role = Role.find_by(name: "deactivated")
     self.user_roles.find_by(role_id: role.id).delete
     self.activated
   end
 
-  def deactivate 
-    role = Role.find_by(name: "activated") 
+  def deactivate
+    role = Role.find_by(name: "activated")
     self.user_roles.find_by(role_id: role.id).delete
     self.deactivated
   end

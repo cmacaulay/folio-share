@@ -1,5 +1,6 @@
 class FoldersController < ApplicationController
-before_action :authorize!
+  include PathsHelper
+  before_action :authorize!
 
   def show
     @current_folder = Folder.find(params[:id])
@@ -21,6 +22,16 @@ before_action :authorize!
       flash[:danger] = "Incorrect Entry"
       redirect_to new_folder_path(@current_folder)
     end
+  end
+
+  def update
+    folder = Folder.find(params[:id])
+    if folder.change_privacy
+      flash[:success] = "Success!"
+    else
+      flash[:danger] = "Something went wrong... Please try again."
+    end
+    redirect_to folder_or_folio_path(folder.parent.id)
   end
 
   private

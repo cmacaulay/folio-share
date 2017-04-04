@@ -1,4 +1,6 @@
 class Upload < ApplicationRecord
+  include PrivacySettings
+
   mount_uploader :attachment, AttachmentUploader
 
   belongs_to :folder
@@ -35,18 +37,14 @@ class Upload < ApplicationRecord
   end
 
   def owner
-    self.folder.owner.id
-  end 
-
-  def display_privacy
-    is_private ? "Private" : "Public"
+    folder.owner
   end
 
-  def opposite_privacy
-    is_private ? "Public" : "Private"
+  def parent
+    folder
   end
 
-  def change_privacy
-    assign_attributes(is_private: !is_private)
+  def self.public_uploads
+    Upload.where(is_private: false)
   end
 end

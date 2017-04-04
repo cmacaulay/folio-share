@@ -1,0 +1,26 @@
+<h1>Some Header TBD</h1>
+
+<div class="file_content">
+  <hr>
+  <p>file_name:  <strong><%= @upload.name %></strong></p>
+  <hr>
+  <p>file size:  <strong><%= @upload.size %></strong></p>
+  <hr>
+  <p>file type:  <strong><%= @upload.content_type %></strong></p>
+  <hr>
+  <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %></p>
+</div>
+
+<div class="comment_section">
+  <% if current_user %>
+    <%= render partial: "comments/form" %>
+  <% end %>
+  <h5>Total Comments (<%= @upload.comments.size %>)</h5>
+  <% @upload.comments.each do |comment| %>
+    <div class="one_comment">
+      <strong><%= comment.user.username %> </strong>
+      <p><%= comment.content %></p>
+      <p>(Posted on <%= comment.created_at.strftime("%d %b. %Y") %>)</p>
+    </div>
+  <% end %>
+</div>
