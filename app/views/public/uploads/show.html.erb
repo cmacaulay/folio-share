@@ -1,10 +1,9 @@
-<br>
-<div class="row">
-  <div class="file-info col s7">
+<div class="file_header row">
+  <div class="col s9">
     <table>
       <tr>
         <td rowspan=2>
-          <a href="<%= folder_path(current_folder) %>"><i class="material-icons md-48">navigate_before</i></a>
+          <a href="<%= @back_path %>"><i class="material-icons md-48">navigate_before</i></a>
         </td>
         <td class="compact">
           <h4 class="compact"><%= @upload.name %></h4>
@@ -18,8 +17,8 @@
       </tr>
     </table>
   </div>
-  <div class="file-buttons col s5">
-    <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+  <div class="col s3">
+    Share <%= link_to "Download", upload_download_path(@upload), class: "btn" %>
   </div>
 </div>
 

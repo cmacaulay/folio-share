@@ -1,0 +1,25 @@
+<table class="responsive-table bordered highlight">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File Size</th>
+      <th>File Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% current_folder.children.each do |child| %>
+        <td>
+          <%= link_to child.name, public_folder_or_upload_path(child) %>
+        </td>
+        <td>
+          <%= child.size %>
+        </td>
+        <td>
+          <%= child.content_type %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
