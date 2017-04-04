@@ -6,3 +6,4 @@ before_action :authorize!
     @users = User.all
   end
 end
+

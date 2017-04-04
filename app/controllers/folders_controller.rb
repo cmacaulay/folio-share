@@ -23,6 +23,17 @@ class FoldersController < ApplicationController
     end
   end
 
+  def destroy
+    @folder = Folder.find(params[:id])
+     if @folder.destroy
+       flash[:danger] = "Folder deleted."
+       redirect_to folio_path
+     else
+      flash[:danger] = "Folder not deleted."
+      redirect_to folio_path
+    end
+  end
+
   private
 
   def folder_params
