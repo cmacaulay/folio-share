@@ -1,8 +1,8 @@
 <div class="center">
 
-<h1><%= current_user.first %>'s New Folder:</h1>
+<h3>New Folder in <%= current_folder.name %>:</h3>
+<%= render partial: "shared/breadcrumbs" %>
 <div class="center">
-
 <%= form_for @folder do |f| %>
 <div class="container">
   <div class="input-field">
