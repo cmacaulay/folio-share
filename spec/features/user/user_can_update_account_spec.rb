@@ -3,6 +3,7 @@ require "rails_helper"
 describe "As a registered user, when I am logged in" do
   it "I am able to update my account information" do
     user = create(:user, id: 1, first_name: "Harry")
+    user = UserDecorator.new(user)
     controller = ApplicationController
 
     allow_any_instance_of(controller).to receive(:current_user).and_return(user)
