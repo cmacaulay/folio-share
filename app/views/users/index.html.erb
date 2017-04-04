@@ -3,17 +3,22 @@
 <table>
   <tr>
     <td>
-      <%= link_to "Create New Folder", new_folder_path(@current_folder), class: "btn" %>
+      <%= link_to "Create New Folder", new_folder_path(current_folder), class: "btn" %>
     </td>
     <td>
       <%= render partial: "shared/upload_form" %>
     </td>
     <td>
-      <%= link_to "Download", folder_download_path(@current_folder), class: "btn" %>
+      <%= link_to "Download", folder_download_path(current_folder), class: "btn" %>
     </td>
   </tr>
 </table>
+<h5>My Folios</h5>
 <br>
 <%= render partial: "shared/breadcrumbs" %>
 <br>
-<%= render partial: "shared/data_table" %>
+<%= render partial: "shared/owned_table" %>
+
+<% unless current_user.shared_on.first.nil? %>
+  <%= render partial: "shared/shared_table" %>
+<% end %>

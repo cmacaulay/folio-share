@@ -1,12 +1,17 @@
 <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
-        <%= link_to "Folio Share", home_path, class: "brand-logo" %>
-        <ul class="right hide-on-med-and-down">
+      <div class="container">
+        <div class="nav-wrapper">
+          <%= link_to "Folio Share", folio_path, class: "brand-logo" %>
+         <ul class="right hide-on-med-and-down">
           <li><%= link_to current_user.full_name, user_path(current_user) %></li>
           <li><%= link_to "Edit Account Details", edit_user_path(current_user) %></li>
+          <%if current_user.admin?%>
+            <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+          <% end %>
           <li><%= link_to "Logout", logout_path, method: "delete" %></li>
         </ul>
       </div>
+     </div>
     </nav>
   </div>

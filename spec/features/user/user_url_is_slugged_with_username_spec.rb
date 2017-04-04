@@ -10,6 +10,8 @@ RSpec.feature "User" do
       password: "password",
       username: "espinosa1"
     )
+    user.roles.create(name: "registered user")
+    user.roles.create(name: "activated")
 
     controller = ApplicationController
     allow_any_instance_of(controller).to receive(:current_user).and_return(user)

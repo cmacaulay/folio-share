@@ -1,0 +1,52 @@
+<table class="responsive-table bordered highlight">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>File Size</th>
+      <th>File Type</th>
+      <th>Share</th>
+      <th>Delete</th>
+      <th>Privacy Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% current_folder.children.each do |child| %>
+        <td>
+          <% if child.class == Folder %>
+            <i class="material-icons">work</i>
+          <% else %>
+            <i class="material-icons">description</i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
+        </td>
+        <td>
+          <%= child.size %>
+        </td>
+        <td>
+          <%= child.content_type %>
+        </td>
+        <td>
+          <% if child.class == Folder %>
+            <%= link_to "Share Folder", folder_share_path(child), class: "btn"%>
+          <% end %>
+        </td>
+        <td>
+          <% if child.class == Upload %>
+            <%= link_to "Delete", upload_path(child), method: :delete, class: "btn"%>
+          <% end %>
+        <td><%= child.display_privacy %></td>
+        <td>
+          <% if child.class == Upload %>
+            <%= link_to "Make #{child.opposite_privacy}", upload_path(current_folder, child), method: :put, class: "btn"  %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

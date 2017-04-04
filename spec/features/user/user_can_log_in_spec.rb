@@ -17,9 +17,9 @@ feature "user logs in" do
       fill_in "session[email]", with: user.email
       fill_in "session[password]", with: user.password
 
-      click_button "Login"
+      click_button "Start Sharing"
 
-      expect(current_path).to eq("/home")
+      expect(current_path).to eq(folio_path)
       expect(page).to have_content("Sal's Folio")
       expect(page).to_not have_content("Login")
       expect(page).to have_link("Logout")
@@ -33,7 +33,7 @@ feature "user logs in" do
         last_name: "Espinosa",
         email: "espinosa2@example.com",
         cellphone: "3033333333",
-        password: "password", 
+        password: "password",
         username: "espinosa2"
       )
 
@@ -42,7 +42,7 @@ feature "user logs in" do
       fill_in "session[email]", with: "espinosa@hotmail.com"
       fill_in "session[password]", with: "pass"
 
-      click_button "Login"
+      click_button "Start Sharing"
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Incorrect entry")
