@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe "a registered user" do
-  it "can delete a file they own" do
+  it "can delete a folder they own" do
     user    = create(:user)
-    upload  = create(:upload, name: "Flowers", folder: user.root_folder)
+    folder  = create(:folder, name: "Flowers", parent: user.root_folder)
 
     visit "/login"
 
@@ -12,13 +12,13 @@ describe "a registered user" do
 
     click_button "Start Sharing"
 
-    expect(current_path).to eq(folio_path)
+    expect(current_path).to eq("/Folio")
     expect(page).to have_content("Flowers")
 
     click_on "Delete"
 
-    expect(current_path).to eq(folio_path)
+    expect(current_path).to eq("/Folio")
     expect(page).to_not have_content("Flowers")
-    expect(page).to have_content("File deleted.")
+    expect(page).to have_content("Folder deleted.")
   end
 end
