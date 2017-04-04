@@ -10,15 +10,20 @@ class ZipGenerator
   end
 
   def download
-    Zip::File.open(temp_file.path, Zip::File::CREATE) do |zipfile|
-      uploads.each do |upload|
-        if download_type == Folder
-          upload_path = upload.folio_filepath
-        elsif download_type == Upload
-          upload_path = upload.name
+    if uploads.empty?
+      :failure
+    else
+      Zip::File.open(temp_file.path, Zip::File::CREATE) do |zipfile|
+        uploads.each do |upload|
+          if download_type == Folder
+            upload_path = upload.folio_filepath
+          elsif download_type == Upload
+            upload_path = upload.name
+          end
+          zipfile.add(upload_path, upload.local_filepath)
         end
-        zipfile.add(upload_path, upload.local_filepath)
       end
+      :success
     end
   end
 

@@ -3,6 +3,7 @@
 
   <div class="row center">
     <%= form_for @user, class: "col s12" do |f| %>
+    <%= render 'users/error_messages', object: f.object %>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">account_circle</i>
@@ -26,11 +27,11 @@
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">lock</i>
-          <%= f.text_field :password, placeholder: "Password", id: "icon-prefix"%>
+          <%= f.password_field :password, placeholder: "Password", id: "icon-prefix"%>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">security</i>
-          <%= f.text_field :password_confirmation, placeholder: "Password Confirmation", id: "icon-prefix" %>
+          <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", id: "icon-prefix" %>
         </div>
         <%= f.submit "Start Sharing", class: "btn" %>
       </div>

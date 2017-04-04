@@ -19,7 +19,7 @@ feature "user logs in" do
 
       click_button "Start Sharing"
 
-      expect(current_path).to eq("/home")
+      expect(current_path).to eq(folio_path)
       expect(page).to have_content("Sal's Folio")
       expect(page).to_not have_content("Login")
       expect(page).to have_link("Logout")
@@ -42,7 +42,7 @@ feature "user logs in" do
       fill_in "session[email]", with: "espinosa@hotmail.com"
       fill_in "session[password]", with: "pass"
 
-      click_button "Login"
+      click_button "Start Sharing"
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Incorrect entry")

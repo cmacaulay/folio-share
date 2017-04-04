@@ -12,12 +12,12 @@ describe "a registered user" do
 
     click_button "Start Sharing"
 
-    expect(current_path).to eq("/home")
+    expect(current_path).to eq(folio_path)
     expect(page).to have_content("Flowers")
 
     click_on "Delete"
 
-    expect(current_path).to eq("/home")
+    expect(current_path).to eq(folio_path)
     expect(page).to_not have_content("Flowers")
     expect(page).to have_content("File deleted.")
   end

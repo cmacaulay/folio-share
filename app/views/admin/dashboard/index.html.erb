@@ -51,7 +51,7 @@
                 <td><%=user.first_name%></td>
                 <td><%=user.last_name%></td>
                 <td><%=user.email%></td>
-                <td><%=user.roles.take.name%></td>
+                <td><%=user.roles.name%></td>
                 <% if user.activated_user?%>
                 <td><%= link_to "deactivate", admin_user_path(user), method: :put%>
                 <%elsif user.deactivated_user?%>
