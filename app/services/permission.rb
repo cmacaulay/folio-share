@@ -29,7 +29,7 @@ class Permission
 private
   def admin_permissions
     return true if controller == "sessions"
-    return true if controller == "admin/dashboard" && action.in?("dashboard")
+    return true if controller == "admin/dashboard" && action.in?("index")
     return true if controller == "users" && action.in?(%w(index edit update show))
     return true if controller == "folders" && action.in?(%(show new create))
     return true if controller == "uploads" && action.in?(%(new create show destroy))

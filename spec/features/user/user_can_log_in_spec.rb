@@ -42,7 +42,7 @@ feature "user logs in" do
       fill_in "session[email]", with: "espinosa@hotmail.com"
       fill_in "session[password]", with: "pass"
 
-      click_button "Login"
+      click_button "Start Sharing"
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Incorrect entry")
