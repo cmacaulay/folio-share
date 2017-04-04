@@ -22,7 +22,7 @@
           <% end %>
         </td>
         <td>
-          <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
+          <%= link_to child.name, folder_or_upload_path(child) %>
         </td>
         <td>
           <%= child.size %>
@@ -42,9 +42,7 @@
           <% end %>
         </td>
         <td>
-          <% if child.class == Upload %>
-            <%= link_to "Delete", upload_path(child), method: :delete %>
-          <% end %>
+          <%= link_to "Delete", folder_or_upload_path(child), method: :delete %>
         </td>
       </tr>
     <% end %>
