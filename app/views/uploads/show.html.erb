@@ -8,7 +8,7 @@
   <hr>
   <p>file type:  <strong><%= @upload.content_type %></strong></p>
   <hr>
-  <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %></p>
+  <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
 </div>
 
 

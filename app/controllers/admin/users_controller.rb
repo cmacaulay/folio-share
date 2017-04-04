@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   def update
-   @user = User.find(params[:id])
+   @user = User.find_by(params[:username])
    if @user.activated_user?
      @user.deactivate
     elsif
