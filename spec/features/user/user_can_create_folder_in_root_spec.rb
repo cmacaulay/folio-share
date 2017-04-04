@@ -4,6 +4,8 @@ RSpec.feature "User" do
   context "registered" do
     scenario "can create folder in their root directory" do
       user = create(:user)
+      user = UserDecorator.new(user)
+
       root = user.folders.first
       controller = ApplicationController
       allow_any_instance_of(controller).to receive(:current_user).and_return(user)
@@ -25,6 +27,8 @@ RSpec.feature "User" do
 
     scenario "doesn't enter any info before clicking Create Folder" do
       user = create(:user)
+      user = UserDecorator.new(user)
+
       root = user.folders.first
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
