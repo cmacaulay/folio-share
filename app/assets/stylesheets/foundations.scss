@@ -114,4 +114,12 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-tap-highlight-color: transparent;
 }
 
+.table_data_center {
+  text-align: center;
+}
+
+.table_header_center {
+  text-align: center;
+}
+
 @import 'partials/_forms';
