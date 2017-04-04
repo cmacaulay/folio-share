@@ -10,7 +10,8 @@ describe "As a registered user, when I am logged in" do
 
     visit folio_path
 
-    click_on "Edit Account Details"
+    click_on "#{user.full_name}"
+    click_on "Edit Account"
     expect(current_path).to eq(edit_user_path(user))
 
     fill_in "user[first_name]", with: "Purple"
