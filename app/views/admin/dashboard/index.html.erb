@@ -13,15 +13,15 @@
               <th>Delete<th>
             </tr>
           </thead>
-              <% @uploads.each do |upload|%>
           <tbody>
-            <tr>
-              <td> <%= upload.user.username%></td>
-              <td> <%=link_to "#{upload.name}", upload_path(upload)%></td>
-              <td> <%= upload.content_type%></td>
-              <td><%= link_to "delete", upload_path(upload), method: :delete%>
-            </tr>
-              <%end%>
+            <% @uploads.each do |upload|%>
+              <tr>
+                <td> <%= upload.user.username%></td>
+                <td> <%=link_to "#{upload.name}", upload_path(upload)%></td>
+                <td> <%= upload.content_type%></td>
+                <td><%= link_to "delete", upload_path(upload), method: :delete%>
+              </tr>
+            <%end%>
           </tbody>
         </table>
       </div>

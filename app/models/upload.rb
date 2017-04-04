@@ -16,6 +16,7 @@ class Upload < ApplicationRecord
   validates :folder_id, presence: true
 
   alias_attribute :owner, :user
+  alias_attribute :parent, :folder
 
   def all_uploads
     [self]

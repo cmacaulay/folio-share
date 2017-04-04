@@ -1,4 +1,8 @@
 module PrivacySettings
+  def parent_is_private?
+    parent.is_private
+  end
+
   def display_privacy
     privacy_enum[is_private]
   end
