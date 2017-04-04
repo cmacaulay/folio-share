@@ -11,4 +11,5 @@ module ApplicationHelper
   def deactivated_user?
     current_user && current_user.deactivated_user?
   end
+
 end

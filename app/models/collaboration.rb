@@ -4,3 +4,4 @@ class Collaboration < ApplicationRecord
 
   validates_uniqueness_of :user_id, scope: :folder_id 
 end
+ 

@@ -4,6 +4,7 @@ feature "user can view" do
   context "a file they own" do
     scenario "located in their root directory" do
       user = create(:user)
+      user.roles.create(name: "activated")
       root = user.folders.first
       upload = create(:upload, name: "Upload", folder: root, attachment: "/spec/fixtures/elephant.jpg")
 
@@ -12,15 +13,18 @@ feature "user can view" do
       expect(page).to have_content(upload.name)
       expect(page).to have_content(upload.size)
       expect(page).to have_content(upload.content_type)
-      expect(page).to have_css("div.comments")
     end
 
     scenario "located in a subfolder" do
       user = create(:user)
+      user.roles.create(name: "activated")
+      
       root = user.root_folder
       folder = create(:folder, name: "Folder", user: user, parent: root)
       upload = create(:upload, name: "Upload", folder: folder)
 
+      controller = ApplicationController
+      allow_any_instance_of(controller).to receive(:current_user).and_return(user)
       visit folder_path(folder)
 
       click_link "Upload"
@@ -28,7 +32,6 @@ feature "user can view" do
       expect(page).to have_content(upload.name)
       expect(page).to have_content(upload.size)
       expect(page).to have_content(upload.content_type)
-      expect(page).to have_css("div.comments")
     end
   end
 
@@ -40,6 +43,8 @@ feature "user can view" do
         folder = create(:folder, name: "Folder", user: user, parent: root)
         upload = create(:upload, name: "Upload", folder: root)
 
+        controller = ApplicationController
+        allow_any_instance_of(controller).to receive(:current_user).and_return(user)
         visit folder_path(root)
 
         expect(page).to have_link("Folder", href: folder_path(folder))
@@ -59,6 +64,8 @@ feature "user can view" do
         folder2 = create(:folder, name: "Folder 2", user: user, parent: folder1)
         upload1 = create(:upload, name: "Upload 1", folder: root)
         upload2 = create(:upload, name: "Upload 2", folder: folder1)
+        controller = ApplicationController
+        allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
         visit folder_path(root)
 

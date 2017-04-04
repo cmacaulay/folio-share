@@ -8,7 +8,7 @@ RSpec.feature "User" do
       controller = ApplicationController
       allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
-      visit home_path
+      visit folio_path
       expect(page).to_not have_content("Pictures")
       click_on "Create New Folder"
 
@@ -28,7 +28,7 @@ RSpec.feature "User" do
       root = user.folders.first
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit home_path
+      visit folio_path
       expect(page).to_not have_content("Pictures")
       click_on "Create New Folder"
 

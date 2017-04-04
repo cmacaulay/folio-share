@@ -1,14 +1,16 @@
 class FoldersController < ApplicationController
   include PathsHelper
+
   before_action :authorize!
+  after_action :current_folder
 
   def show
-    @current_folder = Folder.find(params[:id])
+    session[:current_folder_id] = params[:id]
     @file = Upload.new
   end
 
   def new
-    @current_folder = Folder.find(params[:id])
+    session[:current_folder_id] = params[:id]
     @folder = Folder.new
   end
 
@@ -18,9 +20,8 @@ class FoldersController < ApplicationController
       flash[:success] = "#{@folder.name} Successfully Created"
       redirect_to folder_path(@folder)
     else
-      @current_folder = Folder.find(params[:id])
       flash[:danger] = "Incorrect Entry"
-      redirect_to new_folder_path(@current_folder)
+      redirect_to new_folder_path(current_folder)
     end
   end
 

@@ -13,7 +13,7 @@
 
   <tbody>
     <tr>
-      <% @current_folder.children.each do |child| %>
+      <% current_folder.children.each do |child| %>
         <td>
           <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
         </td>
@@ -36,6 +36,7 @@
           <% if child.class == Upload %>
             <%= link_to "Delete", upload_path(child), method: :delete, class: "btn"%>
           <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

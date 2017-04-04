@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
     if upload.save
       flash[:success] = "Your file has been uploaded!"
     else
-      flash[:danger] = "Please try uploading again"
+      flash[:danger] = "Please try uploading again."
     end
     redirect_to folder_or_folio_path(folder.id)
   end
@@ -38,11 +38,11 @@ class UploadsController < ApplicationController
       if current_user.admin?
         redirect_to admin_dashboard_path
       else
-        redirect_to home_path
+        redirect_to folio_path
       end
     else
       flash[:danger] = "File deleted."
-      redirect_to home_path
+      redirect_to folio_path
     end
   end
 
