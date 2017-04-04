@@ -6,7 +6,7 @@ describe "As a registered user, when I am logged in" do
     visit login_path
     fill_in "session[email]", with: user.email
     fill_in "session[password]", with: "password"
-    click_button "Login"
+    click_button "Start Sharing"
 
     click_on "Logout"
 
