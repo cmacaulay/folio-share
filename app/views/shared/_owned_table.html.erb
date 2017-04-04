@@ -6,9 +6,8 @@
       <th>File Size</th>
       <th>File Type</th>
       <th>Share</th>
+      <th colspan=2>Privacy Status</th>
       <th>Delete</th>
-      <th>Privacy Status</th>
-      <th></th>
     </tr>
   </thead>
 
@@ -33,17 +32,18 @@
         </td>
         <td>
           <% if child.class == Folder %>
-            <%= link_to "Share Folder", folder_share_path(child), class: "btn"%>
+            <%= link_to "Share Folder", folder_share_path(child) %>
+          <% end %>
+        </td>
+        <td><%= child.display_privacy %></td>
+        <td>
+          <% if child.parent_is_private? %>
+            <%= link_to "Make #{child.opposite_privacy}", folder_or_upload_path(child), method: :put %>
           <% end %>
         </td>
         <td>
           <% if child.class == Upload %>
-            <%= link_to "Delete", upload_path(child), method: :delete, class: "btn"%>
-          <% end %>
-        <td><%= child.display_privacy %></td>
-        <td>
-          <% if child.class == Upload %>
-            <%= link_to "Make #{child.opposite_privacy}", upload_path(current_folder, child), method: :put, class: "btn"  %>
+            <%= link_to "Delete", upload_path(child), method: :delete %>
           <% end %>
         </td>
       </tr>

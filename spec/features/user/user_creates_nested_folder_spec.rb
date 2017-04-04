@@ -4,11 +4,12 @@ RSpec.feature "User" do
   context "registered" do
     scenario "can create a nested folder" do
       user = create(:user)
+      user_decorator = UserDecorator.new(user)
       root = user.root_folder
       subfolder = create(:folder, user: user, parent: root)
 
       controller = ApplicationController
-      allow_any_instance_of(controller).to receive(:current_user).and_return(user)
+      allow_any_instance_of(controller).to receive(:current_user).and_return(user_decorator)
 
       visit folder_path(subfolder)
       expect(page).to_not have_content("Puppies")

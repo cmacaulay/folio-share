@@ -46,6 +46,10 @@ class User < ApplicationRecord
     self.roles << role
   end
 
+  def to_param
+    username.parameterize
+  end
+
   def activate
     self.update(status: "activated")
   end

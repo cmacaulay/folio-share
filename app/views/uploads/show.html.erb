@@ -1,25 +1,26 @@
-<h1>Some Header TBD</h1>
-
-<div class="file_content">
-  <hr>
-  <p>file_name:  <strong><%= @upload.name %></strong></p>
-  <hr>
-  <p>file size:  <strong><%= @upload.size %></strong></p>
-  <hr>
-  <p>file type:  <strong><%= @upload.content_type %></strong></p>
-  <hr>
-  <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %></p>
+<br>
+<div class="row">
+  <div class="file-info col s7">
+    <table>
+      <tr>
+        <td rowspan=2>
+          <a href="<%= folder_path(current_folder) %>"><i class="material-icons md-48">navigate_before</i></a>
+        </td>
+        <td class="compact">
+          <h4 class="compact"><%= @upload.name %></h4>
+        </td>
+      </tr>
+      <tr>
+        <td class="compact">
+          <p class="compact"><strong>File Type:</strong> <%= @upload.content_type %></p>
+          <p class="compact"><strong>File Size:</strong> <%= @upload.size %></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="file-buttons col s5">
+    <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+  </div>
 </div>
 
-
-<div class="comment_section">
-<%= render partial: "comments/form" %>
-  <h5>Total Comments (<%= @upload.comments.size %>)</h5>
-  <% @upload.comments.each do |comment| %>
-    <div class="one_comment">
-      <strong><%= comment.user.username %> </strong>
-      <p><%= comment.content %></p>
-      <p>(Posted on <%= comment.created_at.strftime("%d %b. %Y") %>)</p>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "shared/comments_section" %>

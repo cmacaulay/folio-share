@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'dashboard/index'
-  end
-
   get "/", to: "welcome#show"
   get "/Folio", to: "users#index", as: "folio"
   get "/login", to: "sessions#new"
@@ -22,15 +18,16 @@ Rails.application.routes.draw do
   put '/password/update', to: 'passwords#update', as: "update_password"
 
   # users
-  resources :users, only: [:new, :create, :edit, :update, :show]
+  resources :users, path: '', only: [:show, :edit, :update]
+  resources :users, only: [:new, :create]
 
   # folders
-  resources :folders, path: :f, only: [:show]
   resources :folders, path: "f/:id", only: [:new, :create]
-  resources :folders, path: :f, only: [:show] do
+  resources :folders, path: :f, only: [:show, :update] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
   end
+
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
 
   # uploads, comments & download
@@ -40,4 +37,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  # public folders and files
+  get '/public', to: "public#index"
+  namespace :public do
+    resources :folders, path: :f, only: [:show]
+    resources :uploads, path: :u, only: [:show]
+  end
 end
