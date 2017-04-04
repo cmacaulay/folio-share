@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :username, :email, :cellphone, presence: true, uniqueness: true
   validates :first_name, :last_name, :password_digest, presence: true
 
-  after_create :create_root
+  after_create :create_root, :registered_user
 
   def root_folder
     folders.find_by(parent_id: nil)
@@ -40,29 +40,29 @@ class User < ApplicationRecord
   end
 
   def registered_user
-    role = Role.find_by(name: 'registered user')
+    role = Role.find_or_create_by(name: 'registered user')
     self.roles << role
     self.activated
   end
 
   def activated
-    role = Role.find_by(name:"activated")
+    role = Role.find_or_create_by(name:"activated")
     self.roles << role
   end
 
   def deactivated
-    role = Role.find_by(name:"deactivated")
+    role = Role.find_or_create_by(name:"deactivated")
     self.roles << role
   end
 
   def activate
-    role = Role.find_by(name: "deactivated")
+    role = Role.find_or_create_by(name: "deactivated")
     self.user_roles.find_by(role_id: role.id).delete
     self.activated
   end
 
   def deactivate
-    role = Role.find_by(name: "activated")
+    role = Role.find_or_create_by(name: "activated")
     self.user_roles.find_by(role_id: role.id).delete
     self.deactivated
   end
@@ -70,5 +70,4 @@ class User < ApplicationRecord
   def full_name
     first_name.capitalize + " " + last_name.capitalize
   end
-
 end

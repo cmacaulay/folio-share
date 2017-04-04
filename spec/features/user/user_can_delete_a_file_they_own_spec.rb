@@ -9,13 +9,13 @@ describe "a registered user" do
     controller = ApplicationController
     allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
-    visit "/home"
+    visit "/Folio"
 
     expect(page).to have_content("Elephant")
 
     click_on "Delete"
 
-    expect(current_path).to eq("/home")
+    expect(current_path).to eq("/Folio")
     expect(page).to_not have_content("Elephant")
     expect(page).to have_content("File deleted.")
   end
@@ -28,7 +28,7 @@ describe "a registered user" do
     controller = ApplicationController
     allow_any_instance_of(controller).to receive(:current_user).and_return(user)
 
-    visit "/home"
+    visit "/Folio"
 
     expect(page).to have_content("Elephant")
 
@@ -36,8 +36,9 @@ describe "a registered user" do
 
     click_on "Delete File"
 
-    expect(current_path).to eq("/home")
+    expect(current_path).to eq("/Folio")
     expect(page).to_not have_content("Elephant")
+
     expect(page).to have_content("File deleted.")
   end
 end
