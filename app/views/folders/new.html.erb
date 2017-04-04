@@ -1,11 +1,11 @@
-<div class="center">
-
-<h3>New Folder in <%= current_folder.name %>:</h3>
+<h3 class="center">New Folder in <%= current_folder.name %>:</h3>
+<div class="container left">
 <%= render partial: "shared/breadcrumbs" %>
+</div>
 <div class="center">
 <%= form_for @folder do |f| %>
 <div class="container">
-  <div class="input-field">
+  <div class="input-field center">
     <i class="material-icons prefix">create_new_folder</i>
       <%= f.text_field :name, placeholder: "Folder Name" %>
     </div>
@@ -15,5 +15,4 @@
       <%= f.submit "Create Folder", class: "btn" %>
     </div>
 <% end %>
-</div>
 </div>
