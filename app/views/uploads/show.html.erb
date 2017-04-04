@@ -2,11 +2,11 @@
 
 <div class="file_content">
   <hr>
-  <p>file_name:  <strong><%= @upload.name %></strong></p>
+  <p>File name:  <strong><%= @upload.name %></strong></p>
   <hr>
-  <p>file size:  <strong><%= @upload.size %></strong></p>
+  <p>File Size:  <strong><%= number_to_human_size(@upload.size) %></strong></p>
   <hr>
-  <p>file type:  <strong><%= @upload.content_type %></strong></p>
+  <p>File type:  <strong><%= @upload.content_type %></strong></p>
   <hr>
   <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
 </div>

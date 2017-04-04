@@ -36,7 +36,7 @@ class Upload < ApplicationRecord
 
   def owner
     self.folder.owner.id
-  end 
+  end
 
   def display_privacy
     is_private ? "Private" : "Public"
@@ -49,4 +49,5 @@ class Upload < ApplicationRecord
   def change_privacy
     assign_attributes(is_private: !is_private)
   end
+
 end

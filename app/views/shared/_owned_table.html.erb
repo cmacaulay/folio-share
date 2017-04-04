@@ -26,7 +26,7 @@
           <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
         </td>
         <td>
-          <%= child.size %>
+          <%= number_to_human_size(child.size) %>
         </td>
         <td>
           <%= child.content_type %>
