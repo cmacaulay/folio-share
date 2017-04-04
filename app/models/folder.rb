@@ -13,7 +13,7 @@ class Folder < ApplicationRecord
   alias_attribute :owner, :user
 
   enum ({status: [:active, :inactive]})
-  
+
   def ancestors(list = [])
     unless parent_id.nil?
       list.unshift(parent)

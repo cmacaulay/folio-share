@@ -17,7 +17,7 @@ describe "As a registered user, when I am logged in" do
     fill_in "user[email]", with: "iama@unicorn.net"
     fill_in "user[cellphone]", with: "12345678910"
 
-    click_on "Update"
+    click_on "Update Account"
 
     expect(current_path).to eq(folio_path)
 
