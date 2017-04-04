@@ -15,6 +15,8 @@ class Upload < ApplicationRecord
   validates :size, presence: true
   validates :folder_id, presence: true
 
+  alias_attribute :owner, :user
+
   def all_uploads
     [self]
   end
@@ -33,10 +35,6 @@ class Upload < ApplicationRecord
 
   def local_filepath
     attachment.file.file
-  end
-
-  def owner
-    folder.owner
   end
 
   def self.public_uploads
