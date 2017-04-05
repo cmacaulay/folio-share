@@ -7,9 +7,6 @@ class Upload < ApplicationRecord
   delegate :user, to: :folder
   has_many :comments, dependent: :destroy
 
-  # validates :attachment, presence: true, file_size: { maximum: 2.gigabytes }
-  # validates :attachment, presence: true
-
   validates :name, presence: true
   validates :content_type, presence: true
   validates :size, presence: true
@@ -38,7 +35,7 @@ class Upload < ApplicationRecord
     attachment.file.file
   end
 
-  def owner
+  def owner_id
     self.folder.owner.id
   end
 

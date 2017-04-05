@@ -1,4 +1,6 @@
 class Folders::CollaborationsController < ApplicationController
+  include PathsHelper
+
   before_action :current_folder
 
   def new
@@ -15,6 +17,11 @@ class Folders::CollaborationsController < ApplicationController
       flash[:danger] = "User not found, please try again."
       redirect_to folder_share_path(@share.folder)
     end
+  end
+
+  def show
+    @folder = Folder.find(params[:id])
+    @file   = Upload.new
   end
 
 end
