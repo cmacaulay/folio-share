@@ -11,14 +11,14 @@ feature "user can view" do
       visit upload_path(upload)
 
       expect(page).to have_content(upload.name)
-      expect(page).to have_content(upload.size)
+      expect(page).to have_content("55.1 KB")
       expect(page).to have_content(upload.content_type)
     end
 
     scenario "located in a subfolder" do
       user = create(:user)
       user.roles.create(name: "activated")
-      
+
       root = user.root_folder
       folder = create(:folder, name: "Folder", user: user, parent: root)
       upload = create(:upload, name: "Upload", folder: folder)
@@ -30,7 +30,7 @@ feature "user can view" do
       click_link "Upload"
 
       expect(page).to have_content(upload.name)
-      expect(page).to have_content(upload.size)
+      expect(page).to have_content("55.1 KB")
       expect(page).to have_content(upload.content_type)
     end
   end
