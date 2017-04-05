@@ -5,7 +5,7 @@ class Upload < ApplicationRecord
 
   belongs_to :folder
   delegate :user, to: :folder
-  has_many :comments, dependent: :destroy   
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
   validates :content_type, presence: true
@@ -35,7 +35,7 @@ class Upload < ApplicationRecord
     attachment.file.file
   end
 
-  def owner
+  def owner_id
     self.folder.owner.id
   end
 

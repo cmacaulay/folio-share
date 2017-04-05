@@ -13,6 +13,7 @@ class UploadsController < ApplicationController
   end
 
   def show
+
     @upload = Upload.find(params[:id])
     @comment = Comment.new
     @comment.upload_id = @upload.id
@@ -31,7 +32,7 @@ class UploadsController < ApplicationController
   def destroy
     @upload = Upload.find(params[:id])
     @upload.destroy
-    if current_user.admin? || current_user.id == @upload.owner
+    if current_user.admin? || current_user.id == @upload.owner_id
       flash[:danger] = "File deleted."
       if current_user.admin?
         redirect_to admin_dashboard_path

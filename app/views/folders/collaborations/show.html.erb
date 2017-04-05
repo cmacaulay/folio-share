@@ -1,1 +1,56 @@
-<h2>Test</h2>
+<h2><%= @folder.name %></h2>
+<table>
+  <tr>
+    <td>
+      <%= link_to "Create New Folder", new_folder_path(@folder), class: "btn" %>
+    </td>
+    <td>
+    <%= form_for @file do |f| %>
+    <div class="upload_file_form">
+      <%= f.file_field :attachment %>
+      <%= f.text_field :folder_id, value: "#{@folder.id}", type: :hidden %>
+      <br>
+      <%= f.submit "Upload File" %>
+    </div>
+    <% end %>
+   </td>
+  </tr>
+</table>
+
+<table class="responsive-table bordered highlight">
+  <thead>
+    <tr>
+      <th class="table_header_center center"></th>
+      <th class="table_header_center center">Name</th>
+      <th class="table_header_center center">Owner</th>
+      <th class="table_header_center center">File Size</th>
+      <th class="table_header_center center">File Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @folder.children.each do |child| %>
+      <tr>
+        <td class="table_data_center">
+          <% if child.class == Upload %>
+            <i class="material-icons">description</i>
+          <% elsif child.collaborations.count > 0 %>
+            <i class="material-icons">folder_shared</i>
+          <% else %>
+            <i class="material-icons">folder</i>
+          <% end %>
+        </td>
+        <td class="table_data_center">
+          <%= link_to child.name, child.class == Upload ? upload_path(child) : shared_path(child) %>
+      </td>
+        <td class="table_data_center"><%= child.owner.username %></td>
+        <td class="table_data_center center">
+          <%= number_to_human_size(child.size) %>
+        </td>
+        <td class="table_data_center center">
+          <%= child.content_type %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
