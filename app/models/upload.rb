@@ -39,20 +39,12 @@ class Upload < ApplicationRecord
     self.folder.owner.id
   end
 
-  def display_privacy
-    is_private ? "Private" : "Public"
-  end
-
-  def opposite_privacy
-    is_private ? "Public" : "Private"
-  end
-
-  def change_privacy
-    assign_attributes(is_private: !is_private)
-  end
-
   def self.public_uploads
     Upload.where(is_private: false)
+  end
+
+  def user_activated?
+    self.folder.user.activated?
   end
 
 end

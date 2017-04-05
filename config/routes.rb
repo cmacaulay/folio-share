@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  # public folders and files
   get '/public', to: "public#index"
+  namespace :public do
+    resources :folders, path: :f, only: [:show]
+    resources :uploads, path: :u, only: [:show]
+  end
 
   # admin
   namespace :admin do
@@ -25,7 +30,7 @@ Rails.application.routes.draw do
 
   # folders
   resources :folders, path: "f/:id", only: [:new, :create]
-  resources :folders, path: :f, only: [:show, :update] do
+  resources :folders, path: :f, only: [:show, :update, :destroy] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
   end
@@ -40,9 +45,4 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  # public folders and files
-  namespace :public do
-    resources :folders, path: :f, only: [:show]
-    resources :uploads, path: :u, only: [:show]
-  end
 end
