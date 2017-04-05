@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  get '/public', to: "public#index"
+
   # admin
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'

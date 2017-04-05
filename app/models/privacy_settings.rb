@@ -18,6 +18,7 @@ module PrivacySettings
       uploads.each { |upload| upload.change_privacy(setting) }
       subfolders.each { |subfolder| subfolder.change_privacy(setting) }
     end
+    #self
   end
 
   def privacy_enum

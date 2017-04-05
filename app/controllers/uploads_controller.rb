@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   include PathsHelper
+  #before_action :authorize!
 
   def create
     folder = Folder.find(params[:upload][:folder_id])
@@ -19,12 +20,16 @@ class UploadsController < ApplicationController
   end
 
   def update
+    # byebug
     upload = Upload.find(params[:format])
-    if upload.change_privacy
+    #byebug
+    upload.change_privacy
+    if upload.is_private == false
       flash[:success] = "Your file has been uploaded!"
     else
       flash[:danger] = "Please try uploading again"
     end
+    #byebug
     redirect_to folder_or_folio_path(params[:id])
   end
 

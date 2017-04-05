@@ -1,7 +1,7 @@
 class FoldersController < ApplicationController
   include PathsHelper
 
-  before_action :authorize!
+  # before_action :authorize!
   after_action :current_folder
 
   def show

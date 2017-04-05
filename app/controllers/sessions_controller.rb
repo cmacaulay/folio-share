@@ -8,7 +8,10 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       if current_user.admin?
         redirect_to admin_dashboard_path
-      else
+      elsif current_user.deactivated?
+        flash[:danger] = "Your privelages have been restricted. Please contact our adminstrator at admin@admin.com for more information."
+        redirect_to folio_path        
+    else
         flash[:success] = "#{user.first_name} Has Successfully Logged In"
         redirect_to folio_path
       end

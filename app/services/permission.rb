@@ -46,7 +46,7 @@ private
 
   def user_deactivated_permissions
     return true if controller == "sessions"
-    return true if controller == "users" && action.in?(%w(index edit update))
+    return true if controller == "users" && action.in?(%w(index))
   end
 
   def guest_permissions
