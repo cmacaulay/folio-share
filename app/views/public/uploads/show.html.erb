@@ -1,0 +1,25 @@
+<div class="file_header row">
+  <div class="col s9">
+    <table>
+      <tr>
+        <td rowspan=2>
+          <a href="<%= @back_path %>"><i class="material-icons md-48">navigate_before</i></a>
+        </td>
+        <td class="compact">
+          <h4 class="compact"><%= @upload.name %></h4>
+        </td>
+      </tr>
+      <tr>
+        <td class="compact">
+          <p class="compact"><strong>File Type:</strong> <%= @upload.content_type %></p>
+          <p class="compact"><strong>File Size:</strong> <%= @upload.size %></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col s3">
+    Share <%= link_to "Download", upload_download_path(@upload), class: "btn" %>
+  </div>
+</div>
+
+<%= render partial: "shared/comments_section" %>

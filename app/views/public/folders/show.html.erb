@@ -1,0 +1,21 @@
+<h1><%= current_folder.name %></h1>
+<h2>Created by <%= current_folder.owner.username %></h2>
+<br>
+<table>
+  <tr>
+    <td>
+      <%= link_to "Return to Browsing", public_path, class: "btn"  %>
+    </td>
+    <td>
+      <%= link_to "Download Folder", folder_download_path(current_folder), class: "btn" %>
+    </td>
+    <% if current_folder.owner.id == current_user.id %>
+      <td>
+        <%= link_to "View in Folio", folder_path(current_folder), class: "btn" %>
+      </td>
+    <% end %>
+  </tr>
+</table>
+<br>
+<br>
+<%= render partial: "shared/public_table" %>

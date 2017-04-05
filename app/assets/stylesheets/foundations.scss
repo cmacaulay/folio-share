@@ -1,3 +1,5 @@
+@import 'partials/_forms';
+
 body {
   background-color: lighten($light-green, 15%);
   font-family: 'Cabin', sans-serif;
@@ -68,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 25px;
   padding: 10px;
   float: right;
-  width: 50%;
+  width: 30%;
 }
 
 .one_comment {
@@ -143,4 +145,26 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+p.compact {
+  float: left;
+  margin: 2px;
+  margin-right: 10px;
+  line-height: 0.5;
+}
+
+.back-button {
+  vertical-align: middle;
+}
+
+h4.compact {
+  margin: 0px;
+}
+
+td.compact {
+  padding: 0px;
+}
+
+.file-buttons p {
+  text-align: right;
+}
 @import 'partials/_forms';

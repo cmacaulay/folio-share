@@ -1,14 +1,15 @@
 class UploadsController < ApplicationController
+  include PathsHelper
+
   def create
     folder = Folder.find(params[:upload][:folder_id])
     upload = Upload.new(upload_params)
     if upload.save
       flash[:success] = "Your file has been uploaded!"
-      redirect_to folio_path
     else
-      flash[:danger] = "Please try uploading again"
-      redirect_to folio_path
+      flash[:danger] = "Please try uploading again."
     end
+    redirect_to folder_or_folio_path(folder.id)
   end
 
   def show
@@ -19,17 +20,12 @@ class UploadsController < ApplicationController
 
   def update
     upload = Upload.find(params[:format])
-    upload.change_privacy
-    if upload.save
+    if upload.change_privacy
       flash[:success] = "Your file has been uploaded!"
     else
       flash[:danger] = "Please try uploading again"
     end
-    if Folder.find_by(user: current_user, id: params[:id])
-      redirect_to folio_path
-    else
-      redirect_to folder_path(Folder.find(params[:id]))
-    end
+    redirect_to folder_or_folio_path(params[:id])
   end
 
   def destroy
@@ -51,6 +47,8 @@ class UploadsController < ApplicationController
   private
 
   def upload_params
-    params.require(:upload).permit(:folder_id, :attachment)
+    params
+    .require(:upload).permit(:folder_id, :attachment)
+    .merge!({is_private: current_folder.is_private})
   end
 end

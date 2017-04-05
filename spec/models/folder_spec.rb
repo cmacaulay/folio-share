@@ -73,4 +73,23 @@ RSpec.describe Folder, type: :model do
       end
     end
   end
+
+  describe "#self.public_top_folders" do
+    it "returns only the public folders where the parent folder is private" do
+      user = create(:user)
+      folio = user.root_folder
+
+      private_folder = create(:folder, user: user, parent: folio)
+      public_folder1 = create(:folder, is_private: false, user: user, parent: private_folder)
+      public_folder2 = create(:folder, is_private: false, user: user, parent: private_folder)
+      public_folder3 = create(:folder, is_private: false, user: user, parent: public_folder2)
+
+      folders = Folder.public_top_folders
+
+      expect(folders).to eq([public_folder1, public_folder2])
+      expect(folders).to_not eq(public_folder3)
+      expect(folders).to_not eq(private_folder)
+      expect(folders).to_not eq(folio)
+    end
+  end
 end

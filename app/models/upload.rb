@@ -1,18 +1,22 @@
 class Upload < ApplicationRecord
+  include PrivacySettings
+
   mount_uploader :attachment, AttachmentUploader
 
   belongs_to :folder
   delegate :user, to: :folder
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   # validates :attachment, presence: true, file_size: { maximum: 2.gigabytes }
-
-#   validates :attachment, presence: true
+  # validates :attachment, presence: true
 
   validates :name, presence: true
   validates :content_type, presence: true
   validates :size, presence: true
   validates :folder_id, presence: true
+
+  alias_attribute :owner, :user
+  alias_attribute :parent, :folder
 
   def all_uploads
     [self]
@@ -36,7 +40,7 @@ class Upload < ApplicationRecord
 
   def owner
     self.folder.owner.id
-  end 
+  end
 
   def display_privacy
     is_private ? "Private" : "Public"
@@ -49,4 +53,9 @@ class Upload < ApplicationRecord
   def change_privacy
     assign_attributes(is_private: !is_private)
   end
+  
+  def self.public_uploads
+    Upload.where(is_private: false)
+  end
+
 end

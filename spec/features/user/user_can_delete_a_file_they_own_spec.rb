@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "a registered user" do
   it "can delete a file they own from root" do
     user    = create(:user)
+    user = UserDecorator.new(user)
     root = user.folders.first
     upload = create(:upload, name: "Elephant", folder: root, attachment: "/spec/fixtures/elephant.jpg")
     user.roles.create(name: "activated")
@@ -22,7 +23,8 @@ describe "a registered user" do
 
   it "can delete a file they own from the file show page" do
     user    = create(:user)
-    root = user.folders.first
+    user = UserDecorator.new(user)
+    root = user.root_folder
     upload = create(:upload, name: "Elephant", folder: root, attachment: "/spec/fixtures/elephant.jpg")
     user.roles.create(name: "activated")
     controller = ApplicationController
