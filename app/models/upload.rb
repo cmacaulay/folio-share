@@ -58,4 +58,8 @@ class Upload < ApplicationRecord
     Upload.where(is_private: false)
   end
 
+  def user_activated?
+    self.folder.user.activated?
+  end
+
 end

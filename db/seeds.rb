@@ -35,7 +35,7 @@ class Seed
   end
 
   def generate_users
-    1000.times do |i|
+    10.times do |i|
       user = User.create!(
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
@@ -49,7 +49,7 @@ class Seed
   end
 
   def generate_uploads
-    1000.times do |i|
+    100.times do |i|
       folder = Folder.order("RANDOM()").first
       upload = folder.uploads.create!(
               name: Faker::Name.name,
@@ -61,7 +61,7 @@ class Seed
   end
 
   def generate_comments
-    3000.times do |i|
+    300.times do |i|
       user = User.order("RANDOM()").first
       upload = Upload.order("RANDOM()").first
       comment = user.comments.create!(
