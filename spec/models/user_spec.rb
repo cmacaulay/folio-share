@@ -78,7 +78,7 @@ RSpec.describe User, type: :model do
 
     it "should activate a deactivated user" do
       user_three = create(:user)
-      user_three.deactivated
+      user_three.deactivate
       user_three.activate
 
       expect(user_three.activated_user?).to eq(true)
@@ -86,7 +86,7 @@ RSpec.describe User, type: :model do
 
     it "should deactivate an activated user" do
       user_four = create(:user)
-      user_four.activated
+      user_four.activate
       user_four.deactivate
 
       expect(user_four.deactivated_user?).to eq(true)

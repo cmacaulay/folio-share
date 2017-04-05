@@ -13,12 +13,12 @@ describe "admin" do
 
     click_on "deactivate"
 
-    expect(admin.roles.take.name).to eq("deactivated")
-    expect(admin.roles.take.name).to_not eq("activated")
+    expect(admin.status).to eq("deactivated")
+    expect(admin.status).to_not eq("activated")
 
     click_on "activate"
 
-    expect(admin.roles.take.name).to eq("activated")
-    expect(admin.roles.take.name).to_not eq("deactivated")
+    expect(admin.status).to eq("activated")
+    expect(admin.status).to_not eq("deactivated")
   end
 end
