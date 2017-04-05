@@ -28,7 +28,6 @@
           <%= link_to child.name, folder_or_upload_path(child) %>
         </td>
         <td class="table_data_center">
-        <td>
           <%= number_to_human_size(child.size) %>
         </td>
         <td class="table_data_center">
@@ -48,6 +47,7 @@
         </td>
         <td class="table_data_center">
             <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child)%>
+
         </td>
         <td class="table_data_center">
           <i class="material-icons">delete</i>

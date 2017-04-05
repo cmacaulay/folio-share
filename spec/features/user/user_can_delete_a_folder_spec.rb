@@ -3,6 +3,10 @@ require 'rails_helper'
 describe "a registered user" do
   it "can delete a folder they own" do
     user    = create(:user)
+    user = UserDecorator.new(user)
+    user.roles.create(name: "activated")
+    user.roles.create(name: "registered user")
+    root = user.folders.first
     folder  = create(:folder, name: "Flowers", parent: user.root_folder)
 
     visit "/login"
@@ -15,7 +19,7 @@ describe "a registered user" do
     expect(current_path).to eq("/Folio")
     expect(page).to have_content("Flowers")
 
-    click_on "Delete"
+    click_button "Delete"
 
     expect(current_path).to eq("/Folio")
     expect(page).to_not have_content("Flowers")
