@@ -1,7 +1,7 @@
 <div class="breadcrumbs">
   <% current_folder.ancestors.each do |f| %>
     <div class="box">
-      <%= link_to f.name, folder_path(f) %>
+      <%= link_to f.name, folio_path %>
     </div>
   <% end %>
   <div class="box">
