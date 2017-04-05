@@ -122,10 +122,6 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-.folio_root_actions {
-
-}
-
 .breadcrumb_folio {
   float: left;
 }
@@ -136,6 +132,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .material-icons {
   color: $dark-slate;
+}
+
+.upload_file_form {
+  background-color: $green;
+  padding: 5px;
+  margin: 5px;
+  width: 40%;
+  border-radius: 3px;
+  text-align: center;
 }
 
 @import 'partials/_forms';
