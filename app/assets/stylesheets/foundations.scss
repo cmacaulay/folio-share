@@ -116,6 +116,35 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-tap-highlight-color: transparent;
 }
 
+.table_data_center {
+  text-align: center;
+}
+
+.table_header_center {
+  text-align: center;
+}
+
+.breadcrumb_folio {
+  float: left;
+}
+
+.download_folio_icon {
+
+}
+
+.material-icons {
+  color: $dark-slate;
+}
+
+.upload_file_form {
+  background-color: $green;
+  padding: 5px;
+  margin: 5px;
+  width: 40%;
+  border-radius: 3px;
+  text-align: center;
+}
+
 p.compact {
   float: left;
   margin: 2px;
@@ -138,3 +167,4 @@ td.compact {
 .file-buttons p {
   text-align: right;
 }
+@import 'partials/_forms';

@@ -1,49 +1,65 @@
 <table class="responsive-table bordered highlight">
   <thead>
     <tr>
-      <th></th>
-      <th>Name</th>
-      <th>File Size</th>
-      <th>File Type</th>
-      <th>Share</th>
-      <th colspan=2>Privacy Status</th>
-      <th>Delete</th>
+      <th class="table_header_center"></th>
+      <th class="table_header_center">Name</th>
+      <th class="table_header_center">File Size</th>
+      <th class="table_header_center">File Type</th>
+      <th class="table_header_center">Share</th>
+      <th class="table_header_center">Privacy Status</th>
+      <th class="table_header_center"></th>
+      <th class="table_header_center">Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
       <% current_folder.children.each do |child| %>
-        <td>
-          <% if child.class == Folder %>
-            <i class="material-icons">work</i>
-          <% else %>
+        <td class="table_data_center">
+          <% if child.class == Upload %>
             <i class="material-icons">description</i>
+          <% elsif child.collaborations.count > 0 %>
+            <i class="material-icons">folder_shared</i>
+          <% else %>
+            <i class="material-icons">folder</i>
           <% end %>
         </td>
-        <td>
+        <td class="table_data_center">
           <%= link_to child.name, child.class == Upload ? upload_path(child) : folder_path(child) %>
         </td>
+        <td class="table_data_center">
         <td>
           <%= number_to_human_size(child.size) %>
         </td>
-        <td>
+        <td class="table_data_center">
           <%= child.content_type %>
         </td>
-        <td>
+        <td class="table_data_center">
           <% if child.class == Folder %>
-            <%= link_to "Share Folder", folder_share_path(child) %>
+            <%= button_to "Share Folder", folder_share_path(child)%>
           <% end %>
         </td>
-        <td><%= child.display_privacy %></td>
-        <td>
-          <% if child.parent_is_private? %>
-            <%= link_to "Make #{child.opposite_privacy}", folder_or_upload_path(child), method: :put %>
+        <td class="table_data_center">
+          <% if child.display_privacy == "Private" %>
+            <i class="material-icons">visibility_off</i>
+          <% else %>
+            <i class="material-icons">visibility</i>
           <% end %>
         </td>
-        <td>
+        <td class="table_data_center">
           <% if child.class == Upload %>
-            <%= link_to "Delete", upload_path(child), method: :delete %>
+            <%= button_to "Make #{child.opposite_privacy}", upload_path(current_folder, child)%>
+          <% end %>
+        </td>
+        <td class="table_data_center">
+          <% if child.class == Upload %>
+            <i class="material-icons">delete</i>
+            <br>
+            <%= button_to "Delete", upload_path(child), method: :delete%>
+          <% else %>
+            <i class="material-icons">delete</i>
+            <br>
+            <%= button_to "Delete", folder_path(child), method: :delete%>
           <% end %>
         </td>
       </tr>
