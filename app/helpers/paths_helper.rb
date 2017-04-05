@@ -44,14 +44,4 @@ module PathsHelper
     end
   end
 
-  # def ensure_shared(folder)
-  #
-  #   parent = folder.parent
-  #     if parent.collaborators && parent.collaborators.find_by(id: current_user.id)
-  #       render :show
-  #     else
-  #       ensure_shared(parent) unless parent.root_folder?
-  #       flash[:now] = "You don't have access to this Folio."
-  #     end
-  # end
 end

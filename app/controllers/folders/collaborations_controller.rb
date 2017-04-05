@@ -11,7 +11,6 @@ class Folders::CollaborationsController < ApplicationController
     @share  = Folder.find(params[:folder_id]).collaborations.new
     @share.user = User.find_by_username(params[:collaboration][:user])
     if @share.save
-      @share.save_children
       flash[:success] = "You shared #{@share.folder.name} with #{@share.user.username}!"
       redirect_to folder_path(@share.folder)
     else
@@ -21,10 +20,8 @@ class Folders::CollaborationsController < ApplicationController
   end
 
   def show
-    # @folder = Folder.find(params[:id])
+    @folder = Folder.find(params[:id])
     @file   = Upload.new
-
-    @folder = current_user.shared_on.find(params[:id])
   end
 
 end
