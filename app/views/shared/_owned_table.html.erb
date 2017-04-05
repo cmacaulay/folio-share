@@ -46,7 +46,7 @@
           <% end %>
         </td>
         <td class="table_data_center">
-            <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child)%>
+            <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child), method: :put%>
 
         </td>
         <td class="table_data_center">
