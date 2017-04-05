@@ -21,7 +21,7 @@ RSpec.feature "User" do
 
       expect(current_path).to eq("/f/#{Folder.last.id}")
       within("div.breadcrumbs") do
-        expect(page).to have_link("Folio", href: folder_path(root))
+        expect(page).to have_link("Folio", href: folio_path)
         expect(page).to have_link(subfolder.name, href: folder_path(subfolder))
         expect(page).to have_content("Puppies")
       end
