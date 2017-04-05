@@ -13,7 +13,7 @@ describe "admin" do
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content(admin.username)
     expect(page).to have_content(user.username)
-save_and_open_page
+
     click_on "deactivate"
 
     expect(admin.status).to eq("deactivated")
