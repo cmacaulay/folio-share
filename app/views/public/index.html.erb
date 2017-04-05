@@ -10,12 +10,15 @@
   </tr>
   <% @folders.each do |folder| %>
     <tr>
+    <% if folder.user_activated?%>
       <td>
         <%= link_to folder.name, public_folder_path(folder) %>
       </td>
       <td>
         <%= folder.user.full_name %>
       </td>
+      <% else %>
+      <% end %>
     </tr>
   <% end %>
 </table>
@@ -38,6 +41,7 @@
   </tr>
   <% @uploads.each do |upload| %>
     <tr>
+      <% if upload.user_activated?%>
       <td>
         <%= link_to upload.name, public_upload_path(upload) %>
       </td>
@@ -50,6 +54,8 @@
       <td>
         <%= upload.content_type %>
       </td>
+      <% else%>
+      <% end %>
     </tr>
   <% end %>
 </table>

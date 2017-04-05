@@ -15,6 +15,7 @@ describe "admin" do
     expect(page).to have_content(user.username)
 
     click_on "deactivate"
+   # byebug
 
     expect(admin.status).to eq("deactivated")
     expect(admin.status).to_not eq("activated")
