@@ -13,8 +13,8 @@
   </thead>
 
   <tbody>
-    <tr>
-      <% current_folder.children.each do |child| %>
+    <% current_folder.children.each do |child| %>
+      <tr id=<%= child.row_id %>>
         <td>
           <% if child.class == Upload %>
             <i class="material-icons">description</i>
@@ -35,18 +35,18 @@
         </td>
         <td>
           <% if child.class == Folder %>
-            <%= button_to "Share Folder", folder_share_path(child)%>
+            <%= button_to "Share Folder", folder_share_path(child) %>
           <% end %>
         </td>
         <td>
           <% if child.display_privacy == "Private" %>
-            <i class="material-icons">visibility_off</i>
+            <i class="material-icons private-icon">visibility_off</i>
           <% else %>
-            <i class="material-icons">visibility</i>
+            <i class="material-icons public-icon">visibility</i>
           <% end %>
         </td>
         <td>
-          <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child)%>
+          <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child), class: child.privacy_button, method: :put %>
         </td>
         <td>
           <i class="material-icons">delete</i>

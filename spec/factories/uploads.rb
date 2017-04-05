@@ -4,6 +4,7 @@ FactoryGirl.define do
     content_type "image/jpg"
     size 56434
     name "femalecodercat.jpg"
+    is_private true
     folder
   end
 end

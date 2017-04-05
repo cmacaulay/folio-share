@@ -27,7 +27,7 @@ class UploadsController < ApplicationController
     else
       flash[:danger] = "Something went wrong... Please try again."
     end
-    redirect_to folder_or_folio_path(params[:id])
+    redirect_to folder_or_folio_path(upload.folder.id)
   end
 
   def destroy

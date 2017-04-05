@@ -24,6 +24,14 @@ module PrivacySettings
     end
   end
 
+  def row_id
+    "#{self.class.to_s.downcase}-#{self.id}"
+  end
+
+  def privacy_button
+    "make-#{self.opposite_privacy.downcase}-button"
+  end
+
   def privacy_enum
     {true => "Private", false => "Public"}
   end

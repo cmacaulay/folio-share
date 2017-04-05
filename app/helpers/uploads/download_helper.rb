@@ -1,2 +1,0 @@
-module Uploads::DownloadHelper
-end
