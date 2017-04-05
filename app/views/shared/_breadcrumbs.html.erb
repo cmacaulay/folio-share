@@ -1,10 +1,17 @@
 <div class="breadcrumbs">
+  <div class="box">
+    <%= link_to "Folio", folio_path %>
+  </div>
   <% current_folder.ancestors.each do |f| %>
+  <% unless f.name == "Folio" %>
     <div class="box">
-      <%= link_to f.name, folio_path %>
+        <%= link_to f.name, folder_path(f) %>
+    </div>
+    <% end %>
+  <% end %>
+  <% unless current_folder.name == "Folio" %>
+    <div class="box">
+        <%= current_folder.name %>
     </div>
   <% end %>
-  <div class="box">
-    <%= current_folder.name %>
-  </div>
 </div>
