@@ -49,6 +49,8 @@
         <td class="table_data_center">
           <% if child.class == Upload %>
             <%= button_to "Make #{child.opposite_privacy}", upload_path(current_folder, child)%>
+          <% else%>
+            <%= button_to "Make #{child.opposite_privacy}", folder_path(current_folder, child)%>   
           <% end %>
         </td>
         <td class="table_data_center">
