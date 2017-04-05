@@ -72,40 +72,22 @@ RSpec.describe User, type: :model do
   end
 
   describe "user" do 
-    it "should locate or create an activated role" do
-      user_one = create(:user)
-      user_one.activated
-
-      expect(user_one.roles.last.name).to eq("activated")
-    end
-  end
-
-  describe "user" do 
-    it "should locate or create a deactivated user role" do
-      user_two = create(:user)
-      user_two.deactivated
-
-      expect(user_two.roles.last.name).to eq("deactivated")
-    end
-  end
-
-  describe "user" do 
     it "should activate a deactivated user" do
       user_three = create(:user)
-      user_three.deactivated
+      user_three.deactivate
       user_three.activate
 
-      expect(user_three.roles.last.name).to eq("activated")
+      expect(user_three.status).to eq("activated")
     end
   end
 
     describe "user" do 
     it "should deactivate an activated user" do
       user_four = create(:user)
-      user_four.activated
+      user_four.activate
       user_four.deactivate
 
-      expect(user_four.roles.last.name).to eq("deactivated")
+      expect(user_four.status).to eq("deactivated")
     end
   end
 end

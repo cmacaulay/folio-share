@@ -1,0 +1,14 @@
+<div class="comment_section">
+  <h3 class="comment_header">Comments</h3>
+  <% if current_user %>
+    <%= render partial: "comments/form" %>
+  <% end %>
+  <h5>Total Comments (<%= @upload.comments.size %>)</h5>
+  <% @upload.comments.each do |comment| %>
+    <div class="one_comment">
+      <strong><%= comment.user.username %> </strong>
+      <p><%= comment.content %></p>
+      <p>(Posted on <%= comment.created_at.strftime("%d %b. %Y") %>)</p>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-<h3>Some Header TBD</h3>
+<h3><%= current_folder.name %>'s  <strong><%= @upload.name %></strong></h3>
 
 <div class="file_content">
   <hr>
@@ -9,17 +9,7 @@
   <p>File type:  <strong><%= @upload.content_type %></strong></p>
   <hr>
   <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+
 </div>
 
-
-<div class="comment_section">
-<%= render partial: "comments/form" %>
-  <h5>Total Comments (<%= @upload.comments.size %>)</h5>
-  <% @upload.comments.each do |comment| %>
-    <div class="one_comment">
-      <strong><%= comment.user.username %> </strong>
-      <p><%= comment.content %></p>
-      <p>(Posted on <%= comment.created_at.strftime("%d %b. %Y") %>)</p>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "shared/comments_section" %>

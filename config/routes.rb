@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'dashboard/index'
-  end
-
   get "/", to: "welcome#show"
   get "/Folio", to: "users#index", as: "folio"
   get "/login", to: "sessions#new"
@@ -26,9 +22,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   # folders
-  resources :folders, path: :f, only: [:show, :destroy]
   resources :folders, path: "f/:id", only: [:new, :create]
-  resources :folders, path: :f, only: [:show] do
+  resources :folders, path: :f, only: [:show, :update] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
   end
@@ -40,5 +35,12 @@ Rails.application.routes.draw do
   get "/u/:id/download", to: "uploads/download#index", as: "upload_download"
   resources :uploads, path: :u, only: [:show] do
     resources :comments, only: [:create]
+  end
+
+  # public folders and files
+  get '/public', to: "public#index"
+  namespace :public do
+    resources :folders, path: :f, only: [:show]
+    resources :uploads, path: :u, only: [:show]
   end
 end
