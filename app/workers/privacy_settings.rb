@@ -13,10 +13,14 @@ module PrivacySettings
 
   def change_privacy(setting = nil)
     setting = !is_private if setting.nil?
-    update_attributes!(is_private: setting)
-    if self.class == Folder
-      uploads.each { |upload| upload.change_privacy(setting) }
-      subfolders.each { |subfolder| subfolder.change_privacy(setting) }
+    if update_attributes!(is_private: setting)
+      if self.class == Folder
+        uploads.each { |upload| upload.change_privacy(setting) }
+        subfolders.each { |subfolder| subfolder.change_privacy(setting) }
+      end
+      true
+    else
+      false
     end
   end
 

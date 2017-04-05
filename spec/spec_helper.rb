@@ -4,13 +4,13 @@ SimpleCov.start do
   add_filter 'spec/'
   add_filter 'config/'
   add_filter 'vendor/'
+  add_filter 'app/services'
   add_filter 'mod_db.rb'  # One use methods for modifying the database
 
   add_group 'Controllers', 'app/controllers'
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
   add_group 'Models', 'app/models'
-  add_group 'Services', 'app/services'
   add_group 'Views', 'app/views'
   add_group 'Workers', 'app/workers'
   add_group 'Library', 'lib/my_lib'
