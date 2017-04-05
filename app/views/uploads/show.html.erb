@@ -1,15 +1,20 @@
-<h3><%= @upload.folder.name %>'s  <strong><%= @upload.name %></strong></h3>
-
+<h3><%= @upload.folder.name %>'s <%= @upload.name %></h3>
 <div class="file_content">
-  <hr>
-  <p>File name:  <strong><%= @upload.name %></strong></p>
-  <hr>
-  <p>File Size:  <strong><%= number_to_human_size(@upload.size) %></strong></p>
-  <hr>
-  <p>File type:  <strong><%= @upload.content_type %></strong></p>
-  <hr>
-  <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
-
+<table>
+  <tr>
+    <th>File Owner:</th>
+    <td><%= @upload.user.username %></td>
+  </tr>
+  <tr>
+    <th>File Size:</th>
+    <td><%= @upload.size %></td>
+  </tr>
+  <tr>
+    <th>File Type:</th>
+    <td><%= @upload.content_type %></td>
+  </tr>
+</table>
+<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
 </div>
 
 <%= render partial: "shared/comments_section" %>
