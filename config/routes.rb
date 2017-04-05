@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   get '/password/update', to: 'passwords#edit', as: "reset_password"
   put '/password/update', to: 'passwords#update', as: "update_password"
 
+  # public folders and files
+  get '/public', to: "public#index"
+  namespace :public do
+    resources :folders, path: :f, only: [:show]
+    resources :uploads, path: :u, only: [:show]
+  end
+
   # users
   resources :users, path: '', only: [:show, :edit, :update]
   resources :users, only: [:new, :create]
@@ -35,12 +42,5 @@ Rails.application.routes.draw do
   get "/u/:id/download", to: "uploads/download#index", as: "upload_download"
   resources :uploads, path: :u, only: [:show] do
     resources :comments, only: [:create]
-  end
-
-  # public folders and files
-  get '/public', to: "public#index"
-  namespace :public do
-    resources :folders, path: :f, only: [:show]
-    resources :uploads, path: :u, only: [:show]
   end
 end
