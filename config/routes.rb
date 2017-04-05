@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   # folders
   resources :folders, path: "f/:id", only: [:new, :create]
-  resources :folders, path: :f, only: [:show, :update] do
+  resources :folders, path: :f, only: [:show, :update, :destroy] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
   end
