@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  # public folders and files
+  get '/public', to: "public#index"
+  namespace :public do
+    resources :folders, path: :f, only: [:show]
+    resources :uploads, path: :u, only: [:show]
+  end
+
   # admin
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
@@ -17,20 +24,13 @@ Rails.application.routes.draw do
   get '/password/update', to: 'passwords#edit', as: "reset_password"
   put '/password/update', to: 'passwords#update', as: "update_password"
 
-  # public folders and files
-  get '/public', to: "public#index"
-  namespace :public do
-    resources :folders, path: :f, only: [:show]
-    resources :uploads, path: :u, only: [:show]
-  end
-
   # users
   resources :users, path: '', only: [:show, :edit, :update]
   resources :users, only: [:new, :create]
 
   # folders
   resources :folders, path: "f/:id", only: [:new, :create]
-  resources :folders, path: :f, only: [:show, :update] do
+  resources :folders, path: :f, only: [:show, :update, :destroy] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
   end
