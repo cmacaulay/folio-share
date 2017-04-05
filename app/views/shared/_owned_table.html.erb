@@ -35,7 +35,7 @@
         </td>
         <td class="table_data_center">
           <% if child.class == Folder %>
-            <%= button_to "Share Folder", folder_share_path(child)%>
+            <%= button_to "Share Folder", folder_share_path(child), method: :get%>
           <% end %>
         </td>
         <td class="table_data_center">
