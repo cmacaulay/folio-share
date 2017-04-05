@@ -61,7 +61,7 @@ class Seed
   end
 
   def generate_comments
-    3000.times do |i|
+    1000.times do |i|
       user = User.order("RANDOM()").first
       upload = Upload.order("RANDOM()").first
       comment = user.comments.create!(

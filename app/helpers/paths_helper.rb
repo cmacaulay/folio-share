@@ -18,7 +18,7 @@ module PathsHelper
 
   def public_folder_or_upload_path(child)
     if child.class == Upload
-      public_upload_path(current_folder, child)
+      public_upload_path(child)
     elsif child.class == Folder
       public_folder_path(child)
     end
