@@ -14,6 +14,7 @@ class UploadsController < ApplicationController
 
   def show
     @upload = Upload.find(params[:id])
+    session[:current_folder_id] = @upload.folder.id if session[:current_folder_id].nil?
     @comment = Comment.new
     @comment.upload_id = @upload.id
   end

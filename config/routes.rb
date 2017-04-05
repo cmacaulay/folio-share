@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  # public folders and files
+  get '/public', to: "public#index"
+  namespace :public do
+    resources :folders, path: :f, only: [:show]
+    resources :uploads, path: :u, only: [:show]
+  end
+
   # admin
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
@@ -35,12 +42,5 @@ Rails.application.routes.draw do
   get "/u/:id/download", to: "uploads/download#index", as: "upload_download"
   resources :uploads, path: :u, only: [:show] do
     resources :comments, only: [:create]
-  end
-
-  # public folders and files
-  get '/public', to: "public#index"
-  namespace :public do
-    resources :folders, path: :f, only: [:show]
-    resources :uploads, path: :u, only: [:show]
   end
 end
