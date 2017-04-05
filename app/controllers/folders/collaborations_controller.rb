@@ -17,4 +17,8 @@ class Folders::CollaborationsController < ApplicationController
     end
   end
 
+  def show
+    byebug
+  end
+
 end

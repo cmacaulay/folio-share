@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :folders, path: :f, only: [:show, :update] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
+    get "/share/:id", to: "folders/collaborations#show", as: "shared"
   end
 
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"

@@ -5,10 +5,7 @@ class Upload < ApplicationRecord
 
   belongs_to :folder
   delegate :user, to: :folder
-  has_many :comments, dependent: :destroy
-
-  # validates :attachment, presence: true, file_size: { maximum: 2.gigabytes }
-  # validates :attachment, presence: true
+  has_many :comments, dependent: :destroy   
 
   validates :name, presence: true
   validates :content_type, presence: true
@@ -53,7 +50,7 @@ class Upload < ApplicationRecord
   def change_privacy
     assign_attributes(is_private: !is_private)
   end
-  
+
   def self.public_uploads
     Upload.where(is_private: false)
   end
