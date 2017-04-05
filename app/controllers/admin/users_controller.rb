@@ -4,10 +4,9 @@ class Admin::UsersController < ApplicationController
    @user = User.find_by(params[:username])
    if @user.activated_user?
      @user.deactivate
-    elsif
+    else
       @user.deactivated_user?
       @user.activate
-    else
     end
     redirect_back(fallback_location: "admin/dashboard")
   end
