@@ -1,26 +1,15 @@
-<br>
-<div class="row">
-  <div class="file-info col s7">
-    <table>
-      <tr>
-        <td rowspan=2>
-          <a href="<%= folder_path(current_folder) %>"><i class="material-icons md-48">navigate_before</i></a>
-        </td>
-        <td class="compact">
-          <h4 class="compact"><%= @upload.name %></h4>
-        </td>
-      </tr>
-      <tr>
-        <td class="compact">
-          <p class="compact"><strong>File Type:</strong> <%= @upload.content_type %></p>
-          <p class="compact"><strong>File Size:</strong> <%= @upload.size %></p>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="file-buttons col s5">
-    <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
-  </div>
+<h3><%= current_folder.name %>'s  <strong><%= @upload.name %></strong></h3>
+
+<div class="file_content">
+  <hr>
+  <p>File name:  <strong><%= @upload.name %></strong></p>
+  <hr>
+  <p>File Size:  <strong><%= number_to_human_size(@upload.size) %></strong></p>
+  <hr>
+  <p>File type:  <strong><%= @upload.content_type %></strong></p>
+  <hr>
+  <p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+
 </div>
 
 <%= render partial: "shared/comments_section" %>
