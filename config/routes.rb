@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  get '/public', to: "public#index"
+
   # admin
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
@@ -26,8 +28,8 @@ Rails.application.routes.draw do
   resources :folders, path: :f, only: [:show, :update] do
     get "/share", to: "folders/collaborations#new"
     post "/share", to: "folders/collaborations#create"
-    get "/share/:id", to: "folders/collaborations#show", as: "shared"
   end
+  get "/f/share/:id", to: "folders/collaborations#show", as: "shared"
 
   get "/f/:id/download", to: "folders/download#index", as: "folder_download"
 
@@ -39,7 +41,6 @@ Rails.application.routes.draw do
   end
 
   # public folders and files
-  get '/public', to: "public#index"
   namespace :public do
     resources :folders, path: :f, only: [:show]
     resources :uploads, path: :u, only: [:show]

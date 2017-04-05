@@ -18,7 +18,7 @@ class Folders::CollaborationsController < ApplicationController
   end
 
   def show
-    byebug
+    @folder = Folder.find(params[:id])
   end
 
 end
