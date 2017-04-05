@@ -20,13 +20,10 @@ class UploadsController < ApplicationController
   end
 
   def update
-    upload = Upload.find(params[:format])
-    if upload.change_privacy
-      flash[:success] = "Your file has been uploaded!"
-    else
-      flash[:danger] = "Please try uploading again"
-    end
-    redirect_to folder_or_folio_path(params[:id])
+    upload = Upload.find(params[:id])
+     upload.change_privacy
+     flash[:success] = "Success!"
+    redirect_to folder_or_folio_path(upload.folder_id)
   end
 
   def destroy
