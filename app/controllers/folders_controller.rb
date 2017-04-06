@@ -32,7 +32,7 @@ class FoldersController < ApplicationController
     else
       flash[:danger] = "Something went wrong... Please try again."
     end
-    redirect_to folder_or_folio_path(folder.parent.id)
+    redirect_to folder_or_folio_path(folder.parent)
   end
 
   def destroy

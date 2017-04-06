@@ -7,8 +7,7 @@ module PathsHelper
     end
   end
 
-  def folder_or_folio_path(folder_id)
-    folder = current_user.folders.find(folder_id)
+  def folder_or_folio_path(folder)
     if folder.root_folder?
       folio_path
     else
@@ -25,7 +24,7 @@ module PathsHelper
   end
 
   def back_path(default_path)
-    if request.referer.nil?
+    if request.nil? || request.referer.nil?
       default_path
     else
       URI(request.referer)
