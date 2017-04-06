@@ -6,7 +6,7 @@ feature "user can view" do
       user = create(:user)
       user.roles.create(name: "activated")
       root = user.folders.first
-      upload = create(:upload, name: "Upload", folder: root, attachment: "/spec/fixtures/elephant.jpg")
+      upload = create(:upload, name: "Upload", folder: root)
 
       visit upload_path(upload)
 
