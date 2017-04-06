@@ -32,64 +32,62 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "verify user role" do
+  describe "user" do
     it "should verify if user is admin" do
       user = create(:user)
       user.roles.create(name: "admin")
+      user.admin?
 
-      expect(user.admin?).to eq(true)
+      expect(user.roles.take.name).to eq("admin")
     end
+  end
 
+  describe "user" do
     it "should verify if user is activated" do
       user = create(:user)
       user.roles.create(name: "activated")
+      user.activated_user?
 
-      expect(user.activated_user?).to eq(true)
+      expect(user.roles.take.name).to eq("activated")
     end
+  end
 
+  describe "user" do
     it "should verify if user is deactivated" do
       user = create(:user)
       user.roles.create(name: "deactivated")
+      user.deactivated_user?
 
-      expect(user.deactivated_user?).to eq(true)
+      expect(user.roles.take.name).to eq("deactivated")
     end
+  end
 
+  describe "user" do
     it "should locate or create a registered user role" do
       user = create(:user)
       user.registered_user
-      registered_role = Role.find_by(name: "registered user")
 
-      expect(user.roles.include?(registered_role)).to eq(true)
+      expect(user.roles.first.name).to eq("registered user")
     end
+  end
 
-    it "should locate or create an activated role" do
-      user_one = create(:user)
-      user_one.activated
-
-      expect(user_one.activated_user?).to eq(true)
-    end
-
-    it "should locate or create a deactivated user role" do
-      user_two = create(:user)
-      user_two.deactivated
-
-      expect(user_two.deactivated_user?).to eq(true)
-    end
-
+  describe "user" do
     it "should activate a deactivated user" do
       user_three = create(:user)
       user_three.deactivate
       user_three.activate
 
-      expect(user_three.activated_user?).to eq(true)
+      expect(user_three.status).to eq("activated")
     end
+  end
 
+    describe "user" do
     it "should deactivate an activated user" do
       user_four = create(:user)
       user_four.activate
       user_four.deactivate
 
-      expect(user_four.deactivated_user?).to eq(true)
+      expect(user_four.status).to eq("deactivated")
     end
   end
 end
