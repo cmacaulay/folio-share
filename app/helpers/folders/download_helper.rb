@@ -1,2 +1,0 @@
-module Folders::DownloadHelper
-end

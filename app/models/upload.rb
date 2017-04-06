@@ -4,9 +4,10 @@ class Upload < ApplicationRecord
   mount_uploader :attachment, AttachmentUploader
 
   belongs_to :folder
-  delegate :user, to: :folder
   has_many :comments, dependent: :destroy
+  delegate :user, to: :folder
 
+  validates :attachment, presence: true
   validates :name, presence: true
   validates :content_type, presence: true
   validates :size, presence: true

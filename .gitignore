@@ -25,3 +25,7 @@ coverage
 # Ignore any uploaded files
 
 /public/uploads/*
+
+# Ignore the fixtures files
+
+/spec/support/fixtures/large_attachments/*

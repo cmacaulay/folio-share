@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "user" do 
+  describe "user" do
     it "should verify if user is admin" do
       user = create(:user)
       user.roles.create(name: "admin")
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "user" do 
+  describe "user" do
     it "should verify if user is activated" do
       user = create(:user)
       user.roles.create(name: "activated")
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "user" do 
+  describe "user" do
     it "should verify if user is deactivated" do
       user = create(:user)
       user.roles.create(name: "deactivated")
@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "user" do 
+  describe "user" do
     it "should locate or create a registered user role" do
       user = create(:user)
       user.registered_user
@@ -71,7 +71,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "user" do 
+  describe "user" do
     it "should activate a deactivated user" do
       user_three = create(:user)
       user_three.deactivate
@@ -81,7 +81,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-    describe "user" do 
+    describe "user" do
     it "should deactivate an activated user" do
       user_four = create(:user)
       user_four.activate

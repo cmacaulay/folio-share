@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
     else
       flash[:danger] = "Please try uploading again."
     end
-    redirect_to folder_or_folio_path(folder.id)
+    redirect_to folder_or_folio_path(folder)
   end
 
   def show
@@ -22,23 +22,23 @@ class UploadsController < ApplicationController
 
   def update
     upload = Upload.find(params[:id])
-     upload.change_privacy
-     flash[:success] = "Success!"
-    redirect_to folder_or_folio_path(upload.folder_id)
+    upload.change_privacy
+    flash[:success] = "Success!"
+    redirect_to folder_or_folio_path(upload.folder)
   end
 
   def destroy
     @upload = Upload.find(params[:id])
-    @upload.destroy
     if current_user.admin? || current_user.id == @upload.owner_id
-      flash[:danger] = "File deleted."
+      @upload.destroy
+      flash[:danger] = "File successfully deleted."
       if current_user.admin?
         redirect_to admin_dashboard_path
       else
         redirect_to folio_path
       end
     else
-      flash[:danger] = "File deleted."
+      flash[:danger] = "File delete failed."
       redirect_to folio_path
     end
   end

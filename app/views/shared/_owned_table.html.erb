@@ -1,21 +1,21 @@
-<table class="responsive-table bordered highlight">
+<table class="responsive-table bordered highlight table_center">
   <thead>
     <tr>
-      <th class="table_header_center"></th>
-      <th class="table_header_center">Name</th>
-      <th class="table_header_center">File Size</th>
-      <th class="table_header_center">File Type</th>
-      <th class="table_header_center">Share</th>
-      <th class="table_header_center">Privacy Status</th>
-      <th class="table_header_center"></th>
-      <th class="table_header_center">Delete</th>
+      <th></th>
+      <th>Name</th>
+      <th>File Size</th>
+      <th>File Type</th>
+      <th>Share</th>
+      <th>Privacy Status</th>
+      <th></th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
-    <tr>
-      <% current_folder.children.each do |child| %>
-        <td class="table_data_center">
+    <% current_folder.children.each do |child| %>
+      <tr id=<%= child.row_id %>>
+        <td>
           <% if child.class == Upload %>
             <i class="material-icons">description</i>
           <% elsif child.collaborations.count > 0 %>
@@ -24,36 +24,33 @@
             <i class="material-icons">folder</i>
           <% end %>
         </td>
-        <td class="table_data_center">
+        <td>
           <%= link_to child.name, folder_or_upload_path(child) %>
         </td>
-        <td class="table_data_center">
+        <td>
           <%= number_to_human_size(child.size) %>
         </td>
-        <td class="table_data_center">
+        <td>
           <%= child.content_type %>
         </td>
-        <td class="table_data_center">
+        <td>
           <% if child.class == Folder %>
-
             <%= button_to "Share Folder", folder_share_path(child), method: :get%>
-
           <% end %>
         </td>
-        <td class="table_data_center">
+        <td>
           <% if child.display_privacy == "Private" %>
-            <i class="material-icons">visibility_off</i>
+            <i class="material-icons private-icon">visibility_off</i>
           <% else %>
-            <i class="material-icons">visibility</i>
+            <i class="material-icons public-icon">visibility</i>
           <% end %>
         </td>
-        <td class="table_data_center">
-            <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child), method: :put%>
-
+        <td>
+          <%= button_to "Make #{child.opposite_privacy}", folder_or_upload_path(child), class: child.privacy_button, method: :put %>
         </td>
-        <td class="table_data_center">
+        <td>
           <i class="material-icons">delete</i>
-          <%= button_to "Delete", folder_or_upload_path(child), method: :delete%>
+          <%= button_to "Delete", folder_or_upload_path(child), method: :delete %>
         </td>
       </tr>
     <% end %>
