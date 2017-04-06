@@ -4,6 +4,7 @@
         <div class="nav-wrapper">
           <%= link_to "Folio Share", folio_path, class: "brand-logo" %>
          <ul class="right">
+          <li><%= link_to "Public Files", public_path%></li>
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1" data-beloworigin="true"><%= current_user.full_name %><i class="material-icons right">arrow_drop_down</i></a></li>
           <li><%= link_to "Logout", logout_path, method: "delete" %></li>
         </ul>
