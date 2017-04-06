@@ -9,9 +9,18 @@
     <th>File Type:</th>
     <td><%= @upload.content_type %></td>
   </tr>
+  <tr>
+    <td>
+      <%= link_to "Download", upload_download_path(@upload), class: "btn" %>
+    </td>
+    <td>
+      <% if current_user == @upload.owner %>
+        <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+      <% end %>
+    </td>
+  </tr>
 </table>
-<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <% if current_user == @upload.owner %>
-      <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+<p>
 </div>
 
 <%= render partial: "shared/comments_section" %>
