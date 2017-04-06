@@ -15,7 +15,7 @@
     <td><%= @upload.content_type %></td>
   </tr>
 </table>
-<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %></p>
 </div>
 
 <%= render partial: "shared/comments_section" %>
