@@ -9,18 +9,20 @@
         Folder Owner
       </th>
     </tr>
-    <% if folder.user_activated?%>
-      <tr>
-        <td>
-          <%= link_to folder.name, public_folder_path(folder) %>
-        </td>
-        <td>
-          <%= folder.user.full_name %>
-        </td>
-      </tr>
+    <% @folders.each do |folder| %>
+      <% if folder.user_activated?%>
+        <tr>
+          <td>
+            <%= link_to folder.name, public_folder_path(folder) %>
+          </td>
+          <td>
+            <%= folder.user.username %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
-  </div>
+</div>
 <br><br>
 <div id="public-files">
   <h2>Files</h2>
@@ -39,21 +41,23 @@
         File Type
       </th>
     </tr>
-    <% if upload.user_activated?%>
-      <tr>
-        <td>
-          <%= link_to upload.name, public_upload_path(upload) %>
-        </td>
-        <td>
-          <%= upload.user.username %>
-        </td>
-        <td>
-          <%= upload.size %>
-        </td>
-        <td>
-          <%= upload.content_type %>
-        </td>
-      </tr>
+    <% @uploads.each do |upload| %>
+      <% if upload.user_activated?%>
+        <tr>
+          <td>
+            <%= link_to upload.name, public_upload_path(upload) %>
+          </td>
+          <td>
+            <%= upload.user.username %>
+          </td>
+          <td>
+            <%= upload.size %>
+          </td>
+          <td>
+            <%= upload.content_type %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 </div>

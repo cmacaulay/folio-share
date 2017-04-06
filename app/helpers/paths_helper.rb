@@ -11,7 +11,7 @@ module PathsHelper
     if folder.owner == current_user
       current_user_owner(folder)
     else
-      collaborator(folder)
+      shared_path(folder)
     end
   end
 
@@ -21,10 +21,6 @@ module PathsHelper
     else
       folder_path(folder)
     end
-  end
-
-  def collaborator(folder)
-    shared_path(folder)
   end
 
   def public_folder_or_upload_path(child)

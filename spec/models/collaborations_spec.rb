@@ -6,6 +6,3 @@ RSpec.describe Collaboration, type: :model do
   # it {should validate_uniqueness_of(:user_id) }
   # it {should validate_uniqueness_of(:folder_id) }
 end
-  
-  
-  

@@ -7,7 +7,7 @@ class Upload < ApplicationRecord
   has_many :comments, dependent: :destroy
   delegate :user, to: :folder
 
-  validates :attachment, presence: true, file_size: { maximum: 1.gigabytes }
+  validates :attachment, presence: true
   validates :name, presence: true
   validates :content_type, presence: true
   validates :size, presence: true
