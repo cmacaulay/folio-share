@@ -7,15 +7,15 @@ module PathsHelper
     end
   end
 
-  def folder_or_folio_path(folder)
+  def shared_or_personal_folder_path(folder)
     if folder.owner == current_user
-      current_user_owner(folder)
+      folder_or_folio_path(folder)
     else
       shared_path(folder)
     end
   end
 
-  def current_user_owner(folder)
+  def folder_or_folio_path(folder)
     if folder.root_folder?
       folio_path
     else
