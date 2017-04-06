@@ -63,4 +63,8 @@ class Folder < ApplicationRecord
 
     Folder.where(id: ids)
   end
+
+  def user_activated?
+    self.user.activated?
+  end
 end

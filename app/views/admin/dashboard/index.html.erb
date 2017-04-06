@@ -57,9 +57,8 @@
                 <td><%=user.status%></td>
                 <% if user.activated_user?%>
                 <td><%= link_to "deactivate", admin_user_path(user), method: :put%>
-                <%elsif user.deactivated_user?%>
+                <%else user.deactivated_user?%>
               <td><%= link_to "activate", admin_user_path(user), method: :put%>
-                <%else%>
                 <%end%>
               </tr>
               <%end%>

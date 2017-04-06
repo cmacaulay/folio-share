@@ -3,14 +3,15 @@
 <table>
   <tr>
     <th>File Size:</th>
-    <td><%= @upload.size %></td>
+    <td><%= number_to_human_size(@upload.size) %></td>
   </tr>
   <tr>
     <th>File Type:</th>
     <td><%= @upload.content_type %></td>
   </tr>
 </table>
-<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
+<p><%= link_to "Download", upload_download_path(@upload), class: "btn" %> <% if current_user == @upload.owner %>
+      <%= link_to "Delete File", upload_path(@upload), method: :delete, class: "btn"%></p>
 </div>
 
 <%= render partial: "shared/comments_section" %>

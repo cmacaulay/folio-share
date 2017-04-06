@@ -8,11 +8,23 @@ module PathsHelper
   end
 
   def folder_or_folio_path(folder)
+    if folder.owner == current_user
+      current_user_owner(folder)
+    else
+      collaborator(folder)
+    end
+  end
+
+  def current_user_owner(folder)
     if folder.root_folder?
       folio_path
     else
       folder_path(folder)
     end
+  end
+
+  def collaborator(folder)
+    shared_path(folder)
   end
 
   def public_folder_or_upload_path(child)
@@ -30,4 +42,5 @@ module PathsHelper
       URI(request.referer)
     end
   end
+
 end

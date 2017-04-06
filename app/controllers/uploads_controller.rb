@@ -14,6 +14,7 @@ class UploadsController < ApplicationController
   end
 
   def show
+
     @upload = Upload.find(params[:id])
     session[:current_folder_id] = @upload.folder.id if session[:current_folder_id].nil?
     @comment = Comment.new
@@ -22,17 +23,14 @@ class UploadsController < ApplicationController
 
   def update
     upload = Upload.find(params[:id])
-    if upload.change_privacy
-      flash[:success] = "Success!"
-    else
-      flash[:danger] = "Something went wrong... Please try again."
-    end
+    upload.change_privacy
+    flash[:success] = "Success!"
     redirect_to folder_or_folio_path(upload.folder)
   end
 
   def destroy
     @upload = Upload.find(params[:id])
-    if current_user.admin? || current_user == @upload.owner
+    if current_user.admin? || current_user.id == @upload.owner_id
       @upload.destroy
       flash[:danger] = "File successfully deleted."
       if current_user.admin?

@@ -8,8 +8,6 @@ class Upload < ApplicationRecord
   delegate :user, to: :folder
 
   validates :attachment, presence: true, file_size: { maximum: 1.gigabytes }
-  # validates :attachment, presence: true
-
   validates :name, presence: true
   validates :content_type, presence: true
   validates :size, presence: true
@@ -36,6 +34,10 @@ class Upload < ApplicationRecord
 
   def local_filepath
     attachment.file.file
+  end
+
+  def owner_id
+    self.folder.owner.id
   end
 
   def self.public_uploads

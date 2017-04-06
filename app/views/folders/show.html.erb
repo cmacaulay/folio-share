@@ -8,6 +8,9 @@
     <td>
       <%= render partial: "shared/upload_form" %>
     </td>
+    <td>
+      <%= link_to "Share #{current_folder.name}", folder_share_path(current_folder), method: :get, class: "btn" %>
+    </td>
   </tr>
 </table>
 <br>
