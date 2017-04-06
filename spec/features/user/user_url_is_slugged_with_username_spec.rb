@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User" do
-  scenario "sees url for user show page with their slugged username" do
+  xscenario "sees url for user show page with their slugged username" do
     user = User.create(
       first_name: "Sal",
       last_name: "Espinosa",
