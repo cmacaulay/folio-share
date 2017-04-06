@@ -3,7 +3,7 @@ class Upload < ApplicationRecord
 
   mount_uploader :attachment, AttachmentUploader
 
-  belongs_to :folder, dependent: :destroy
+  belongs_to :folder
   delegate :user, to: :folder
   has_many :comments, dependent: :destroy
 
